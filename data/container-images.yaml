@@ -1,0 +1,56 @@
+category: Container Images
+kind: container
+rows:
+- image: debian
+  capable_tags: bullseye (11), bookworm (12), trixie (13)
+  not_capable: stretch (9) and older
+  stack: OpenSSL 1.1.1 / 3.0 / 3.5
+  notes: bullseye leaves free security support 2026-08-31; bullseye-slim is embedded in thousands of derived images
+  status: High confidence
+- image: ubuntu
+  capable_tags: 18.04 (updated) and later
+  not_capable: 16.04 and older
+  stack: OpenSSL 1.1.1 / 3.x
+  notes: Stale cached layers can pin pre-1.1.1 packages; rebuild images rather than retagging
+  status: High confidence
+- image: alpine
+  capable_tags: 3.9 and later
+  not_capable: 3.8 and older (LibreSSL era)
+  stack: OpenSSL 1.1.1 and later
+  notes: Roughly two years of support per branch; musl-related caveats for some TLS tooling
+  status: High confidence
+- image: redhat/ubi8, ubi9, ubi10
+  capable_tags: All
+  not_capable: n/a
+  stack: OpenSSL 1.1.1 / 3.x
+  notes: Tracks RHEL content and lifecycle
+  status: High confidence
+- image: amazonlinux
+  capable_tags: '2023'
+  not_capable: 2 (default stack)
+  stack: OpenSSL 3.x vs 1.0.2 default
+  notes: amazonlinux:2 is past end of life as of 2026-06-30
+  status: High confidence
+- image: Chainguard / Wolfi images
+  capable_tags: All (rapid rebuild cadence)
+  not_capable: n/a
+  stack: Current OpenSSL 3.x
+  notes: Minimal, continuously rebuilt; track OpenSSL 3.5 adoption for PQC (confirm current)
+  status: Needs verification
+- image: distroless (gcr.io)
+  capable_tags: n/a (no shell, minimal userland)
+  not_capable: n/a
+  stack: Application runtime provides TLS
+  notes: Static and base variants carry no OpenSSL; the bundled runtime (Go, Java, Node) sets the TLS ceiling
+  status: High confidence
+- image: busybox / scratch
+  capable_tags: n/a
+  not_capable: n/a
+  stack: None
+  notes: No TLS stack at all; the application binary brings everything. Audit the binary's build, not the image
+  status: High confidence
+- image: Language and runtime images (python, node, golang, eclipse-temurin)
+  capable_tags: Depends on the bundled runtime, not only the base OS
+  stack: Bundled runtime stack
+  notes: Static Go binaries carry Go's own TLS stack; the base image is irrelevant to their TLS ceiling. Java and Node images are governed by the bundled JDK or Node line
+  status: High confidence

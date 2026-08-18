@@ -1,0 +1,148 @@
+category: Windows
+kind: os
+rows:
+- platform: Windows 7 / 8.1 (legacy clients)
+  native_tls13: 'No'
+  min_release: Windows 11
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: Device replacement
+  support_ends: 'Ended (8.1: 2023-01-10; 7 ESU ended 2023-01)'
+  extended_support: None
+  pqc_notes: None
+  caveats: Persist in OT and kiosk estates; count them
+  sources: Microsoft lifecycle
+  status: High confidence
+- platform: Windows Server 2012 / 2012 R2
+  native_tls13: 'No'
+  min_release: Windows Server 2022
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: Migration required; this line never gains TLS 1.3
+  support_ends: 2023-10-10 (ended)
+  extended_support: Final ESU ends 2026-10-13
+  pqc_notes: None
+  caveats: ESU buys patches, not TLS 1.3 capability
+  sources: Microsoft lifecycle; Schannel documentation
+  status: High confidence
+- platform: Windows Server 2016
+  native_tls13: 'No'
+  min_release: Windows Server 2022
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: Migration required
+  support_ends: Mainstream ended 2022-01-11
+  extended_support: Extended to 2027-01-12
+  pqc_notes: None
+  caveats: Supported into 2027 yet never TLS 1.3 capable
+  sources: Microsoft
+  status: High confidence
+- platform: Windows Server 2019
+  native_tls13: 'No'
+  min_release: Windows Server 2022
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: Migration required
+  support_ends: Mainstream ended 2024-01-09
+  extended_support: Extended to 2029-01-09
+  pqc_notes: None
+  caveats: 'The sharpest planning trap in the matrix: in extended support until 2029 and permanently incapable of native TLS 1.3. Domain controllers on 2019 cap LDAPS at TLS 1.2 for the whole directory (see Applications tab)'
+  sources: Microsoft
+  status: High confidence
+- platform: Windows Server 2022
+  native_tls13: 'Yes'
+  min_release: First capable server release
+  stack: Schannel
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Mainstream to 2026-10-13
+  extended_support: Extended to 2031-10-14
+  pqc_notes: Shipped Windows PQC (CNG ML-KEM and ML-DSA APIs, TLS hybrid ML-KEM) targets Server 2025 and Windows 11, not Server 2022; plan PQC on the 2025 line
+  caveats: Microsoft states that enabling TLS 1.3 on earlier Windows versions is not a safe configuration
+  sources: 'Microsoft Learn: Protocols in TLS/SSL'
+  status: High confidence
+- platform: Windows Server 2025
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: Schannel
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Mainstream to 2029-11-13
+  extended_support: Extended to 2034-11-14
+  pqc_notes: CNG ML-KEM and ML-DSA GA (2025-11); ADCS ML-DSA certificate issuance GA (2026-05); TLS hybrid ML-KEM key exchange shipped in the 2026-07 update, disabled by default pending administrator enablement
+  sources: Microsoft security blog; Microsoft lifecycle
+  status: High confidence
+- platform: Windows 10 (semi-annual, all editions)
+  native_tls13: 'No'
+  min_release: Windows 11
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: In-place upgrade to Windows 11 where hardware qualifies (TPM 2.0, supported CPU); otherwise device replacement
+  support_ends: 2025-10-14 (ended)
+  extended_support: Consumer ESU extended (2026-06) to 2027-10-12; commercial ESU to 2028-10
+  pqc_notes: None
+  caveats: Win10 carried experimental TLS 1.3 code that was never supported for production; registry-enabling it is explicitly unsafe per Microsoft. Hardware eligibility rules mean this is often a refresh, not an upgrade
+  sources: Microsoft
+  status: High confidence
+- platform: Windows 10 Enterprise LTSC 2019
+  native_tls13: 'No'
+  min_release: Windows 11
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: Migration required
+  support_ends: Mainstream ended 2024-01
+  extended_support: Extended to 2029-01-09
+  pqc_notes: None
+  caveats: Same trap as Server 2019, embedded in medical, industrial and kiosk fleets
+  sources: Microsoft
+  status: High confidence
+- platform: Windows 10 Enterprise LTSC 2021
+  native_tls13: 'No'
+  min_release: Windows 11
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: Migration required
+  support_ends: n/a
+  extended_support: Ends 2027-01-12 (5 year edition)
+  pqc_notes: None
+  caveats: Its own ESU program (purchasable from 2026-09) reaches at most 2030-01-08 and never adds TLS 1.3
+  sources: Microsoft
+  status: High confidence
+- platform: Windows 10 IoT Enterprise LTSC 2021
+  native_tls13: 'No'
+  min_release: Windows 11 IoT LTSC
+  stack: Schannel
+  enabled_by_default: 'No'
+  path_to_capability: Device or image replacement
+  support_ends: n/a
+  extended_support: Ends 2032-01-13 (10 year edition)
+  pqc_notes: None
+  caveats: Supported past BOTH US federal PQC deadlines (2030 key establishment, 2031 signatures) while permanently incapable of TLS 1.3. The single worst lifecycle vs capability mismatch found so far
+  sources: Microsoft lifecycle
+  status: High confidence
+- platform: Windows 11 (annual releases)
+  native_tls13: 'Yes'
+  min_release: 21H2
+  stack: Schannel
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Per annual release lifecycle
+  extended_support: Per edition
+  pqc_notes: CNG ML-KEM and ML-DSA GA (2025-11); TLS hybrid ML-KEM shipped for 24H2, 25H2 and 26H1 in the 2026-07 updates, disabled by default
+  sources: Microsoft security blog
+  status: High confidence
+- platform: Windows 11 Enterprise / IoT LTSC 2024
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: Schannel
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: 'Enterprise: end of servicing 2029-10-10 (no extended phase). IoT: mainstream to 2031-10-14'
+  extended_support: IoT extended to 2034-10-10
+  pqc_notes: Long-lived capable baseline for embedded fleets replacing Win10 LTSC
+  sources: Microsoft lifecycle
+  status: High confidence
+notes:
+- 'Everything riding Schannel inherits the OS ceiling: .NET Framework, IIS, HTTP.sys, RDP, LDAPS, WinHTTP. Applications that bundle their own TLS stack (browsers, Java, applications shipping OpenSSL) can exceed the OS ceiling on the same host.'
+- 'Secondary sources conflict on Windows TLS 1.3 minimums (some claim Server 2016 or Windows 10 1903). Microsoft''s own Schannel documentation is unambiguous: Windows 11 and Windows Server 2022 are the floor. This conflict is itself evidence of why a vetted matrix is needed.'
+- 'LTSC editions are where lifecycle vs capability mismatches concentrate: they are chosen precisely for longevity, and the Windows 10 based ones are frozen below the TLS 1.3 line for their entire lives.'

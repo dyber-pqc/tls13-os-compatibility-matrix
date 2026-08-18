@@ -1,0 +1,110 @@
+category: Libraries and Runtimes
+kind: library
+rows:
+- component: OpenSSL
+  first_release: 1.1.1 (2018-09)
+  enabled_by_default: 'Yes'
+  support_status: '1.1.1 ended 2023-09-11; 3.0 security fixes end 2026-09-07; 3.5 LTS supported to 2030-04-08; 4.0 current (4.0.1, 2026-06, non-LTS); announced roadmap: 4.2 LTS 2027-04, then 5.0 2027-10'
+  pqc_notes: 3.5 adds ML-KEM (X25519MLKEM768 hybrid in default TLS groups), ML-DSA, SLH-DSA
+  notes: The most load-bearing dividing line in this matrix. The 3.0 line, still the system stack on Ubuntu 22.04/24.04, Debian 12, RHEL 9 and AL2023, loses upstream security fixes 2026-09-07 (distro vendors continue their own patching)
+  status: High confidence
+- component: GnuTLS
+  first_release: 3.6.x series (first stable 3.6.3; final RFC alignment in the 3.6.4/3.6.5 range, pin against the NEWS file)
+  enabled_by_default: 'Yes'
+  support_status: Rolling releases
+  pqc_notes: ML-KEM hybrid key exchange and ML-DSA from 3.8.10
+  notes: Used in place of OpenSSL by some distro components
+  status: Needs verification
+- component: NSS (Firefox and others)
+  first_release: Enabled by default from Firefox 63 (2018-10); final-RFC NSS release (3.39 era) still to pin
+  enabled_by_default: 'Yes'
+  support_status: Rolling releases
+  pqc_notes: mlkem768x25519 added in NSS 3.105 (2024-09-26); Firefox 132 (2024-10-29) enabled it by default, with QUIC and HTTP3 from Firefox 135
+  status: High confidence
+- component: Schannel (Windows)
+  first_release: Windows 11 / Windows Server 2022
+  enabled_by_default: 'Yes'
+  support_status: Follows Windows lifecycle
+  pqc_notes: PQC via SymCrypt and CNG updates; confirm shipped state
+  notes: 'Microsoft: enabling TLS 1.3 on earlier Windows is not a safe configuration'
+  status: High confidence
+- component: Apple Secure Transport / Network.framework
+  first_release: macOS 10.14.4 / iOS 12.2 (confirm)
+  enabled_by_default: 'Yes'
+  support_status: Follows Apple OS lifecycle
+  pqc_notes: Confirm TLS-layer ML-KEM state
+  status: Needs verification
+- component: Java (JSSE)
+  first_release: JDK 11 native; backported to Oracle 8u261 and OpenJDK 8u272
+  enabled_by_default: Yes (11 and later)
+  support_status: Per vendor and distribution
+  pqc_notes: ML-KEM and ML-DSA algorithm APIs in JDK 24 (JEP 496 and 497, 2025-03); TLS-layer hybrid key exchange explicitly out of JDK 24 scope, follows later
+  notes: 'Enormous installed base still on 8: patch level, not major version, decides TLS 1.3 there'
+  status: High confidence
+- component: .NET
+  first_release: .NET Core 3.0 and later (platform dependent); .NET Framework rides Schannel
+  enabled_by_default: Platform dependent
+  support_status: Per version
+  notes: .NET Framework applications are capped by the Windows version they run on. .NET on Linux uses the distro OpenSSL and inherits its line
+  status: High confidence
+- component: Node.js
+  first_release: 12 and later (bundled OpenSSL 1.1.1)
+  enabled_by_default: 'Yes'
+  support_status: Per release line
+  pqc_notes: Current lines bundle OpenSSL 3.x; confirm 3.5 adoption timing
+  status: High confidence
+- component: Python (ssl module)
+  first_release: 3.7 and later when linked against OpenSSL 1.1.1 or later
+  enabled_by_default: 'Yes'
+  support_status: Per release
+  pqc_notes: Follows the linked OpenSSL
+  notes: Capability is set by the linked OpenSSL, not by Python itself
+  status: High confidence
+- component: PHP
+  first_release: Streams and curl follow the linked OpenSSL (1.1.1+)
+  enabled_by_default: 'Yes'
+  support_status: Per release
+  pqc_notes: Follows the linked OpenSSL
+  notes: 'Same pattern as Python: audit the lib, not the language version'
+  status: High confidence
+- component: Ruby
+  first_release: openssl gem against OpenSSL 1.1.1+
+  enabled_by_default: 'Yes'
+  support_status: Per release
+  pqc_notes: Follows the linked OpenSSL
+  status: High confidence
+- component: Erlang/OTP
+  first_release: OTP 22.0 experimental (client from 22.1, session tickets 22.3); production-ready from OTP 23
+  enabled_by_default: Yes on current
+  support_status: Per release
+  pqc_notes: Confirm PQC roadmap
+  notes: Relevant to RabbitMQ and telecom estates
+  status: High confidence
+- component: Go (crypto/tls)
+  first_release: 1.13 by default (1.12 opt-in)
+  enabled_by_default: 'Yes'
+  support_status: Per release
+  pqc_notes: X25519MLKEM768 enabled by default from Go 1.24
+  notes: Fully independent of the OS stack; static binaries carry it everywhere they run
+  status: High confidence
+- component: Rust ecosystem
+  first_release: rustls from inception; native-tls follows the platform stack
+  enabled_by_default: Yes (rustls)
+  support_status: Per crate
+  pqc_notes: rustls PQC via provider crates (confirm defaults)
+  notes: A Rust binary's TLS ceiling depends on which of the two paths it took
+  status: High confidence
+- component: curl
+  first_release: 7.52 era onward, backend dependent
+  enabled_by_default: Backend dependent
+  support_status: Rolling
+  pqc_notes: Follows the linked backend (OpenSSL 3.5 builds negotiate hybrids)
+  notes: curl -V shows the backend; --tlsv1.3 forces the floor for testing
+  status: High confidence
+- component: Browsers (client side)
+  first_release: Chrome 70, Firefox 63, Safari 12.1, Edge 79
+  enabled_by_default: 'Yes'
+  support_status: Evergreen
+  pqc_notes: Chrome shipped draft Kyber by default in 124 (2024-04) and switched to standardized X25519MLKEM768 in 131 (2024-11, codepoint 0x11EC); Firefox from 132 (2024-10)
+  notes: The client side is largely solved; server and infrastructure estates are the gap this matrix maps
+  status: High confidence

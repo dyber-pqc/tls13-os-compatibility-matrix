@@ -1,0 +1,16 @@
+# Decision Framework
+
+> Generated from [`data/decision-framework.yaml`](../data/decision-framework.yaml) — edit the YAML, not this file. Regenerate with `python scripts/build.py`.
+
+| Tier | Definition | Typical action | Cost class |
+|---|---|---|---|
+| A | Native stack capable and enabled by default. Examples: RHEL 8+, Ubuntu 20.04+, Debian 11+, Windows Server 2022+, Windows 11, current macOS, AL2023 | Confirm per-listener configs do not pin TLS 1.2; standard config review | Minimal. Config hygiene inside existing change windows |
+| B | Capable after a point update or a configuration change. Examples: Ubuntu 18.04 at old patch level, SLES 15 early SPs, PAN-OS 11.0 management (default off), nginx with an old ssl_protocols line | Patch and enable through standard maintenance | Low. Fits routine patch cycles; the cheapest wins in the estate, so find them first |
+| C | Capable only via a supported in-place major upgrade. Examples: RHEL 7 to 8 via Leapp, Debian sequential dist-upgrades, Windows 10 to 11 on eligible hardware, SLES 12 to 15 | Scheduled upgrade program with application compatibility testing | Medium. Project-level effort; regression risk sits in the applications, not the TLS stack |
+| D | Migration or replacement required. Examples: Windows Server 2019 and earlier, RHEL 6, Amazon Linux 2, HP-UX, Windows 10 on ineligible hardware, sub-14.x F5s, EOL appliances, frozen firmware | Budget as capital refresh; sequence by exposure | High. Procurement cycles and depreciation schedules need lead time, which is why Tier D wants surfacing first |
+
+## Notes
+
+- Triage order within tiers: (1) internet-facing services and any flow carrying long-lived secrets (harvest-now-decrypt-later exposure), (2) systems whose lifespan crosses the 2030 and 2031 US federal PQC deadlines, (3) internal high-value services (directory, PKI, backup, KMS).
+- The silent budget items are Tier D platforms with support horizons past 2030: Windows Server 2019 (to 2029), Windows 10 IoT Enterprise LTSC 2021 (to 2032), RHEL 7 ELS (to 2028). Nothing in normal lifecycle reporting flags them, because they are supported. Only a capability view like this one does.
+- A workable executive summary is four numbers: host and listener counts by tier, with Tier D cost attached.

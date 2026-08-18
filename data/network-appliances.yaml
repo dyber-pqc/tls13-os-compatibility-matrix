@@ -1,0 +1,150 @@
+category: Network Appliances
+kind: appliance
+rows:
+- platform: Palo Alto PAN-OS (decryption)
+  tls13_status: 'Yes'
+  min_version: PAN-OS 10.0 (confirm first release)
+  applies_to: 'Data plane: SSL Forward Proxy and Inbound Inspection'
+  enabled_by_default: 'No'
+  caveats: A decryption profile must set TLSv1.3 (or Max) explicitly; otherwise PAN-OS caps decrypted sessions at TLS 1.2. HSM-backed deployments support TLS 1.3 for Forward Proxy only, not Inbound Inspection. Downgrading PAN-OS silently rewrites 1.3 profile settings
+  sources: Palo Alto TechDocs
+  status: High confidence
+- platform: Palo Alto PAN-OS (management)
+  tls13_status: 'Yes'
+  min_version: PAN-OS 11.0
+  applies_to: Web management interface
+  enabled_by_default: No (exclude_tlsv1.3 is the 11.0 default)
+  caveats: Capability arrived in 11.0 but ships disabled; tlsv1.3_only or mixed-mode must be selected. A clean example of capable is not enabled at the vendor tier
+  sources: Palo Alto TechDocs
+  status: High confidence
+- platform: Fortinet FortiOS
+  tls13_status: 'Yes'
+  min_version: 6.2 (SSL VPN, deep inspection)
+  applies_to: 'Per subsystem: SSL VPN, deep inspection, local-out, admin GUI'
+  enabled_by_default: Partial (global minimum defaults to TLS 1.2)
+  caveats: TLS 1.3 deep inspection needs IPS engine 4.205+ and FortiClient 6.2+. Fortinet documents that not all settings support TLSv1.3 and some FortiCloud and FortiGuard services do not. Record per-feature minimums, not one number per firewall
+  sources: Fortinet Document Library
+  status: High confidence
+- platform: Cisco ASA / FTD
+  tls13_status: 'Yes'
+  min_version: ASA 9.19(1); FTD TLS 1.3 features from 7.3 (corroborated), ssl server-max-version documented at 7.4.1
+  applies_to: Remote access VPN, ASDM management
+  enabled_by_default: Version dependent
+  caveats: RAVPN TLS 1.3 requires Cisco Secure Client; ASDM additionally needs Java 8u261+ on the admin workstation. FTD 6.7 added TLS Server Identity Discovery (visibility only, not decryption). Older hardware capped by train availability
+  sources: Cisco advisory cisco-sa-asa-tls-CWY6zXB; release notes
+  status: High confidence
+- platform: Cisco IOS-XE
+  tls13_status: Partial
+  min_version: 17.x line (confirm per feature)
+  applies_to: HTTPS server, RESTCONF, management daemons
+  enabled_by_default: Confirm
+  caveats: Management plane is fronted by an internal nginx proxy (per the IOS-XE programmability guides), but the release that moved it to TLS 1.3 is not stated there. Verify per management protocol in use
+  sources: Cisco configuration guides
+  status: Needs verification
+- platform: Cisco NX-OS
+  tls13_status: Confirm
+  min_version: Confirm
+  applies_to: Management plane
+  enabled_by_default: Confirm
+  caveats: Data center switching estates often long-lived; verify per release train
+  sources: Cisco documentation
+  status: Needs verification
+- platform: Juniper Junos OS
+  tls13_status: Yes (SSL proxy data plane)
+  min_version: 21.2R1 (SRX SSL proxy)
+  applies_to: Data-plane SSL proxy; J-Web and management docs still reference TLS 1.2
+  enabled_by_default: Per policy
+  caveats: TLS 1.3 in Junos is primarily a data-plane SSL proxy feature; treat the management plane as TLS 1.2 until Juniper documents otherwise
+  sources: Juniper Feature Explorer; SSL Proxy docs
+  status: High confidence
+- platform: F5 BIG-IP (TMOS)
+  tls13_status: 'Yes'
+  min_version: 14.0 (draft standard); 14.1 adds server side; final RFC solid from 15.x
+  applies_to: Client SSL and Server SSL profiles (data plane)
+  enabled_by_default: 'No: disabled by default through 21.x (remove the No TLSv1.3 option to enable)'
+  caveats: Estates below 14.x cap every virtual server they front at TLS 1.2, and current versions still ship it off. ML-KEM hybrid groups (SecP256r1MLKEM768, SecP384r1MLKEM1024) arrive in BIG-IP 21.1.0
+  sources: F5 K articles (K10251520, K000136126)
+  status: High confidence
+- platform: Citrix NetScaler / ADC
+  tls13_status: 'Yes'
+  min_version: Front end 13.0 (hardware acceleration from 13.0 build 71.x); back end from 14.1 build 43.50
+  applies_to: Front-end virtual servers and back-end services, separately
+  enabled_by_default: 'No: must be enabled in the SSL profile'
+  caveats: Back-end TLS 1.3 is explicitly unsupported on 13.1. Not supported on FIPS appliances. TLS 1.3 to VDAs requires VDA 2503 and later. Same estate-ceiling dynamic as F5
+  sources: NetScaler documentation
+  status: High confidence
+- platform: Check Point (Gaia)
+  tls13_status: 'Yes'
+  min_version: Inspection from R81 (requires TLSIO and User-Space Firewall mode); Gaia portal configurable from R81.10
+  applies_to: HTTPS inspection; management portal separately
+  enabled_by_default: 'No: portal defaults to TLS 1.2 (enable via clish, set ssl tls TLSv1.3 on)'
+  caveats: Inspection blades below R81 downgrade or break TLS 1.3 flows
+  sources: Check Point R81 admin guides and What's New
+  status: High confidence
+- platform: Cloud security proxies (Zscaler and peers)
+  tls13_status: 'Yes'
+  min_version: Cloud, evergreen
+  applies_to: Inspection path
+  enabled_by_default: 'Yes'
+  caveats: Cloud stacks track current TLS; the on-premises tail is where gaps live
+  sources: Vendor docs
+  status: High confidence
+- platform: NAS appliances (Synology DSM 7+, QNAP QTS 5+)
+  tls13_status: Yes (web stack)
+  min_version: Confirm per vendor
+  applies_to: Management UI and file services over HTTPS
+  enabled_by_default: Confirm
+  caveats: Linux-based appliances inheriting nginx plus OpenSSL; verify vendor-set minimums
+  sources: Vendor docs
+  status: Needs verification
+- platform: pfSense / OPNsense
+  tls13_status: 'Yes'
+  min_version: pfSense 2.5 era / OPNsense 21.x (FreeBSD 12 base with OpenSSL 1.1.1; confirm exact firsts)
+  applies_to: Web GUI, VPN services, captive portal
+  enabled_by_default: GUI yes; per service varies
+  caveats: The FreeBSD base makes the floor easy to pin; OpenVPN and captive portal minimums need per-version checks
+  sources: pfSense and OPNsense release notes
+  status: Needs verification
+- platform: MikroTik RouterOS
+  tls13_status: Yes on v7
+  min_version: RouterOS 7 (confirm; check for v6 backports)
+  applies_to: www-ssl, api-ssl, VPN services
+  enabled_by_default: Confirm
+  caveats: Very large installed base still on the v6 line
+  sources: MikroTik documentation
+  status: Needs verification
+- platform: Arista EOS / Aruba AOS-CX
+  tls13_status: 'EOS: Yes (current 4.36.x); AOS-CX: confirm'
+  min_version: EOS earliest capable release still to pin; AOS-CX unverified
+  applies_to: Management plane (eAPI, REST, web UI)
+  enabled_by_default: Profile dependent
+  caveats: Current Arista EOS documents TLS 1.3 on management SSL profiles including X25519MLKEM768 hybrid groups; the first capable release is unpinned. Aruba AOS-CX remains unverified
+  sources: Arista EOS Control Plane Security manual
+  status: Needs verification
+- platform: Session border controllers (Oracle, Ribbon, AudioCodes)
+  tls13_status: Confirm
+  min_version: Confirm per vendor
+  applies_to: SIP-TLS and management, separately
+  enabled_by_default: Confirm
+  caveats: Voice planes are long-lived and rarely inventoried for TLS versions; SIP-TLS and management adopt on different schedules
+  sources: Vendor documentation
+  status: Needs verification
+- platform: NetApp ONTAP
+  tls13_status: Confirm
+  min_version: Recent 9.x (confirm exact release)
+  applies_to: Management plane and TLS-protected data protocols
+  enabled_by_default: Confirm
+  caveats: Storage management planes outlive most of the servers around them
+  sources: NetApp documentation
+  status: Needs verification
+- platform: Storage and backup appliances (category)
+  tls13_status: Confirm
+  min_version: Per vendor
+  applies_to: Management planes, replication links, cloud tiering endpoints
+  enabled_by_default: Confirm
+  caveats: Dell, Pure and HPE arrays and backup servers each carry their own stack; replication and tiering links carry long-lived data and matter for harvest-now-decrypt-later exposure
+  sources: Vendor documentation
+  status: Needs verification
+notes:
+- 'Appliances need per-plane, per-feature rows: management UI, data-plane proxying or decryption, VPN termination, and cloud service call-home each adopt TLS versions on separate schedules. A single yes/no per box is meaningless and this tab deliberately refuses to give one.'
+- 'TLS-inspecting middleboxes below their capable release do not just lag: they actively cap or break TLS 1.3 for everything behind them. Inventory these first; they set the ceiling for entire segments.'

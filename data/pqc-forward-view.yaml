@@ -1,0 +1,27 @@
+category: PQC Forward View
+kind: pqc
+rows:
+- topic: Why TLS 1.3 is the floor
+  detail: The standardized hybrid key exchange for TLS (X25519MLKEM768, per draft-ietf-tls-ecdhe-mlkem; check current RFC status) is defined for TLS 1.3 only. IETF direction (draft-ietf-tls-tls12-frozen) is that TLS 1.2 is frozen and will not receive new features, PQC included. TLS 1.3 capability is therefore a permanent prerequisite, not a transitional one.
+  status: High confidence
+- topic: Key establishment first
+  detail: Harvest-now-decrypt-later risk makes PQC key establishment the near-term priority; PQC certificate chains (ML-DSA, SLH-DSA) follow on a longer timeline. A host that cannot do TLS 1.3 cannot do either.
+  status: High confidence
+- topic: Regulatory drivers (US)
+  detail: 'EO 14412 (2026-06-22) requires FIPS 140-3 validated PQC key establishment by 2030-12-31 and PQC digital signatures by 2031-12-31 for US federal systems, with FAR flow-down to contractors. CNSA 2.0 phases National Security Systems to exclusive PQC use through the early 2030s. NIST IR 8547 (initial public draft 2024-11; still not final as of mid 2026) charts deprecation of quantum-vulnerable public-key algorithms after 2030 and disallowance after 2035, with hybrid modes exempt from the 2035 disallowance. Caution: secondary sources conflict on whether IR 8547 is final; the primary record says draft. The same verification lesson as the Windows TLS 1.3 misinformation.'
+  status: High confidence
+- topic: FIPS validation as the real gate
+  detail: 'The vSphere 8.0 U3 case (TLS 1.3 capable stack, port 443 held at TLS 1.2 because the BoringSSL module lacked FIPS certification for TLS 1.3) previews the PQC rollout everywhere: validated-module status, not algorithm capability, will gate regulated deployment. It is already repeating: on RHEL 10.1, PQC sits in the OpenSSL default provider rather than the fips provider, so FIPS mode allows only the P-curve ML-KEM hybrids and excludes X25519MLKEM768, the internet default. More instances: NetScaler FIPS appliances lack TLS 1.3 back-end support, and Oracle 19c reaches TLS 1.3 only through its FIPS 140-3 capable next-generation provider. The validation pipeline is moving, though: wolfSSL announced (2026-02) a FIPS 140-3 certificate incorporating ML-KEM and ML-DSA, with CMVP submission in process. A tier 2 column should track FIPS 140-3 module status per platform stack.'
+  status: High confidence
+- topic: Native stacks shipping ML-KEM today (candidate tier 2 rows)
+  detail: OpenSSL 3.5 and later (X25519MLKEM768 in the default TLS keyshares); Ubuntu 26.04 LTS; Debian 13 (first in the default group list); RHEL 9.7 and RHEL 10.1 (default provider, enabled and preferred); Fedora 43 and later; Arch and rolling distros; Windows Server 2025 and Windows 11 (shipped 2026-07, disabled by default); Go 1.24 and later; JDK 24 and later (algorithm APIs; TLS hybrids follow); F5 BIG-IP 21.1.0 (P-curve groups); Arista EOS 4.36 management plane; Oracle Database 23ai and 19c RU 19.32 (opt-in provider, includes ML-KEM); rustls with aws-lc-rs (preferred by default); NSS 3.105 with Chrome 131 and Firefox 132 clients; OpenSSH 10.x (mlkem768x25519 default); AWS KMS, ACM and Secrets Manager endpoints plus ALB and NLB policies; Cloudflare edge and origin pulls. Google edge scope and Azure remain to confirm.
+  status: High confidence
+- topic: Hardware roots and mainframe
+  detail: 'IBM z16 (2022) shipped quantum-safe secure boot and lattice acceleration, continued in z17: long-lived platforms are moving early because their data lives longest. Hardware acceleration and hardware key custody become relevant wherever PQC handshake and signing volume concentrates (PKI, HSM, TLS termination at scale).'
+  status: Needs verification
+- topic: SSH is the parallel track
+  detail: 'Not TLS, but the same estate: OpenSSH has defaulted to hybrid PQC key exchange (sntrup line from 9.x, mlkem768x25519 from 10.x) and now warns on non-PQC sessions. SSH readiness can ride the same inventory and the same matrix methodology.'
+  status: High confidence
+- topic: Suggested tier 2 columns for a future revision
+  detail: System stack ML-KEM capable (yes/no); hybrid groups enabled by default (yes/no); FIPS 140-3 validated module available for the stack (yes/no/in evaluation). Keeping tier 2 separate keeps tier 1 (TLS 1.3) simple and vettable now.
+  status: High confidence

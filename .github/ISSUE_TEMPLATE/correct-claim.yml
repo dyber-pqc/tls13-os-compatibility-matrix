@@ -1,0 +1,35 @@
+name: Correct a claim
+description: A row says something wrong, or two sources disagree.
+title: "[correction] "
+labels: [correction]
+body:
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      placeholder: Windows
+    validations:
+      required: true
+  - type: input
+    id: row
+    attributes:
+      label: Row
+      placeholder: Windows Server 2019
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What's wrong
+      description: Quote the current value and say why it's incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: right
+    attributes:
+      label: What it should say, and per what source
+      description: |
+        The corrected value plus a primary source. If credible sources disagree, say so —
+        conflicts get recorded inline rather than silently resolved.
+    validations:
+      required: true

@@ -1,0 +1,52 @@
+name: Verify a row
+description: You checked a claim against a primary source (or a live system). Report what you found.
+title: "[verify] "
+labels: [verification]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you — verification is the most valuable contribution this project takes.**
+        A row becomes Verified once two or more contributors have independently checked it.
+        If you're comfortable editing YAML, a PR against `data/` is even better (see CONTRIBUTING.md).
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: Which tab/file the row lives in (e.g. Windows, Network Appliances)
+      placeholder: Linux
+    validations:
+      required: true
+  - type: input
+    id: row
+    attributes:
+      label: Row
+      description: The platform/component the row describes
+      placeholder: RHEL 8
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: What did you find?
+      options:
+        - Confirmed — the row is correct as written
+        - Correction needed — details below
+        - Sources conflict — details below
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: |
+        The primary source you checked (URL, doc title + section) and/or the live check you ran
+        (e.g. `openssl s_client -connect host:443 -tls1_3 -brief` output). Evidence a stranger
+        can re-check is what flips statuses.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Correction (if any)
+      description: Exact field(s) and the value(s) they should hold.

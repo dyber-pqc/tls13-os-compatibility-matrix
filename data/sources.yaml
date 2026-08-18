@@ -1,0 +1,99 @@
+category: Sources
+kind: source
+rows:
+- source: 'Microsoft Learn: Protocols in TLS/SSL (Schannel SSP)'
+  covers: Authoritative Windows native TLS version support
+  location: learn.microsoft.com
+- source: Microsoft Lifecycle
+  covers: Windows client, server, LTSC and IoT support dates
+  location: learn.microsoft.com/lifecycle
+- source: Microsoft SQL Server and Exchange documentation
+  covers: TLS 1.3 support statements per product and OS combo
+  location: learn.microsoft.com
+- source: Red Hat Enterprise Linux Life Cycle
+  covers: RHEL support phases and dates
+  location: access.redhat.com/support/policy/updates/errata
+- source: Canonical Ubuntu release cycle
+  covers: Ubuntu standard and ESM dates
+  location: ubuntu.com/about/release-cycle
+- source: Debian releases, LTS and ELTS pages
+  covers: Debian support phases and dates
+  location: debian.org/releases; wiki.debian.org/LTS
+- source: SUSE product lifecycle
+  covers: SLES support and LTSS dates
+  location: suse.com/lifecycle
+- source: AWS Amazon Linux FAQs and release notes
+  covers: AL1, AL2, AL2023 dates and package detail
+  location: aws.amazon.com; docs.aws.amazon.com
+- source: AWS, Azure, Google Cloud load balancing documentation
+  covers: Managed edge TLS 1.3 policies and PQC rollout
+  location: vendor documentation sites
+- source: Apple security releases and platform documentation
+  covers: macOS and iOS TLS stack behavior and patch cadence
+  location: support.apple.com; developer.apple.com
+- source: Android platform and developer documentation
+  covers: Platform TLS defaults, Conscrypt module updatability
+  location: developer.android.com; source.android.com
+- source: FreeBSD, OpenBSD, NetBSD security and release pages
+  covers: BSD branch support and base TLS libraries
+  location: project sites
+- source: OpenSSL release strategy and release announcements
+  covers: OpenSSL version capabilities and EOL dates
+  location: openssl.org; openssl-library.org
+- source: Broadcom TechDocs and Knowledge Base (VMware)
+  covers: vSphere TLS profiles, FIPS caveat on TLS 1.3, lifecycle
+  location: techdocs.broadcom.com; knowledge.broadcom.com
+- source: Palo Alto Networks TechDocs
+  covers: PAN-OS TLS 1.3 decryption and management support
+  location: docs.paloaltonetworks.com
+- source: Fortinet Document Library
+  covers: FortiOS TLS 1.3 per-subsystem support and defaults
+  location: docs.fortinet.com
+- source: Cisco configuration guides and release notes
+  covers: ASA, FTD, IOS-XE, NX-OS TLS support per train
+  location: cisco.com
+- source: Juniper TechLibrary
+  covers: Junos TLS support per service
+  location: juniper.net
+- source: F5 Knowledge articles
+  covers: BIG-IP TMOS TLS 1.3 support and profile behavior
+  location: my.f5.com
+- source: NetScaler and Check Point documentation
+  covers: ADC and inspection TLS 1.3 support
+  location: vendor documentation sites
+- source: IBM Documentation
+  covers: z/OS System SSL and AT-TLS, IBM i System TLS, AIX OpenSSL filesets
+  location: ibm.com/docs
+- source: Oracle documentation
+  covers: Solaris SRUs, Oracle Linux, Oracle Database TLS support
+  location: docs.oracle.com
+- source: HPE lifecycle publications
+  covers: HP-UX end of support
+  location: hpe.com
+- source: Mbed TLS, wolfSSL, LibreSSL, s2n-tls, rustls project docs
+  covers: Embedded and alternative stack TLS 1.3 and PQC status
+  location: project repositories
+- source: OpenWrt wiki and release notes
+  covers: Default TLS provider per release
+  location: openwrt.org
+- source: nginx, Apache httpd, HAProxy, Postfix, PostgreSQL, MySQL documentation
+  covers: Application-layer protocol configuration
+  location: project documentation
+- source: endoflife.date
+  covers: Aggregated, community-maintained lifecycle dates with a JSON API; candidate automation source for the date columns
+  location: endoflife.date
+- source: 'Wikipedia: Comparison of TLS implementations'
+  covers: Library-level TLS feature matrix (adjacent prior art; not OS scoped)
+  location: en.wikipedia.org
+- source: 'IETF: RFC 8446; draft-ietf-tls-ecdhe-mlkem; draft-ietf-tls-tls12-frozen'
+  covers: Protocol basis for TLS 1.3 as the PQC floor
+  location: datatracker.ietf.org
+- source: White House EO 14412; NSA CNSA 2.0 FAQ; NIST IR 8547
+  covers: US regulatory and transition timelines
+  location: whitehouse.gov; nsa.gov; csrc.nist.gov
+- source: Cisco TLS 1.3 Compatibility Matrix for Collaboration Products
+  covers: Example of existing product-scoped (not OS-scoped) prior art
+  location: cisco.com
+- source: v0.3 verification pass source set (2026-08-17)
+  covers: Primary sources behind the v0.3 updates; per-row citations sit in each tab's source column
+  location: Cisco advisories, Juniper Feature Explorer, NetScaler and Check Point docs, IBM release notes, Oracle blogs and docs, SUSE notes, Debian manpages, Fedora Packages, Alpine wiki, LWN, amazonlinux GitHub, Red Hat release notes, wolfSSL, OpenBSD, rustls, Mozilla NSS notes, Chromium blink-dev, nginx docs, Erlang/OTP notes, AWS Security Blog, Cloudflare blog, Microsoft lifecycle

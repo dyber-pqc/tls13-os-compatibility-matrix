@@ -1,0 +1,141 @@
+category: Applications and Middleware
+kind: application
+rows:
+- component: nginx
+  first_support: 1.13.0 with OpenSSL 1.1.1
+  governing_stack: Linked OpenSSL
+  where_to_enable: ssl_protocols (TLSv1.3 in the default since 1.23.4, per nginx docs)
+  notes: 'Most common reason a capable host serves only 1.2: an old ssl_protocols line'
+  status: High confidence
+- component: Apache httpd
+  first_support: 2.4.37 (2018-10-23) with OpenSSL 1.1.1; enabled by default
+  governing_stack: Linked OpenSSL
+  where_to_enable: SSLProtocol directive
+  notes: Corrected from 2.4.36 during verification
+  status: High confidence
+- component: HAProxy
+  first_support: 1.8.1 with OpenSSL 1.1.1
+  governing_stack: Linked OpenSSL
+  where_to_enable: ssl-min-ver / ssl-max-ver on bind lines
+  notes: Also check crt-list and default-server for backend-side settings
+  status: High confidence
+- component: Envoy
+  first_support: Long supported (BoringSSL)
+  governing_stack: BoringSSL
+  where_to_enable: TlsParameters min/max protocol version
+  notes: Service mesh data planes are usually not the gap
+  status: High confidence
+- component: Caddy / Traefik
+  first_support: From early releases (Go stack)
+  governing_stack: Go crypto/tls
+  where_to_enable: Defaults are modern; overrides in config
+  notes: Go 1.24+ builds bring ML-KEM hybrids by default
+  status: High confidence
+- component: IIS / HTTP.sys
+  first_support: Windows Server 2022
+  governing_stack: Schannel
+  where_to_enable: OS version gate first; then Schannel settings
+  notes: See Windows tab; no configuration rescues Server 2019
+  status: High confidence
+- component: Apache Tomcat
+  first_support: 'JSSE path: per running JDK. OpenSSL path: tomcat-native against 1.1.1+'
+  governing_stack: JDK or tomcat-native
+  where_to_enable: Connector sslEnabledProtocols; verify which engine the connector uses
+  notes: Two engines, two answers, same server.xml
+  status: High confidence
+- component: JVM middleware (Kafka, Elasticsearch, Jenkins, etc.)
+  first_support: Per running JDK (11+, or 8u261/8u272 backports)
+  governing_stack: JDK JSSE
+  where_to_enable: JVM version audit; ssl.protocol settings
+  notes: One JDK upgrade moves the whole category; one frozen JDK 8u151 holds it back
+  status: High confidence
+- component: Postfix / Dovecot (mail)
+  first_support: With linked OpenSSL 1.1.1+
+  governing_stack: Linked OpenSSL
+  where_to_enable: smtpd_tls_protocols, ssl_min_protocol
+  notes: 'SMTP TLS is opportunistic: capability without enforcement is the norm. MTA-STS and DANE govern enforcement; test with STARTTLS-aware tools'
+  status: High confidence
+- component: OpenLDAP
+  first_support: With linked OpenSSL 1.1.1+
+  governing_stack: Linked OpenSSL
+  where_to_enable: olcTLSProtocolMin
+  status: High confidence
+- component: Active Directory LDAPS
+  first_support: Domain controllers on Server 2022+
+  governing_stack: Schannel (DC operating system)
+  where_to_enable: DC OS version audit
+  notes: A directory served by Server 2019 DCs caps LDAPS at TLS 1.2 for every client and app in the forest until the DCs move. One of the highest-leverage upgrades in the whole matrix
+  status: High confidence
+- component: Microsoft Exchange
+  first_support: Exchange 2019 CU15 / SE on Server 2022 or 2025; enabled by default; SMTP excluded until a future update
+  governing_stack: Schannel plus Exchange support statement
+  where_to_enable: Exchange version and OS version together
+  notes: 'Per-protocol split inside one product: HTTPS yes, SMTP not yet, and disabling any protocol except 1.3 is unsupported. Exchange 2016 and 2019 left support 2025-10'
+  status: High confidence
+- component: PostgreSQL
+  first_support: With linked OpenSSL 1.1.1+
+  governing_stack: Linked OpenSSL
+  where_to_enable: ssl_min_protocol_version (PG 12+)
+  notes: Inherits the distro OpenSSL line
+  status: High confidence
+- component: MySQL
+  first_support: 8.0.16 with OpenSSL 1.1.1
+  governing_stack: Bundled or linked OpenSSL
+  where_to_enable: tls_version system variable
+  notes: 5.7 caps at TLS 1.2
+  status: High confidence
+- component: MariaDB
+  first_support: 10.4 era against OpenSSL 1.1.1; bundled-library builds vary (confirm)
+  governing_stack: Build dependent
+  where_to_enable: tls_version; check which TLS library the build uses
+  status: Needs verification
+- component: Microsoft SQL Server
+  first_support: SQL Server 2022 with TDS 8.0 on a TLS 1.3 capable Windows; 2019 and earlier never
+  governing_stack: Schannel
+  where_to_enable: SQL and OS versions together; strict encryption mode
+  notes: 'Keep TLS 1.2 enabled on the host: satellite services still require it at startup'
+  status: High confidence
+- component: Oracle Database
+  first_support: 23ai (TLS 1.3 by default); 19c from RU 19.32 via the opt-in next-generation provider
+  governing_stack: Oracle wallet stack; the next-generation provider is OpenSSL based
+  where_to_enable: sqlnet parameters; provider selection
+  notes: 19c with the default provider caps at 1.2; the RU 19.32 next-generation provider adds TLS 1.3, FIPS 140-3 and ML-KEM
+  status: High confidence
+- component: MongoDB / Redis
+  first_support: Platform stack (MongoDB) and linked OpenSSL (Redis 6+)
+  governing_stack: Platform or linked OpenSSL
+  where_to_enable: net.tls settings; tls-protocols
+  notes: Both inherit the host line rather than bundling
+  status: High confidence
+- component: IBM Db2
+  first_support: 11.5 era via GSKit (corroborated; exact fix pack still to pin)
+  governing_stack: IBM GSKit
+  where_to_enable: SSL_VERSIONS in dbm cfg
+  notes: Db2 for z/OS follows z/OS System SSL instead; two different answers under one product name
+  status: Needs verification
+- component: SAP NetWeaver / CommonCryptoLib
+  first_support: Recent CommonCryptoLib 8.5.x with matching kernel (confirm against SAP Notes)
+  governing_stack: SAP CommonCryptoLib
+  where_to_enable: Profile parameters (ssl/ciphersuites)
+  notes: SAP publishes support in SAP Notes behind a login; a contributor with access should pin the numbers
+  status: Needs verification
+- component: SharePoint and on-prem Microsoft stack
+  first_support: Rides the Windows Server and .NET versions
+  governing_stack: Schannel
+  where_to_enable: OS version audit first
+  notes: Farms hosted on Server 2019 cap at TLS 1.2 regardless of the SharePoint version on top
+  status: High confidence
+- component: VDI control planes (Citrix, Omnissa Horizon)
+  first_support: Mixed per component (confirm)
+  governing_stack: Windows services plus appliance components
+  where_to_enable: Per component inventory
+  notes: Gateways, connection servers and agents adopt TLS separately; the NetScaler Gateway to VDA path documents TLS 1.3 with VDA 2503 and later
+  status: Needs verification
+- component: Network HSM and KMS appliances
+  first_support: Confirm per vendor firmware
+  governing_stack: Vendor stacks
+  where_to_enable: Client libraries and management UI, separately
+  notes: The devices anchoring key custody deserve the same per-plane scrutiny as firewalls
+  status: Needs verification
+notes:
+- 'The recurring pattern: capability comes from the stack underneath (OS tab or linked library), while an explicit protocol line in the application config decides whether it is used. Estate scanning must therefore record per-listener results; a capable host proves nothing about its services.'

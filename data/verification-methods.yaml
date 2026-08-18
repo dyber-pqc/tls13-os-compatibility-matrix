@@ -1,0 +1,49 @@
+category: Verification Methods
+kind: verification
+rows:
+- check: Remote service check
+  method: openssl s_client -connect host:443 -tls1_3 -brief
+  interpretation: Success prints TLSv1.3; failure means the service as configured does not offer it. Tests service plus path, not just the stack
+  status: High confidence
+- check: Full protocol sweep
+  method: testssl.sh -p https://host  or  nmap -p 443 --script ssl-enum-ciphers host
+  interpretation: Enumerates all offered versions; catches capable-but-disabled services and weak floors in one pass
+  status: High confidence
+- check: Outbound path check
+  method: curl -Iv --tlsv1.3 https://host/
+  interpretation: Requires curl built on a capable backend (curl -V shows it); exercises any middleboxes between you and the target
+  status: High confidence
+- check: Local Linux stack
+  method: openssl version; openssl ciphers -s -tls1_3
+  interpretation: 'A non-empty suite list means the stack is capable. Then check policy gates: update-crypto-policies --show on RHEL family; MinProtocol in openssl.cnf elsewhere'
+  status: High confidence
+- check: Local Windows
+  method: OS build gate first (Win11 / Server 2022+); then Get-TlsCipherSuite for TLS_AES_* suites; then the Schannel registry keys under Protocols for explicit disables
+  interpretation: 'On older Windows the version check is definitive: not capable, no configuration rescues it'
+  status: High confidence
+- check: Fleet package inventory
+  method: rpm -q openssl / dpkg -s openssl via configuration management, mapped against this matrix
+  interpretation: Triage only. Version strings mislead on enterprise backports; confirm by negotiation before recording Verified
+  status: High confidence
+- check: Record per listener, not per host
+  method: Scan each TLS port in use (443 web, 636 LDAPS, 3389 RDP, 5432 PostgreSQL, 9093 Kafka, 25/587 SMTP, 8443 management)
+  interpretation: A host is capable; a listener is configured. Inventories that stop at the host level systematically overstate readiness
+  status: High confidence
+- check: Middlebox awareness
+  method: Test from both sides of any TLS-inspecting proxy, firewall, or load balancer
+  interpretation: Inspection and termination devices below their capable release silently cap or break TLS 1.3 for whole segments; see Network Appliances tab
+  status: High confidence
+- check: FIPS mode interaction
+  method: Re-run stack and service checks with FIPS mode enabled, not only disabled
+  interpretation: Legacy FIPS modules lacked TLS 1.3; modern ones include it but validation status varies by product (see the vSphere 8.0 U3 row). Regulated estates must test the mode they actually run
+  status: High confidence
+- check: Mail special case
+  method: testssl.sh -t smtp host:25 (STARTTLS aware)
+  interpretation: Opportunistic TLS means capability without enforcement is the norm; check MTA-STS and DANE posture separately
+  status: High confidence
+- check: PQC handshake size check
+  method: 'Repeat remote checks with a hybrid group forced: openssl s_client -connect host:443 -tls1_3 -groups X25519MLKEM768'
+  interpretation: The ML-KEM key share pushes the ClientHello past one TCP segment. Middleboxes and stacks that mishandle fragmented ClientHellos break (Mbed TLS before 3.6.3 is a documented case); test every inspection path before enabling PQC fleet-wide
+  status: High confidence
+notes:
+- 'Suggested fleet workflow: (1) package and OS inventory mapped to this matrix for triage, (2) active negotiation scan per listener for truth, (3) config extraction for the why behind every 1.2-only result, (4) record findings per service with a date. Cryptographic inventory tooling can automate steps 1 to 3. Step 4 stays human.'

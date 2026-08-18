@@ -1,0 +1,22 @@
+# Libraries and Runtimes
+
+> Generated from [`data/libraries-runtimes.yaml`](../data/libraries-runtimes.yaml) — edit the YAML, not this file. Regenerate with `python scripts/build.py`.
+
+| Component | First release with TLS 1.3 | On by default | Support status | PQC notes | Notes | Status |
+|---|---|---|---|---|---|---|
+| OpenSSL | 1.1.1 (2018-09) | Yes | 1.1.1 ended 2023-09-11; 3.0 security fixes end 2026-09-07; 3.5 LTS supported to 2030-04-08; 4.0 current (4.0.1, 2026-06, non-LTS); announced roadmap: 4.2 LTS 2027-04, then 5.0 2027-10 | 3.5 adds ML-KEM (X25519MLKEM768 hybrid in default TLS groups), ML-DSA, SLH-DSA | The most load-bearing dividing line in this matrix. The 3.0 line, still the system stack on Ubuntu 22.04/24.04, Debian 12, RHEL 9 and AL2023, loses upstream security fixes 2026-09-07 (distro vendors continue their own patching) | High confidence |
+| GnuTLS | 3.6.x series (first stable 3.6.3; final RFC alignment in the 3.6.4/3.6.5 range, pin against the NEWS file) | Yes | Rolling releases | ML-KEM hybrid key exchange and ML-DSA from 3.8.10 | Used in place of OpenSSL by some distro components | *Needs verification* |
+| NSS (Firefox and others) | Enabled by default from Firefox 63 (2018-10); final-RFC NSS release (3.39 era) still to pin | Yes | Rolling releases | mlkem768x25519 added in NSS 3.105 (2024-09-26); Firefox 132 (2024-10-29) enabled it by default, with QUIC and HTTP3 from Firefox 135 |  | High confidence |
+| Schannel (Windows) | Windows 11 / Windows Server 2022 | Yes | Follows Windows lifecycle | PQC via SymCrypt and CNG updates; confirm shipped state | Microsoft: enabling TLS 1.3 on earlier Windows is not a safe configuration | High confidence |
+| Apple Secure Transport / Network.framework | macOS 10.14.4 / iOS 12.2 (confirm) | Yes | Follows Apple OS lifecycle | Confirm TLS-layer ML-KEM state |  | *Needs verification* |
+| Java (JSSE) | JDK 11 native; backported to Oracle 8u261 and OpenJDK 8u272 | Yes (11 and later) | Per vendor and distribution | ML-KEM and ML-DSA algorithm APIs in JDK 24 (JEP 496 and 497, 2025-03); TLS-layer hybrid key exchange explicitly out of JDK 24 scope, follows later | Enormous installed base still on 8: patch level, not major version, decides TLS 1.3 there | High confidence |
+| .NET | .NET Core 3.0 and later (platform dependent); .NET Framework rides Schannel | Platform dependent | Per version |  | .NET Framework applications are capped by the Windows version they run on. .NET on Linux uses the distro OpenSSL and inherits its line | High confidence |
+| Node.js | 12 and later (bundled OpenSSL 1.1.1) | Yes | Per release line | Current lines bundle OpenSSL 3.x; confirm 3.5 adoption timing |  | High confidence |
+| Python (ssl module) | 3.7 and later when linked against OpenSSL 1.1.1 or later | Yes | Per release | Follows the linked OpenSSL | Capability is set by the linked OpenSSL, not by Python itself | High confidence |
+| PHP | Streams and curl follow the linked OpenSSL (1.1.1+) | Yes | Per release | Follows the linked OpenSSL | Same pattern as Python: audit the lib, not the language version | High confidence |
+| Ruby | openssl gem against OpenSSL 1.1.1+ | Yes | Per release | Follows the linked OpenSSL |  | High confidence |
+| Erlang/OTP | OTP 22.0 experimental (client from 22.1, session tickets 22.3); production-ready from OTP 23 | Yes on current | Per release | Confirm PQC roadmap | Relevant to RabbitMQ and telecom estates | High confidence |
+| Go (crypto/tls) | 1.13 by default (1.12 opt-in) | Yes | Per release | X25519MLKEM768 enabled by default from Go 1.24 | Fully independent of the OS stack; static binaries carry it everywhere they run | High confidence |
+| Rust ecosystem | rustls from inception; native-tls follows the platform stack | Yes (rustls) | Per crate | rustls PQC via provider crates (confirm defaults) | A Rust binary's TLS ceiling depends on which of the two paths it took | High confidence |
+| curl | 7.52 era onward, backend dependent | Backend dependent | Rolling | Follows the linked backend (OpenSSL 3.5 builds negotiate hybrids) | curl -V shows the backend; --tlsv1.3 forces the floor for testing | High confidence |
+| Browsers (client side) | Chrome 70, Firefox 63, Safari 12.1, Edge 79 | Yes | Evergreen | Chrome shipped draft Kyber by default in 124 (2024-04) and switched to standardized X25519MLKEM768 in 131 (2024-11, codepoint 0x11EC); Firefox from 132 (2024-10) | The client side is largely solved; server and infrastructure estates are the gap this matrix maps | High confidence |

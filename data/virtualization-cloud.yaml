@@ -1,0 +1,110 @@
+category: Virtualization and Cloud
+kind: appliance
+rows:
+- platform: VMware ESXi / vCenter 7.0
+  tls13_status: No (TLS 1.2)
+  min_version: vSphere 8.0 U3
+  applies_to: Management plane
+  enabled_by_default: n/a
+  caveats: 'General support ended 2025-10-02 (extended once from 2025-04); technical guidance ends 2027-04-02. Double pressure: unsupported and below the line'
+  sources: Broadcom lifecycle KB
+  status: High confidence
+- platform: VMware ESXi / vCenter 8.0 through U2
+  tls13_status: No (TLS 1.2; OpenSSL 3.0 base on ESXi)
+  min_version: 8.0 U3
+  applies_to: Management plane
+  enabled_by_default: n/a
+  caveats: 8.0 dropped TLS 1.0/1.1 and moved ESXi to OpenSSL 3.0, but runs TLS 1.2
+  sources: Broadcom release notes
+  status: High confidence
+- platform: VMware vSphere 8.0 U3
+  tls13_status: Yes, via TLS profiles
+  min_version: 8.0 U3
+  applies_to: ESXi and vCenter, profile controlled
+  enabled_by_default: Partial (COMPATIBLE profile)
+  caveats: 'The instructive row: TLS profiles support 1.3, but the BoringSSL module in 8.0 U3 is not FIPS certified for TLS 1.3, so port 443 (reverse proxy) stays TLS 1.2 under the COMPATIBLE and NIST_2024 profiles. FIPS validation lag, not protocol capability, is the gate'
+  sources: Broadcom TechDocs and KB
+  status: High confidence
+- platform: VMware vSphere 9.0
+  tls13_status: 'Yes'
+  min_version: '9.0'
+  applies_to: Management plane including port 443
+  enabled_by_default: Confirm
+  caveats: Broadcom KB framing implies TLS 1.3 default on 443 from 9.0; confirm profile defaults and FIPS status
+  sources: Broadcom KB
+  status: Needs verification
+- platform: Microsoft Hyper-V
+  tls13_status: Follows Windows
+  min_version: Windows Server 2022
+  applies_to: All planes
+  enabled_by_default: Yes on 2022+
+  caveats: See Windows tab; Hyper-V hosts on Server 2019 are Tier D
+  sources: Microsoft
+  status: High confidence
+- platform: Proxmox VE
+  tls13_status: 'Yes'
+  min_version: PVE 7 (Debian 11 base)
+  applies_to: Management plane (pveproxy)
+  enabled_by_default: 'Yes'
+  caveats: 'Inherits Debian base: PVE 8 on Debian 12 (OpenSSL 3.0), PVE 9 on Debian 13 (OpenSSL 3.5, PQC capable stack; confirm release and defaults)'
+  sources: Proxmox and Debian docs
+  status: Needs verification
+- platform: XCP-ng / Citrix Hypervisor
+  tls13_status: Confirm
+  min_version: Confirm
+  applies_to: XAPI and management
+  enabled_by_default: Confirm
+  caveats: dom0 userspace lineage traces to the CentOS 7 era; verify the current management-plane TLS ceiling in 8.2 and 8.3
+  sources: XCP-ng docs
+  status: Needs verification
+- platform: Nutanix AOS / AHV
+  tls13_status: Confirm
+  min_version: Confirm
+  applies_to: Prism and management plane
+  enabled_by_default: Confirm
+  caveats: Verify per AOS release
+  sources: Nutanix docs
+  status: Needs verification
+- platform: Kubernetes components
+  tls13_status: 'Yes'
+  min_version: Any recent release (Go stack)
+  applies_to: API server, kubelet, etcd
+  enabled_by_default: 'Yes'
+  caveats: Go's crypto/tls, independent of node OS; min TLS version configurable per component. Node OS still governs everything outside the Go binaries
+  sources: Kubernetes docs
+  status: High confidence
+- platform: AWS managed TLS edges (ALB, NLB, CloudFront)
+  tls13_status: 'Yes'
+  min_version: TLS 1.3 security policies (GA 2023 for ALB/NLB; earlier for CloudFront)
+  applies_to: Client-facing listeners
+  enabled_by_default: Policy dependent
+  caveats: 'ML-KEM confirmed scope: ALB and NLB TLS policies plus the AWS KMS, ACM and Secrets Manager endpoints (non-FIPS, all aws partition regions). ACM-issued certificates remain classical. CloudFront and API Gateway ML-KEM still to confirm. Origin pulls and backend hops remain the customer''s problem'
+  sources: AWS Security Blog; AWS documentation
+  status: High confidence
+- platform: Azure managed edges (Front Door, Application Gateway)
+  tls13_status: 'Yes'
+  min_version: TLS 1.3 GA 2023 to 2024 (confirm per service)
+  applies_to: Client-facing listeners
+  enabled_by_default: Policy dependent
+  caveats: PQC status not yet verifiable from Microsoft primary sources; TLS 1.3 GA dates per service also to confirm
+  sources: Microsoft Learn
+  status: Needs verification
+- platform: Google Cloud load balancing
+  tls13_status: 'Yes'
+  min_version: Long supported (confirm date)
+  applies_to: Client-facing
+  enabled_by_default: 'Yes'
+  caveats: Google front ends are widely documented as supporting the hybrid group; exact default scope and dates not yet pinned from Google primary sources
+  sources: Google Cloud docs
+  status: Needs verification
+- platform: Cloudflare edge
+  tls13_status: 'Yes'
+  min_version: Long supported
+  applies_to: Client-facing and origin-facing
+  enabled_by_default: 'Yes'
+  caveats: 'X25519MLKEM768 default on the client-facing edge (about 43 percent of human connections PQ-protected by 2025-09). Origin pulls: PQ key agreement on by default for new zones and enabled for existing, preferred when the origin supports it (about 10 percent of origins by early 2026, up from under 1 percent at the start of 2025); ML-DSA available via Authenticated Origin Pulls'
+  sources: Cloudflare blog and docs
+  status: High confidence
+notes:
+- 'Managed cloud edges mean many internet-facing hops are already TLS 1.3 and increasingly PQC hybrid without customer action. The uncovered surface is origin pulls, backend re-encryption, self-managed listeners, and everything internal: exactly what the OS tabs of this matrix map.'
+- 'The vSphere 8.0 U3 row generalizes: as PQC arrives, FIPS 140-3 validation of each stack''s module, not raw algorithm capability, will repeatedly be the deployment gate for regulated estates. A future tier 2 column should track validated-module status per platform.'

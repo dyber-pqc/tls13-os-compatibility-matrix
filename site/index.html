@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TLS 1.3 / PQC Readiness Matrix</title>
+<meta name="description" content="Community-maintained matrix of TLS 1.3 and post-quantum readiness across operating systems, appliances, and runtimes. Every claim cited.">
+<style>
+:root{
+  --bg:#f6f8fa; --panel:#ffffff; --ink:#1f2328; --muted:#59636e; --line:#d1d9e0;
+  --accent:#0969da; --ok:#1a7f37; --warn:#9a6700; --bad:#cf222e;
+  --ok-bg:#dafbe1; --warn-bg:#fff8c5; --bad-bg:#ffebe9; --chip:#eaeef2;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0d1117; --panel:#161b22; --ink:#e6edf3; --muted:#9198a1; --line:#30363d;
+  --accent:#4493f8; --ok:#3fb950; --warn:#d29922; --bad:#f85149;
+  --ok-bg:#12261e; --warn-bg:#272115; --bad-bg:#2d1517; --chip:#21262d;
+}}
+:root[data-theme="dark"]{
+  --bg:#0d1117; --panel:#161b22; --ink:#e6edf3; --muted:#9198a1; --line:#30363d;
+  --accent:#4493f8; --ok:#3fb950; --warn:#d29922; --bad:#f85149;
+  --ok-bg:#12261e; --warn-bg:#272115; --bad-bg:#2d1517; --chip:#21262d;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:1.2rem}
+header h1{margin:.2rem 0;font-size:1.7rem}
+header .sub{color:var(--muted);max-width:70ch}
+.topline{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.btn{background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  color:var(--ink);padding:.35rem .7rem;cursor:pointer;font-size:.85rem}
+.progress{margin:1rem 0;background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;padding: .9rem 1rem}
+.bar{display:flex;height:14px;border-radius:7px;overflow:hidden;border:1px solid var(--line)}
+.bar div{height:100%}
+.legend{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:5px;margin-right:.35rem}
+.controls{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin:.8rem 0}
+input[type=search]{flex:1;min-width:220px;padding:.5rem .8rem;border:1px solid var(--line);
+  border-radius:8px;background:var(--panel);color:var(--ink);font-size:.95rem}
+.chip{border:1px solid var(--line);background:var(--chip);border-radius:999px;
+  padding:.25rem .75rem;cursor:pointer;font-size:.83rem;color:var(--ink)}
+.chip.on{outline:2px solid var(--accent)}
+nav.tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin:.6rem 0 1rem}
+nav.tabs button{border:1px solid var(--line);background:var(--panel);color:var(--ink);
+  border-radius:8px;padding:.35rem .7rem;cursor:pointer;font-size:.85rem}
+nav.tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+nav.tabs button .n{opacity:.65;font-size:.75rem;margin-left:.3rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:.8rem 1rem;margin:.55rem 0}
+.card summary{cursor:pointer;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;list-style:none}
+.card summary::-webkit-details-marker{display:none}
+.card .title{font-weight:600}
+.pill{border-radius:999px;padding:.1rem .6rem;font-size:.75rem;font-weight:600;white-space:nowrap}
+.pill.v{background:var(--ok-bg);color:var(--ok)} .pill.h{background:var(--warn-bg);color:var(--warn)}
+.pill.n{background:var(--bad-bg);color:var(--bad)}
+.pill.yes{background:var(--ok-bg);color:var(--ok)} .pill.no{background:var(--bad-bg);color:var(--bad)}
+.pill.mix{background:var(--warn-bg);color:var(--warn)}
+.kv{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:.25rem .9rem;
+  margin-top:.7rem;font-size:.9rem}
+.kv dt{color:var(--muted)} .kv dd{margin:0;overflow-wrap:anywhere}
+.rowactions{margin-top:.6rem;font-size:.8rem}
+.cat-note{color:var(--muted);font-size:.88rem;border-left:3px solid var(--line);
+  padding:.15rem .8rem;margin:.9rem 0}
+.tl{border-left:2px solid var(--line);margin:1rem 0 1rem .4rem;padding-left:1.1rem}
+.tl .ev{position:relative;margin:.7rem 0}
+.tl .ev::before{content:"";position:absolute;left:-1.46rem;top:.35rem;width:10px;height:10px;
+  border-radius:5px;background:var(--accent)}
+.tl .ev.past::before{background:var(--muted)}
+.tl .ev.past .d{color:var(--muted)}
+.tl .d{font-weight:700;font-variant-numeric:tabular-nums}
+.tl .why{color:var(--muted);font-size:.88rem}
+.now{color:var(--bad);font-weight:700;font-size:.8rem;letter-spacing:.05em;margin:.4rem 0}
+.empty{color:var(--muted);padding:2rem;text-align:center}
+footer{color:var(--muted);font-size:.83rem;margin:2rem 0 1rem;border-top:1px solid var(--line);padding-top:1rem}
+mark{background:var(--warn-bg);color:inherit;border-radius:3px;padding:0 .1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="topline">
+    <div>
+      <h1>TLS 1.3 / PQC Readiness Matrix</h1>
+      <p class="sub">What can negotiate TLS 1.3 today — and what never will. Post-quantum key
+      exchange (X25519MLKEM768) is TLS 1.3-only and TLS 1.2 is frozen, so this is where every
+      PQC migration starts. Community-maintained; every claim cites a primary source.
+      <a id="repolink" href="#">Contribute on GitHub →</a></p>
+    </div>
+    <button class="btn" id="themeBtn" title="Toggle theme">Theme</button>
+  </div>
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+    <div class="legend" id="legend"></div>
+  </div>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search everything… (e.g. RHEL, Schannel, ML-KEM, FortiOS)" autocomplete="off">
+  <button class="chip" data-status="Verified">Verified</button>
+  <button class="chip" data-status="High confidence">High confidence</button>
+  <button class="chip" data-status="Needs verification">Needs verification</button>
+</div>
+
+<nav class="tabs" id="tabs"></nav>
+<main id="main"><div class="empty">Loading matrix…</div></main>
+
+<footer>
+  Community draft. Nothing here is authoritative until its status says <b>Verified</b> —
+  that's the point: <a id="verifylink" href="#">pick a row and verify it</a>.
+  Data licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+</footer>
+</div>
+
+<script>
+"use strict";
+const REPO = window.MATRIX_REPO || "dyber-pqc/tls13-os-compatibility-matrix";
+document.getElementById("repolink").href = "https://github.com/" + REPO;
+document.getElementById("verifylink").href = "https://github.com/" + REPO +
+  "/issues/new?template=verify-row.yml";
+
+const themeBtn = document.getElementById("themeBtn");
+themeBtn.onclick = () => {
+  const cur = document.documentElement.dataset.theme ||
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.dataset.theme = cur === "dark" ? "light" : "dark";
+};
+
+const STATUS = {
+  "Verified": {cls:"v", color:"var(--ok)"},
+  "High confidence": {cls:"h", color:"var(--warn)"},
+  "Needs verification": {cls:"n", color:"var(--bad)"},
+};
+const LABEL_KEYS = ["platform","component","image","check","tier","topic","source","event"];
+const PRETTY = {
+  platform:"Platform", native_tls13:"Native TLS 1.3", min_release:"Minimum release",
+  min_version:"Minimum version", stack:"System TLS stack", enabled_by_default:"Enabled by default",
+  path_to_capability:"Path to capability", support_ends:"Standard support ends",
+  extended_support:"Extended / paid support", pqc_notes:"PQC notes",
+  caveats:"Caveats & open questions", sources:"Primary sources",
+  tls13_status:"TLS 1.3 status", applies_to:"Applies to", capable_tags:"Capable tags",
+  not_capable:"Not capable", first_version:"First version", pqc_status:"PQC status",
+  first_release:"First release with TLS 1.3", support_status:"Support status",
+  first_support:"First TLS 1.3 support", governing_stack:"Governing stack",
+  where_to_enable:"Where to enable / verify", notes:"Notes", method:"Command / method",
+  interpretation:"Interpretation", definition:"Definition", action:"Typical action",
+  cost:"Cost class", detail:"Detail", covers:"What it covers", location:"Location",
+  date:"Date", event:"Event", why_it_matters:"Why it matters",
+};
+
+let DB = null, activeCat = null, statusFilter = new Set(), query = "";
+
+fetch("data.json").then(r => r.json()).then(d => { DB = d; init(); })
+  .catch(e => { document.getElementById("main").innerHTML =
+    '<div class="empty">Could not load data.json (' + e + ')</div>'; });
+
+function init(){
+  const c = DB.status_counts, total = DB.total_status_rows;
+  const bar = document.getElementById("bar"), legend = document.getElementById("legend");
+  for (const [name, meta] of Object.entries(STATUS)){
+    const seg = document.createElement("div");
+    seg.style.width = (100 * c[name] / total) + "%";
+    seg.style.background = meta.color;
+    seg.title = name + ": " + c[name];
+    bar.appendChild(seg);
+    legend.insertAdjacentHTML("beforeend",
+      '<span><span class="dot" style="background:' + meta.color + '"></span>' +
+      name + ": <b>" + c[name] + "</b></span>");
+  }
+  legend.insertAdjacentHTML("beforeend", "<span>Total status-carrying rows: <b>" + total + "</b></span>");
+
+  const tabs = document.getElementById("tabs");
+  const all = document.createElement("button");
+  all.textContent = "Everything";
+  all.onclick = () => { activeCat = null; render(); };
+  tabs.appendChild(all);
+  for (const cat of DB.categories){
+    const b = document.createElement("button");
+    b.innerHTML = esc(cat.category) + '<span class="n">' + cat.rows.length + "</span>";
+    b.onclick = () => { activeCat = cat.id; render(); };
+    b.dataset.cat = cat.id;
+    tabs.appendChild(b);
+  }
+  document.getElementById("q").addEventListener("input", e => {
+    query = e.target.value.trim().toLowerCase(); render();
+  });
+  for (const chip of document.querySelectorAll(".chip")){
+    chip.onclick = () => {
+      const s = chip.dataset.status;
+      statusFilter.has(s) ? statusFilter.delete(s) : statusFilter.add(s);
+      chip.classList.toggle("on"); render();
+    };
+  }
+  activeCat = null;
+  render();
+}
+
+function esc(s){ return String(s).replace(/[&<>"]/g,
+  ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch])); }
+
+function hi(s){
+  s = esc(s);
+  if (!query) return s;
+  const i = s.toLowerCase().indexOf(query);
+  if (i < 0) return s;
+  return s.slice(0,i) + "<mark>" + s.slice(i, i+query.length) + "</mark>" + s.slice(i+query.length);
+}
+
+function rowLabel(row){
+  for (const k of LABEL_KEYS) if (row[k]) return row[k];
+  return "(row)";
+}
+function rowMatches(row){
+  if (statusFilter.size && !statusFilter.has(row.status)) return false;
+  if (!query) return true;
+  return Object.values(row).some(v => String(v).toLowerCase().includes(query));
+}
+
+function capPill(row){
+  const v = row.native_tls13 || row.tls13_status;
+  if (!v) return "";
+  const t = v.toLowerCase();
+  let cls = "mix";
+  if (/^yes/.test(t)) cls = "yes";
+  else if (/^(no|was)/.test(t)) cls = "no";
+  return '<span class="pill ' + cls + '">TLS 1.3: ' + esc(v) + "</span>";
+}
+function statusPill(row){
+  const meta = STATUS[row.status];
+  if (!meta) return "";
+  return '<span class="pill ' + meta.cls + '">' + esc(row.status) + "</span>";
+}
+
+function issueURL(cat, row){
+  const label = rowLabel(row);
+  const p = new URLSearchParams({
+    template: "verify-row.yml",
+    title: "[verify] " + cat.category + ": " + label,
+    labels: "verification",
+    category: cat.category,
+    row: label,
+  });
+  return "https://github.com/" + REPO + "/issues/new?" + p;
+}
+
+function renderRow(cat, row){
+  const label = rowLabel(row);
+  const skip = new Set(["status"]);
+  for (const k of LABEL_KEYS) if (row[k] === label) { skip.add(k); break; }
+  let kv = "";
+  for (const [k, v] of Object.entries(row)){
+    if (skip.has(k)) continue;
+    kv += "<dt>" + esc(PRETTY[k] || k) + "</dt><dd>" + hi(v) + "</dd>";
+  }
+  const verify = row.status && row.status !== "Verified"
+    ? '<div class="rowactions">Run this platform? <a href="' + issueURL(cat, row) +
+      '" target="_blank" rel="noopener">Verify this row →</a></div>' : "";
+  return '<details class="card"><summary>' +
+    '<span class="title">' + hi(label) + "</span>" + capPill(row) + statusPill(row) +
+    "</summary><dl class='kv'>" + kv + "</dl>" + verify + "</details>";
+}
+
+function renderTimeline(cat, rows){
+  const today = new Date().toISOString().slice(0, 10);
+  let html = '<div class="tl">', markerPlaced = false;
+  for (const row of rows){
+    const d = row.date.replace(/[^0-9-].*$/, "") || row.date;
+    if (!markerPlaced && d.slice(0, 7) > today.slice(0, 7)){
+      html += '<div class="now">— TODAY (' + today + ") —</div>";
+      markerPlaced = true;
+    }
+    const past = d.slice(0, 7) <= today.slice(0, 7);
+    html += '<div class="ev' + (past ? " past" : "") + '"><span class="d">' + esc(row.date) +
+      "</span> — " + hi(row.event) +
+      (row.why_it_matters ? '<div class="why">' + hi(row.why_it_matters) + "</div>" : "") +
+      (row.status === "Needs verification" ? ' <span class="pill n">needs verification</span>' : "") +
+      "</div>";
+  }
+  return html + "</div>";
+}
+
+function render(){
+  for (const b of document.querySelectorAll("nav.tabs button"))
+    b.classList.toggle("on", (b.dataset.cat || null) === activeCat);
+  const main = document.getElementById("main");
+  const cats = DB.categories.filter(c => !activeCat || c.id === activeCat);
+  let html = "", shown = 0;
+  for (const cat of cats){
+    const rows = cat.rows.filter(rowMatches);
+    if (!rows.length) continue;
+    shown += rows.length;
+    if (!activeCat) html += "<h2>" + esc(cat.category) + "</h2>";
+    if (cat.id === "timeline" && !query && !statusFilter.size){
+      html += renderTimeline(cat, rows);
+    } else {
+      html += rows.map(r => renderRow(cat, r)).join("");
+    }
+    if (activeCat && cat.notes)
+      html += cat.notes.map(n => '<div class="cat-note">' + esc(n) + "</div>").join("");
+  }
+  main.innerHTML = html ||
+    '<div class="empty">No rows match. Loosen the search or status filters.</div>';
+  if (query || statusFilter.size){
+    main.insertAdjacentHTML("afterbegin",
+      '<p style="color:var(--muted);font-size:.85rem">' + shown + " matching row(s)</p>");
+  }
+}
+</script>
+</body>
+</html>

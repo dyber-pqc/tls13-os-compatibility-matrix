@@ -1,0 +1,64 @@
+category: Enterprise Unix and Mainframe
+kind: os
+rows:
+- platform: IBM z/OS
+  native_tls13: 'Yes'
+  min_release: z/OS 2.4 (System SSL and AT-TLS)
+  stack: System SSL / AT-TLS
+  enabled_by_default: Policy dependent
+  path_to_capability: Configured via AT-TLS policy
+  support_ends: Per z/OS release lifecycle (2.5, 3.1 current)
+  extended_support: IBM extended support
+  pqc_notes: 'IBM Z leads on PQC hardware: z16 (2022) shipped quantum-safe secure boot and lattice acceleration, continued in z17. Confirm TLS-layer ML-KEM exposure in System SSL'
+  caveats: 'Not on by default: requires AT-TLS policy or PROT and cipher configuration plus updated certificates; z/OS 3.1 adds TLSv1.3 sysplex session ticket caching (APAR-backported to 2.5)'
+  sources: IBM Documentation
+  status: High confidence
+- platform: IBM i (System TLS)
+  native_tls13: 'Yes'
+  min_release: IBM i 7.4; backported to 7.3 via TR8 plus PTF groups
+  stack: System TLS
+  enabled_by_default: Yes when QSSLPCL is *OPSYS
+  path_to_capability: OS upgrade, or TR and PTF currency on 7.3
+  support_ends: Per release (7.4, 7.5, 7.6 current; confirm dates)
+  extended_support: IBM extended support
+  pqc_notes: Confirm PQC roadmap
+  caveats: Default-on is the *OPSYS system value doing the work; pinned values hold estates at 1.2
+  sources: IBM Documentation
+  status: High confidence
+- platform: IBM AIX 7.2 / 7.3
+  native_tls13: Yes, via OpenSSL filesets
+  min_release: 7.2 delivers OpenSSL 1.1.1 shared objects (TL5 moved base headers to 3.0); 7.3 ships 3.0.x with 1.1.1 retained
+  stack: OpenSSL fileset
+  enabled_by_default: Depends on installed fileset
+  path_to_capability: Fileset update, not OS reinstall, in most cases
+  support_ends: 'Per Technology Level End of Fix Support: 7.3 TL1 2025-12-31, TL2 2026-11-30, TL3 2027-12-31, TL4 2028-12-31'
+  extended_support: IBM extended support
+  pqc_notes: Confirm 3.5 fileset availability for PQC
+  caveats: IBM publishes no release-level end date for 7.2/7.3; plan per Technology Level
+  sources: IBM AIX release notes; IBM lifecycle
+  status: High confidence
+- platform: Oracle Solaris 11.4
+  native_tls13: Yes, via SRUs
+  min_release: SRU 21 (delivered OpenSSL 1.1.1)
+  stack: OpenSSL delivered via SRU
+  enabled_by_default: Depends on SRU level
+  path_to_capability: Apply current SRU
+  support_ends: Premier and Extended end dates still to verify against Oracle lifetime policy
+  extended_support: Oracle extended support
+  pqc_notes: Default moved to OpenSSL 3.0 around SRU 78; 1.0.2 removed in SRU 81; 3.0.19 at SRU 91 (2026-02). No 3.5 line yet, so no ML-KEM in the system stack
+  sources: Oracle Solaris blogs
+  status: High confidence
+- platform: HP-UX 11i v3
+  native_tls13: No, never native
+  min_release: n/a
+  stack: Vendor OpenSSL ports capped below the line
+  enabled_by_default: 'No'
+  path_to_capability: Application migration off the platform
+  support_ends: Ended 2025-12-31
+  extended_support: Vendor arrangements only
+  pqc_notes: None
+  caveats: 'Unsupported and permanently incapable: pure Tier D. Anything still terminating TLS here is a priority finding'
+  sources: HPE lifecycle
+  status: High confidence
+notes:
+- Mainframe and midrange platforms hold the longest-lived data flows in most large enterprises, which makes them disproportionately exposed to harvest-now-decrypt-later. Their TLS 1.3 status deserves verification effort out of proportion to host count.

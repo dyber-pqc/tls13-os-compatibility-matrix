@@ -1,0 +1,2255 @@
+{
+ "generated_from": "data/*.yaml",
+ "status_counts": {
+  "Verified": 0,
+  "High confidence": 159,
+  "Needs verification": 44
+ },
+ "total_status_rows": 203,
+ "categories": [
+  {
+   "id": "timeline",
+   "category": "Milestone Timeline",
+   "kind": "timeline",
+   "rows": [
+    {
+     "date": "2018-09",
+     "event": "OpenSSL 1.1.1 released",
+     "why_it_matters": "TLS 1.3 arrives for the OpenSSL world; the dividing line most Linux rows reduce to",
+     "status": "High confidence"
+    },
+    {
+     "date": "2023-09-11",
+     "event": "OpenSSL 1.1.1 upstream EOL",
+     "why_it_matters": "Distros carrying 1.1.1 (RHEL 8, Ubuntu 20.04, Debian 11) continue their own patching; upstream fixes end",
+     "status": "High confidence"
+    },
+    {
+     "date": "2024-06-30",
+     "event": "RHEL 7 and CentOS 7 end; Debian 10 LTS ends",
+     "why_it_matters": "Three of the largest below-the-line server populations leave free support the same day",
+     "status": "High confidence"
+    },
+    {
+     "date": "2024-10-31",
+     "event": "SLES 12 general support ends",
+     "why_it_matters": "Below-the-line SUSE estates move to LTSS or migrate",
+     "status": "High confidence"
+    },
+    {
+     "date": "2025-05-31",
+     "event": "Ubuntu 20.04 standard support ends",
+     "why_it_matters": "A capable release, but ESM-only from here",
+     "status": "High confidence"
+    },
+    {
+     "date": "2025-07-21",
+     "event": "Intel Clear Linux discontinued (final build 43800)",
+     "why_it_matters": "A rolling, always-current distro exits without a successor; migration line item",
+     "status": "High confidence"
+    },
+    {
+     "date": "2025-10-02",
+     "event": "vSphere 7.x general support ends",
+     "why_it_matters": "Below-the-line hypervisor management planes lose support",
+     "status": "High confidence"
+    },
+    {
+     "date": "2025-10-14",
+     "event": "Windows 10 support ends; Exchange 2016 and 2019 end",
+     "why_it_matters": "The largest below-the-line client population goes unsupported; ESU does not add TLS 1.3",
+     "status": "High confidence"
+    },
+    {
+     "date": "2025-12-31",
+     "event": "HP-UX 11i v3 support ends",
+     "why_it_matters": "A permanently incapable platform exits support entirely",
+     "status": "High confidence"
+    },
+    {
+     "date": "2026-06-10",
+     "event": "Debian 12 regular support ends",
+     "why_it_matters": "Bookworm moves to LTS; upgrade target shifts to 13",
+     "status": "High confidence"
+    },
+    {
+     "date": "2026-06-30",
+     "event": "Amazon Linux 2 end of life",
+     "why_it_matters": "A very large partial-capability cloud population goes unsupported",
+     "status": "High confidence"
+    },
+    {
+     "date": "2026-08-31",
+     "event": "Debian 11 LTS ends",
+     "why_it_matters": "The last free support for a 1.1.1-era Debian; also embedded in countless container images",
+     "status": "High confidence"
+    },
+    {
+     "date": "2026-09-07",
+     "event": "OpenSSL 3.0 upstream security fixes end",
+     "why_it_matters": "The stack under Ubuntu 22.04/24.04, Debian 12, RHEL 9, AL2023 loses upstream fixes; vendors carry on alone",
+     "status": "High confidence"
+    },
+    {
+     "date": "2026-10-13",
+     "event": "Windows Server 2022 mainstream ends; Server 2012 and 2012 R2 final ESU",
+     "why_it_matters": "First capable Windows Server enters extended; final patches for the 2012 line",
+     "status": "High confidence"
+    },
+    {
+     "date": "2027-01-12",
+     "event": "Windows Server 2016 extended support ends; Windows 10 Enterprise LTSC 2021 ends",
+     "why_it_matters": "Two incapable lines exit; forcing function for migration budgets",
+     "status": "High confidence"
+    },
+    {
+     "date": "2027-04",
+     "event": "Ubuntu 22.04 standard support ends",
+     "why_it_matters": "Capable, moves to ESM",
+     "status": "High confidence"
+    },
+    {
+     "date": "2027-10-12",
+     "event": "Windows 10 consumer ESU ends (extended from 2026 in June 2026)",
+     "why_it_matters": "The consumer tail of the largest incapable client population loses its last patches",
+     "status": "High confidence"
+    },
+    {
+     "date": "2027-10-31",
+     "event": "SLES 12 LTSS ends (LTSS Core continues to 2030)",
+     "status": "High confidence"
+    },
+    {
+     "date": "2028-03-15",
+     "event": "Amazon Linux 2023 end of life per the AWS support statement (trackers list 2029-06; sources conflict)",
+     "why_it_matters": "The default AWS distro generation turns over",
+     "status": "Needs verification"
+    },
+    {
+     "date": "2028-04",
+     "event": "Ubuntu 18.04 ESM ends",
+     "why_it_matters": "Final paid patches for a huge transitional population",
+     "status": "High confidence"
+    },
+    {
+     "date": "2028-06-30",
+     "event": "RHEL 7 ELS ends (some trackers cite 2029-05; sources conflict)",
+     "why_it_matters": "Final paid patches for the largest below-the-line server population",
+     "status": "Needs verification"
+    },
+    {
+     "date": "2028-06-30",
+     "event": "Debian 12 LTS ends",
+     "status": "High confidence"
+    },
+    {
+     "date": "2028-10",
+     "event": "Windows 10 commercial ESU final year ends",
+     "why_it_matters": "Truly the end of the Windows 10 line",
+     "status": "High confidence"
+    },
+    {
+     "date": "2029-01-09",
+     "event": "Windows Server 2019 extended support ends",
+     "why_it_matters": "The flagship supported-but-incapable platform finally exits; any 2019 still serving TLS in 2029 spent a decade below the line",
+     "status": "High confidence"
+    },
+    {
+     "date": "2029-04",
+     "event": "Ubuntu 24.04 standard support ends",
+     "status": "High confidence"
+    },
+    {
+     "date": "2029-05-31",
+     "event": "RHEL 8 maintenance ends",
+     "why_it_matters": "Last 1.1.1-era RHEL exits standard lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "date": "2030-04-08",
+     "event": "OpenSSL 3.5 LTS support ends",
+     "why_it_matters": "The first PQC-capable LTS completes its run; successors carry hybrids forward",
+     "status": "High confidence"
+    },
+    {
+     "date": "2030-12-31",
+     "event": "EO 14412: FIPS 140-3 validated PQC key establishment deadline (US federal, FAR flow-down)",
+     "why_it_matters": "Every federal-touching TLS endpoint needs validated ML-KEM by here, and TLS 1.3 is its prerequisite. Contractors inherit via flow-down",
+     "status": "High confidence"
+    },
+    {
+     "date": "2031-10-14",
+     "event": "Windows Server 2022 extended support ends",
+     "status": "High confidence"
+    },
+    {
+     "date": "2031-12-31",
+     "event": "EO 14412: PQC digital signature deadline",
+     "why_it_matters": "Certificate chains and signing infrastructure follow key establishment by one year",
+     "status": "High confidence"
+    },
+    {
+     "date": "2032-01-13",
+     "event": "Windows 10 IoT Enterprise LTSC 2021 ends",
+     "why_it_matters": "A platform incapable of TLS 1.3 remains vendor-supported past both federal PQC deadlines. The clearest case: lifecycle-based planning misses it, capability-based planning catches it",
+     "status": "High confidence"
+    },
+    {
+     "date": "2032-05-31",
+     "event": "RHEL 9 maintenance ends",
+     "status": "High confidence"
+    },
+    {
+     "date": "~2033",
+     "event": "CNSA 2.0 exclusivity targets (phased by category through the early 2030s)",
+     "why_it_matters": "National Security Systems complete the transition; commercial procurement gravity follows",
+     "status": "High confidence"
+    },
+    {
+     "date": "2035-05-31",
+     "event": "RHEL 10 maintenance ends",
+     "why_it_matters": "The first ML-KEM-native RHEL completes its lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "date": "2036-04",
+     "event": "Ubuntu 26.04 ESM ends",
+     "why_it_matters": "The first PQC-default Ubuntu LTS completes its extended run",
+     "status": "High confidence"
+    }
+   ]
+  },
+  {
+   "id": "decision-framework",
+   "category": "Decision Framework",
+   "kind": "decision",
+   "rows": [
+    {
+     "tier": "A",
+     "definition": "Native stack capable and enabled by default. Examples: RHEL 8+, Ubuntu 20.04+, Debian 11+, Windows Server 2022+, Windows 11, current macOS, AL2023",
+     "action": "Confirm per-listener configs do not pin TLS 1.2; standard config review",
+     "cost": "Minimal. Config hygiene inside existing change windows"
+    },
+    {
+     "tier": "B",
+     "definition": "Capable after a point update or a configuration change. Examples: Ubuntu 18.04 at old patch level, SLES 15 early SPs, PAN-OS 11.0 management (default off), nginx with an old ssl_protocols line",
+     "action": "Patch and enable through standard maintenance",
+     "cost": "Low. Fits routine patch cycles; the cheapest wins in the estate, so find them first"
+    },
+    {
+     "tier": "C",
+     "definition": "Capable only via a supported in-place major upgrade. Examples: RHEL 7 to 8 via Leapp, Debian sequential dist-upgrades, Windows 10 to 11 on eligible hardware, SLES 12 to 15",
+     "action": "Scheduled upgrade program with application compatibility testing",
+     "cost": "Medium. Project-level effort; regression risk sits in the applications, not the TLS stack"
+    },
+    {
+     "tier": "D",
+     "definition": "Migration or replacement required. Examples: Windows Server 2019 and earlier, RHEL 6, Amazon Linux 2, HP-UX, Windows 10 on ineligible hardware, sub-14.x F5s, EOL appliances, frozen firmware",
+     "action": "Budget as capital refresh; sequence by exposure",
+     "cost": "High. Procurement cycles and depreciation schedules need lead time, which is why Tier D wants surfacing first"
+    }
+   ],
+   "notes": [
+    "Triage order within tiers: (1) internet-facing services and any flow carrying long-lived secrets (harvest-now-decrypt-later exposure), (2) systems whose lifespan crosses the 2030 and 2031 US federal PQC deadlines, (3) internal high-value services (directory, PKI, backup, KMS).",
+    "The silent budget items are Tier D platforms with support horizons past 2030: Windows Server 2019 (to 2029), Windows 10 IoT Enterprise LTSC 2021 (to 2032), RHEL 7 ELS (to 2028). Nothing in normal lifecycle reporting flags them, because they are supported. Only a capability view like this one does.",
+    "A workable executive summary is four numbers: host and listener counts by tier, with Tier D cost attached."
+   ]
+  },
+  {
+   "id": "linux",
+   "category": "Linux",
+   "kind": "os",
+   "rows": [
+    {
+     "platform": "RHEL 6 and earlier",
+     "native_tls13": "No",
+     "min_release": "RHEL 8.0",
+     "stack": "OpenSSL 1.0.1e",
+     "enabled_by_default": "No",
+     "path_to_capability": "Migration required (fresh install; Leapp only reaches 7 to 8)",
+     "support_ends": "2020-11 (ended)",
+     "extended_support": "ELS ended 2024-06",
+     "pqc_notes": "None",
+     "caveats": "Long past end of life; treat as replacement, not upgrade",
+     "sources": "Red Hat lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "platform": "RHEL 7 / CentOS 7",
+     "native_tls13": "No",
+     "min_release": "RHEL 8.0",
+     "stack": "OpenSSL 1.0.2k",
+     "enabled_by_default": "No",
+     "path_to_capability": "In-place major upgrade via Leapp (7 to 8) is supported; many estates rebuild instead",
+     "support_ends": "2024-06-30 (ended)",
+     "extended_support": "RHEL 7 ELS runs 2024-07-01 to 2028-06-30 in one-year increments (some trackers cite 2029-05; sources conflict). CentOS 7 has no vendor ELS, third party only",
+     "pqc_notes": "None",
+     "caveats": "Still widely deployed. Extended support delivers patches but never TLS 1.3: capability and support lifecycle are independent",
+     "sources": "Red Hat lifecycle; endoflife.date",
+     "status": "High confidence"
+    },
+    {
+     "platform": "RHEL 8",
+     "native_tls13": "Yes",
+     "min_release": "8.0",
+     "stack": "OpenSSL 1.1.1 (with Red Hat backports)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable. System-wide crypto policies govern minimum protocol versions",
+     "support_ends": "2029-05-31",
+     "extended_support": "ELS beyond (paid)",
+     "pqc_notes": "No ML-KEM in system stack",
+     "caveats": "Version-sniffing scanners must account for backports: RHEL package versions stay fixed while fixes land",
+     "sources": "Red Hat lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "platform": "RHEL 9",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.0.1 at 9.0; rebased to 3.2.2 in 9.5 and to 3.5 in 9.7",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "2032-05-31",
+     "extended_support": "ELS beyond (paid)",
+     "pqc_notes": "PQC capable from 9.7: the OpenSSL 3.5 rebase brings ML-KEM, ML-DSA and SLH-DSA with hybrid ML-KEM in the default TLS group",
+     "sources": "Red Hat 9.5 and 9.7 release notes",
+     "status": "High confidence"
+    },
+    {
+     "platform": "RHEL 10",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.2 at 10.0, rebased to 3.5 in 10.1",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Full support to 2030-05-31; maintenance to 2035-05-31",
+     "extended_support": "ELS beyond (paid)",
+     "pqc_notes": "10.0 shipped ML-KEM as Technology Preview (oqsprovider); 10.1 moved PQC into the OpenSSL 3.5 default provider, fully supported, enabled and preferred by default in TLS and SSH. FIPS mode permits only the P-curve hybrids (SecP256r1MLKEM768, SecP384r1MLKEM1024); X25519MLKEM768 is excluded",
+     "caveats": "Released 2025-05-20; 10.1 late 2025",
+     "sources": "Red Hat blog and customer portal; Red Hat lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "platform": "AlmaLinux / Rocky Linux 8, 9, 10",
+     "native_tls13": "Yes",
+     "min_release": "8.x",
+     "stack": "Tracks RHEL (OpenSSL 1.1.1 / 3.x)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Tracks RHEL dates (approx.)",
+     "extended_support": "Third party extended support only",
+     "pqc_notes": "Tracks RHEL content",
+     "caveats": "Community rebuilds; common CentOS 7 landing zone",
+     "sources": "AlmaLinux and Rocky wikis",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Oracle Linux 7",
+     "native_tls13": "No",
+     "min_release": "OL 8",
+     "stack": "OpenSSL 1.0.2",
+     "enabled_by_default": "No",
+     "path_to_capability": "Leapp-style in-place upgrade or rebuild",
+     "support_ends": "Premier support ended 2024-12",
+     "extended_support": "Extended Support end: sources conflict (lifetime policy PDF lists 2029-07; Oracle Linux blog materials say through 2028-06). Sustaining indefinite",
+     "pqc_notes": "None",
+     "caveats": "Resolve the Extended end date with Oracle support before relying on it",
+     "sources": "Oracle lifetime support policy; Oracle Linux blog",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Ubuntu 16.04 LTS",
+     "native_tls13": "No",
+     "min_release": "18.04 (fully updated)",
+     "stack": "OpenSSL 1.0.2g",
+     "enabled_by_default": "No",
+     "path_to_capability": "Chained release upgrades (16.04 to 18.04 to 20.04...) or rebuild; rebuild usually cleaner",
+     "support_ends": "2021-04 (ended)",
+     "extended_support": "ESM ended 2024-04; Legacy add-on extends further (confirm current end date)",
+     "pqc_notes": "None",
+     "sources": "Canonical release cycle",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Ubuntu 18.04 LTS",
+     "native_tls13": "Yes, with updates",
+     "min_release": "18.04.3 or later patch level",
+     "stack": "OpenSSL 1.1.1 (arrived via update; GA media shipped 1.1.0g)",
+     "enabled_by_default": "Yes, once updated",
+     "path_to_capability": "Point update if still on GA-era packages",
+     "support_ends": "2023-05-31 (ended)",
+     "extended_support": "ESM to 2028-04",
+     "pqc_notes": "None",
+     "caveats": "Patch level matters, not just release number: an unpatched 18.04 host lacks TLS 1.3",
+     "sources": "Canonical; Launchpad SRU record",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Ubuntu 20.04 LTS",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 1.1.1f",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "2025-05-31 (ended)",
+     "extended_support": "ESM to 2030-04",
+     "pqc_notes": "None",
+     "caveats": "Now ESM-only; plan move to 24.04 or 26.04",
+     "sources": "Canonical",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Ubuntu 22.04 LTS",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.0.2",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "2027-04",
+     "extended_support": "ESM to 2032",
+     "pqc_notes": "No ML-KEM in 3.0 line",
+     "sources": "Canonical",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Ubuntu 24.04 LTS",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.0.13",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "2029-04",
+     "extended_support": "ESM to 2034",
+     "pqc_notes": "No ML-KEM in 3.0 line",
+     "sources": "Canonical",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Ubuntu 26.04 LTS",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.5.x",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "2031-04",
+     "extended_support": "ESM (Ubuntu Pro) to 2036-04",
+     "pqc_notes": "ML-KEM hybrid key exchange in TLS by default via OpenSSL 3.5; OpenSSH 10.2 defaults to mlkem768x25519 key exchange",
+     "caveats": "Released 2026-04-23",
+     "sources": "Canonical release notes",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Debian 9 Stretch and earlier",
+     "native_tls13": "No",
+     "min_release": "Debian 10",
+     "stack": "OpenSSL 1.1.0 and earlier",
+     "enabled_by_default": "No",
+     "path_to_capability": "Sequential dist-upgrades or rebuild",
+     "support_ends": "Ended (LTS closed 2022-06)",
+     "extended_support": "ELTS (commercial)",
+     "pqc_notes": "None",
+     "sources": "Debian wiki",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Debian 10 Buster",
+     "native_tls13": "Yes",
+     "min_release": "10.0",
+     "stack": "OpenSSL 1.1.1",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable, but past free support",
+     "support_ends": "LTS ended 2024-06-30",
+     "extended_support": "ELTS (Freexian, commercial)",
+     "pqc_notes": "None",
+     "caveats": "Debian upgrades are sequential: 10 to 11 to 12 to 13",
+     "sources": "Debian wiki",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Debian 11 Bullseye",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 1.1.1",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "LTS ends 2026-08-31",
+     "extended_support": "ELTS (commercial) beyond",
+     "pqc_notes": "None",
+     "caveats": "Free security support ends this month. LTS covers amd64, i386, arm64, armhf and a package subset only; install debian-security-support to see gaps",
+     "sources": "debian.org",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Debian 12 Bookworm",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.0",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Regular support ended 2026-06-10",
+     "extended_support": "LTS to 2028-06-30; ELTS beyond",
+     "pqc_notes": "No ML-KEM in 3.0 line",
+     "sources": "debian.org",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Debian 13 Trixie",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.5.x",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Regular support to ~2028",
+     "extended_support": "LTS to ~2030",
+     "pqc_notes": "X25519MLKEM768 is first in the default TLS group list (Debian SSL_CONF_cmd manpage)",
+     "caveats": "Released 2025-08-09",
+     "sources": "debian.org; Debian manpages",
+     "status": "High confidence"
+    },
+    {
+     "platform": "SLES 12 (through SP5)",
+     "native_tls13": "No",
+     "min_release": "SLES 15 SP2 (confirm; see next row)",
+     "stack": "OpenSSL 1.0.2",
+     "enabled_by_default": "No",
+     "path_to_capability": "Service pack migration path to 15 exists; commonly rebuilt",
+     "support_ends": "General support ended 2024-10-31",
+     "extended_support": "LTSS to 2027-10-31; LTSS Core to 2030",
+     "pqc_notes": "None",
+     "sources": "SUSE lifecycle; LTSS flyer",
+     "status": "High confidence"
+    },
+    {
+     "platform": "SLES 15 (by service pack)",
+     "native_tls13": "Yes from the SP that shipped OpenSSL 1.1.1",
+     "min_release": "Early service packs (SP2 era; exact SP still to pin). SUSE SP3 release notes state OpenSSL, GnuTLS and NSS linked packages already support TLS 1.3",
+     "stack": "OpenSSL 1.1.0 then 1.1.1; SP6 (2024) moved the default to 3.1.4 and SP7 to 3.2.3",
+     "enabled_by_default": "Yes, from that SP",
+     "path_to_capability": "Service pack update",
+     "support_ends": "Per service pack lifecycle",
+     "extended_support": "LTSS available",
+     "pqc_notes": "Confirm any PQC enablement in current SPs and in SLES 16",
+     "caveats": "Pin the exact SP against SUSE package records. SUSE also cautioned that not every package was TLS 1.3 enabled at the time (Python, for example)",
+     "sources": "SUSE documentation",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "openSUSE Leap 15.x",
+     "native_tls13": "Yes (tracks SLES 15 SPs)",
+     "min_release": "Same SP caveat as SLES 15",
+     "stack": "Tracks SLES OpenSSL by SP",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Service pack update or move to Leap 16",
+     "support_ends": "Per Leap minor (~18 months each)",
+     "extended_support": "n/a",
+     "pqc_notes": "Leap 16 (SLES 16 base) expected to carry a modern 3.x stack; confirm",
+     "sources": "openSUSE wiki",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Amazon Linux 1 (AMI)",
+     "native_tls13": "No",
+     "min_release": "AL2023",
+     "stack": "OpenSSL 1.0.x",
+     "enabled_by_default": "No",
+     "path_to_capability": "Migration required",
+     "support_ends": "Ended 2023-12-31",
+     "extended_support": "None",
+     "pqc_notes": "None",
+     "sources": "AWS documentation",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Amazon Linux 2",
+     "native_tls13": "Partial",
+     "min_release": "AL2023 (recommended target)",
+     "stack": "Default openssl is 1.0.2k (no TLS 1.3); optional openssl11 package provides 1.1.1",
+     "enabled_by_default": "No (default stack)",
+     "path_to_capability": "Migration to AL2023; AWS provides no in-place major upgrade",
+     "support_ends": "2026-06-30 (ended)",
+     "extended_support": "Third party extended support only",
+     "pqc_notes": "None",
+     "caveats": "Now past end of life. Applications linked against the default OpenSSL do not gain TLS 1.3 without rebuilding against openssl11",
+     "sources": "AWS documentation; AWS re:Post",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Amazon Linux 2023",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "OpenSSL 3.x",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Support 2023-03-15 to 2028-03-15 per the AWS package support statement (trackers list 2029-06; sources conflict, AWS primary wins)",
+     "extended_support": "n/a",
+     "pqc_notes": "AWS AL2023 crypto-policies documentation cites GnuTLS 3.8.10 with ML-KEM; the OpenSSL ML-KEM state is still to confirm",
+     "sources": "AWS documentation; amazonlinux GitHub",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Fedora (current releases)",
+     "native_tls13": "Yes since Fedora 29",
+     "min_release": "Fedora 29",
+     "stack": "OpenSSL 1.1.1 then 3.x; Fedora 42 shipped 3.2.x, Fedora 43 (2025-10) is the first with 3.5 as default",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "~13 month lifecycle per release",
+     "extended_support": "n/a",
+     "pqc_notes": "PQC capable from Fedora 43 via OpenSSL 3.5",
+     "caveats": "Short lifecycle; useful as a leading indicator, not an enterprise baseline",
+     "sources": "Fedora Packages database",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Alpine Linux (as host OS)",
+     "native_tls13": "Yes",
+     "min_release": "3.9 (OpenSSL 1.1.1; 3.8 and earlier used LibreSSL)",
+     "stack": "OpenSSL 1.1.1; 3.0 default from 3.17; 3.22 (2025-06) on the 3.5 line",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable on supported branches",
+     "support_ends": "~2 years per branch",
+     "extended_support": "n/a",
+     "pqc_notes": "PQC capable from 3.22 via OpenSSL 3.5 (corroborated by the NGINX PQC post; confirm on the Alpine releases page)",
+     "caveats": "musl libc quirks affect some TLS tooling",
+     "sources": "Alpine release notes; NGINX blog",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Raspberry Pi OS",
+     "native_tls13": "Yes on bullseye and later images",
+     "min_release": "Bullseye-based images",
+     "stack": "Tracks Debian (bullseye 1.1.1, bookworm 3.0, trixie 3.5)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Reimage or dist-upgrade; fleets of legacy buster images are the common gap",
+     "support_ends": "Tracks Debian phases",
+     "extended_support": "n/a",
+     "pqc_notes": "Trixie-based images inherit the ML-KEM capable stack",
+     "caveats": "Deployed device fleets frequently run years-old images; this is the visible edge of the embedded tail",
+     "sources": "raspberrypi.com; debian.org",
+     "status": "High confidence"
+    },
+    {
+     "platform": "VMware Photon OS 4 / 5",
+     "native_tls13": "Yes (confirm per release)",
+     "min_release": "Photon 4 (confirm)",
+     "stack": "Photon 4 on the 1.1.1 line, Photon 5 on 3.x (confirm)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable on current releases",
+     "support_ends": "Per Broadcom lifecycle (confirm post-acquisition dates)",
+     "extended_support": "n/a",
+     "caveats": "Common as appliance base for VMware ecosystem products; those appliances inherit its stack",
+     "sources": "VMware Photon documentation",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Flatcar Container Linux / Bottlerocket",
+     "native_tls13": "Yes",
+     "min_release": "Current channels",
+     "stack": "Auto-updating minimal hosts; current OpenSSL 3.x (Flatcar); purpose-built Rust and Go components (Bottlerocket)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable (auto-update model)",
+     "support_ends": "Rolling channels",
+     "extended_support": "n/a",
+     "pqc_notes": "Track upstream OpenSSL 3.5 adoption for PQC (confirm)",
+     "caveats": "Container workloads bring their own runtimes; host stack matters mainly for host services",
+     "sources": "Flatcar and Bottlerocket docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Arch Linux and rolling distros",
+     "native_tls13": "Yes",
+     "min_release": "Rolling (current)",
+     "stack": "Current OpenSSL (3.5 line)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Rolling",
+     "extended_support": "n/a",
+     "pqc_notes": "Rolling distros are already PQC capable by nature of shipping current OpenSSL",
+     "caveats": "Not an enterprise baseline; useful for validation work",
+     "sources": "Arch package database",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Intel Clear Linux",
+     "native_tls13": "Was capable",
+     "min_release": "n/a",
+     "stack": "Was current OpenSSL",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Migration required: discontinued by Intel in July 2025, effective immediately",
+     "support_ends": "Discontinued 2025-07 (final build 43800, 2025-07-21)",
+     "extended_support": "None",
+     "pqc_notes": "None",
+     "caveats": "No further security patches; repositories archived read-only. Estates still on it need a migration line item",
+     "sources": "Intel community announcement; LWN",
+     "status": "High confidence"
+    }
+   ],
+   "notes": [
+    "Backport caveat: enterprise distributions patch fixed package versions in place. A host reporting OpenSSL 1.1.1 on RHEL 8 is patched; the same string on an abandoned build may not be. Capability detection should test protocol negotiation, not version strings alone.",
+    "The dividing line for nearly all Linux is OpenSSL 1.1.1 (released 2018-09), the first release with RFC 8446 TLS 1.3. Any distribution whose system OpenSSL predates 1.1.1 cannot offer native TLS 1.3 without a major version move.",
+    "Open stretch goals for contributors: HPC distros, NAS operating systems (Synology DSM, QNAP QTS; see Network Appliances tab), Gentoo, NixOS, and vendor-embedded Linux derivatives."
+   ]
+  },
+  {
+   "id": "windows",
+   "category": "Windows",
+   "kind": "os",
+   "rows": [
+    {
+     "platform": "Windows 7 / 8.1 (legacy clients)",
+     "native_tls13": "No",
+     "min_release": "Windows 11",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "Device replacement",
+     "support_ends": "Ended (8.1: 2023-01-10; 7 ESU ended 2023-01)",
+     "extended_support": "None",
+     "pqc_notes": "None",
+     "caveats": "Persist in OT and kiosk estates; count them",
+     "sources": "Microsoft lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows Server 2012 / 2012 R2",
+     "native_tls13": "No",
+     "min_release": "Windows Server 2022",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "Migration required; this line never gains TLS 1.3",
+     "support_ends": "2023-10-10 (ended)",
+     "extended_support": "Final ESU ends 2026-10-13",
+     "pqc_notes": "None",
+     "caveats": "ESU buys patches, not TLS 1.3 capability",
+     "sources": "Microsoft lifecycle; Schannel documentation",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows Server 2016",
+     "native_tls13": "No",
+     "min_release": "Windows Server 2022",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "Migration required",
+     "support_ends": "Mainstream ended 2022-01-11",
+     "extended_support": "Extended to 2027-01-12",
+     "pqc_notes": "None",
+     "caveats": "Supported into 2027 yet never TLS 1.3 capable",
+     "sources": "Microsoft",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows Server 2019",
+     "native_tls13": "No",
+     "min_release": "Windows Server 2022",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "Migration required",
+     "support_ends": "Mainstream ended 2024-01-09",
+     "extended_support": "Extended to 2029-01-09",
+     "pqc_notes": "None",
+     "caveats": "The sharpest planning trap in the matrix: in extended support until 2029 and permanently incapable of native TLS 1.3. Domain controllers on 2019 cap LDAPS at TLS 1.2 for the whole directory (see Applications tab)",
+     "sources": "Microsoft",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows Server 2022",
+     "native_tls13": "Yes",
+     "min_release": "First capable server release",
+     "stack": "Schannel",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Mainstream to 2026-10-13",
+     "extended_support": "Extended to 2031-10-14",
+     "pqc_notes": "Shipped Windows PQC (CNG ML-KEM and ML-DSA APIs, TLS hybrid ML-KEM) targets Server 2025 and Windows 11, not Server 2022; plan PQC on the 2025 line",
+     "caveats": "Microsoft states that enabling TLS 1.3 on earlier Windows versions is not a safe configuration",
+     "sources": "Microsoft Learn: Protocols in TLS/SSL",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows Server 2025",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "Schannel",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Mainstream to 2029-11-13",
+     "extended_support": "Extended to 2034-11-14",
+     "pqc_notes": "CNG ML-KEM and ML-DSA GA (2025-11); ADCS ML-DSA certificate issuance GA (2026-05); TLS hybrid ML-KEM key exchange shipped in the 2026-07 update, disabled by default pending administrator enablement",
+     "sources": "Microsoft security blog; Microsoft lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows 10 (semi-annual, all editions)",
+     "native_tls13": "No",
+     "min_release": "Windows 11",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "In-place upgrade to Windows 11 where hardware qualifies (TPM 2.0, supported CPU); otherwise device replacement",
+     "support_ends": "2025-10-14 (ended)",
+     "extended_support": "Consumer ESU extended (2026-06) to 2027-10-12; commercial ESU to 2028-10",
+     "pqc_notes": "None",
+     "caveats": "Win10 carried experimental TLS 1.3 code that was never supported for production; registry-enabling it is explicitly unsafe per Microsoft. Hardware eligibility rules mean this is often a refresh, not an upgrade",
+     "sources": "Microsoft",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows 10 Enterprise LTSC 2019",
+     "native_tls13": "No",
+     "min_release": "Windows 11",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "Migration required",
+     "support_ends": "Mainstream ended 2024-01",
+     "extended_support": "Extended to 2029-01-09",
+     "pqc_notes": "None",
+     "caveats": "Same trap as Server 2019, embedded in medical, industrial and kiosk fleets",
+     "sources": "Microsoft",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows 10 Enterprise LTSC 2021",
+     "native_tls13": "No",
+     "min_release": "Windows 11",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "Migration required",
+     "support_ends": "n/a",
+     "extended_support": "Ends 2027-01-12 (5 year edition)",
+     "pqc_notes": "None",
+     "caveats": "Its own ESU program (purchasable from 2026-09) reaches at most 2030-01-08 and never adds TLS 1.3",
+     "sources": "Microsoft",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows 10 IoT Enterprise LTSC 2021",
+     "native_tls13": "No",
+     "min_release": "Windows 11 IoT LTSC",
+     "stack": "Schannel",
+     "enabled_by_default": "No",
+     "path_to_capability": "Device or image replacement",
+     "support_ends": "n/a",
+     "extended_support": "Ends 2032-01-13 (10 year edition)",
+     "pqc_notes": "None",
+     "caveats": "Supported past BOTH US federal PQC deadlines (2030 key establishment, 2031 signatures) while permanently incapable of TLS 1.3. The single worst lifecycle vs capability mismatch found so far",
+     "sources": "Microsoft lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows 11 (annual releases)",
+     "native_tls13": "Yes",
+     "min_release": "21H2",
+     "stack": "Schannel",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Per annual release lifecycle",
+     "extended_support": "Per edition",
+     "pqc_notes": "CNG ML-KEM and ML-DSA GA (2025-11); TLS hybrid ML-KEM shipped for 24H2, 25H2 and 26H1 in the 2026-07 updates, disabled by default",
+     "sources": "Microsoft security blog",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Windows 11 Enterprise / IoT LTSC 2024",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "Schannel",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Enterprise: end of servicing 2029-10-10 (no extended phase). IoT: mainstream to 2031-10-14",
+     "extended_support": "IoT extended to 2034-10-10",
+     "pqc_notes": "Long-lived capable baseline for embedded fleets replacing Win10 LTSC",
+     "sources": "Microsoft lifecycle",
+     "status": "High confidence"
+    }
+   ],
+   "notes": [
+    "Everything riding Schannel inherits the OS ceiling: .NET Framework, IIS, HTTP.sys, RDP, LDAPS, WinHTTP. Applications that bundle their own TLS stack (browsers, Java, applications shipping OpenSSL) can exceed the OS ceiling on the same host.",
+    "Secondary sources conflict on Windows TLS 1.3 minimums (some claim Server 2016 or Windows 10 1903). Microsoft's own Schannel documentation is unambiguous: Windows 11 and Windows Server 2022 are the floor. This conflict is itself evidence of why a vetted matrix is needed.",
+    "LTSC editions are where lifecycle vs capability mismatches concentrate: they are chosen precisely for longevity, and the Windows 10 based ones are frozen below the TLS 1.3 line for their entire lives."
+   ]
+  },
+  {
+   "id": "macos-bsd",
+   "category": "macOS and BSD",
+   "kind": "os",
+   "rows": [
+    {
+     "platform": "macOS 10.13 High Sierra and earlier",
+     "native_tls13": "No (draft-era code only, off by default)",
+     "min_release": "macOS 10.14.4",
+     "stack": "Secure Transport",
+     "enabled_by_default": "No",
+     "path_to_capability": "OS upgrade where hardware allows; otherwise device replacement",
+     "support_ends": "Unsupported",
+     "extended_support": "n/a",
+     "pqc_notes": "None",
+     "sources": "Apple support publications",
+     "status": "High confidence"
+    },
+    {
+     "platform": "macOS 10.14 Mojave",
+     "native_tls13": "Partial before 10.14.4",
+     "min_release": "10.14.4",
+     "stack": "Secure Transport / Network.framework",
+     "enabled_by_default": "Yes, from 10.14.4",
+     "path_to_capability": "Point update",
+     "support_ends": "Unsupported",
+     "extended_support": "n/a",
+     "pqc_notes": "None",
+     "caveats": "10.14.4 negotiates TLS 1.3 (aligned with Safari 12.1), but App Transport Security defaults kept TLS 1.2 as the maximum in that era, so per-app behavior varied; state the claim carefully",
+     "sources": "Apple release notes",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "macOS 11 Big Sur through current (macOS 26 Tahoe)",
+     "native_tls13": "Yes",
+     "min_release": "Capable at GA",
+     "stack": "Network.framework / Secure Transport",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Apple patches roughly the three most recent majors; no formal published lifecycle",
+     "extended_support": "n/a",
+     "pqc_notes": "The 26 cycle (fall 2025) added the hybrid PQ group at the TLS layer in Network.framework plus quantum-secure CryptoKit APIs (corroborated; confirm shipped scope against Apple docs). iMessage PQ3 came earlier",
+     "caveats": "Absence of a published support lifecycle is itself a planning caveat",
+     "sources": "Apple",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "OpenBSD (LibreSSL)",
+     "native_tls13": "Yes",
+     "min_release": "OpenBSD 6.8 / LibreSSL 3.2.2 (client support from 3.1)",
+     "stack": "LibreSSL (libssl / libtls)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable on supported releases",
+     "support_ends": "Two most recent 6-month releases supported",
+     "extended_support": "n/a",
+     "pqc_notes": "Confirm LibreSSL PQC roadmap (not yet mainline as of seeding)",
+     "caveats": "libtls API differs from OpenSSL; ports linking OpenSSL behave per OpenSSL",
+     "sources": "OpenBSD release notes",
+     "status": "High confidence"
+    },
+    {
+     "platform": "NetBSD",
+     "native_tls13": "Yes on current",
+     "min_release": "Confirm first release with OpenSSL 1.1.1 in base",
+     "stack": "OpenSSL in base",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Major upgrade for old installs",
+     "support_ends": "Per release",
+     "extended_support": "n/a",
+     "sources": "NetBSD docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "FreeBSD 11.x and earlier",
+     "native_tls13": "No",
+     "min_release": "FreeBSD 12.0",
+     "stack": "Base OpenSSL predates 1.1.1",
+     "enabled_by_default": "No",
+     "path_to_capability": "Major version upgrade",
+     "support_ends": "Ended",
+     "extended_support": "n/a",
+     "pqc_notes": "None",
+     "sources": "FreeBSD security pages",
+     "status": "High confidence"
+    },
+    {
+     "platform": "FreeBSD 12.0 and later",
+     "native_tls13": "Yes",
+     "min_release": "12.0",
+     "stack": "OpenSSL 1.1.1 in base at 12.0; 3.0 in 14.x",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "Already capable",
+     "support_ends": "Per branch (12 ended 2023-12; 13.x winding down; 14.x current)",
+     "extended_support": "n/a",
+     "pqc_notes": "Confirm base OpenSSL version and PQC state in FreeBSD 15",
+     "sources": "FreeBSD security pages",
+     "status": "Needs verification"
+    }
+   ],
+   "notes": [
+    "Client-side reality check: evergreen browsers bundle their own stacks, so Chrome or Firefox on an old macOS still negotiates TLS 1.3. The gap this matrix targets is the OS-native stack that system services, MDM agents, and Apple frameworks depend on."
+   ]
+  },
+  {
+   "id": "mobile",
+   "category": "Mobile",
+   "kind": "os",
+   "rows": [
+    {
+     "platform": "iOS / iPadOS 12.2 and later",
+     "native_tls13": "Yes",
+     "min_release": "12.2",
+     "stack": "Network.framework / Secure Transport",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "OS update; hardware older than the iOS 12 line needs replacement",
+     "support_ends": "Latest major fully supported; limited security back-support for prior majors (informal)",
+     "extended_support": "n/a",
+     "pqc_notes": "iOS 26 (fall 2025) adds the hybrid PQ group at the TLS layer in Network.framework plus quantum-secure CryptoKit APIs (corroborated; confirm shipped scope)",
+     "caveats": "App Transport Security governs app connections; MDM can pin minimum TLS",
+     "sources": "Apple",
+     "status": "High confidence"
+    },
+    {
+     "platform": "iOS 12.1 and earlier",
+     "native_tls13": "No (final RFC)",
+     "min_release": "12.2",
+     "stack": "Secure Transport",
+     "enabled_by_default": "No",
+     "path_to_capability": "Device replacement (hardware capped below iOS 12.2)",
+     "support_ends": "Unsupported",
+     "extended_support": "n/a",
+     "pqc_notes": "None",
+     "caveats": "Survives in kiosk, scanner and payment fleets",
+     "sources": "Apple",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Android 10 (API 29) and later",
+     "native_tls13": "Yes (platform default)",
+     "min_release": "Android 10",
+     "stack": "Conscrypt (BoringSSL based)",
+     "enabled_by_default": "Yes",
+     "path_to_capability": "OS update where OEM provides one; otherwise device replacement",
+     "support_ends": "OEM dependent (3 to 7 years by vendor and tier)",
+     "extended_support": "n/a",
+     "pqc_notes": "From Android 10, Conscrypt is an updatable Mainline module via Google Play system updates, decoupling TLS capability from OEM firmware (corroborated; device-class coverage still to confirm)",
+     "caveats": "Fleet reality is set by the oldest OEM-abandoned devices, not the platform line",
+     "sources": "Android platform docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Android 9 and earlier",
+     "native_tls13": "No (platform stack)",
+     "min_release": "Android 10",
+     "stack": "Conscrypt (older)",
+     "enabled_by_default": "No",
+     "path_to_capability": "Apps can self-provision TLS 1.3 via Google Play services security provider or bundled Conscrypt; the platform itself stays below the line",
+     "support_ends": "Unsupported by Google; OEM patches vary",
+     "extended_support": "n/a",
+     "pqc_notes": "None",
+     "caveats": "App-level workaround does not help system components or unmanaged apps",
+     "sources": "Android developer docs",
+     "status": "High confidence"
+    }
+   ],
+   "notes": [
+    "Mobile matters to infrastructure planning as the client population: once server estates enforce TLS 1.3 minimums (a prerequisite for PQC-only policies later), abandoned Android fleets and frozen iOS kiosk devices are what breaks."
+   ]
+  },
+  {
+   "id": "network-appliances",
+   "category": "Network Appliances",
+   "kind": "appliance",
+   "rows": [
+    {
+     "platform": "Palo Alto PAN-OS (decryption)",
+     "tls13_status": "Yes",
+     "min_version": "PAN-OS 10.0 (confirm first release)",
+     "applies_to": "Data plane: SSL Forward Proxy and Inbound Inspection",
+     "enabled_by_default": "No",
+     "caveats": "A decryption profile must set TLSv1.3 (or Max) explicitly; otherwise PAN-OS caps decrypted sessions at TLS 1.2. HSM-backed deployments support TLS 1.3 for Forward Proxy only, not Inbound Inspection. Downgrading PAN-OS silently rewrites 1.3 profile settings",
+     "sources": "Palo Alto TechDocs",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Palo Alto PAN-OS (management)",
+     "tls13_status": "Yes",
+     "min_version": "PAN-OS 11.0",
+     "applies_to": "Web management interface",
+     "enabled_by_default": "No (exclude_tlsv1.3 is the 11.0 default)",
+     "caveats": "Capability arrived in 11.0 but ships disabled; tlsv1.3_only or mixed-mode must be selected. A clean example of capable is not enabled at the vendor tier",
+     "sources": "Palo Alto TechDocs",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Fortinet FortiOS",
+     "tls13_status": "Yes",
+     "min_version": "6.2 (SSL VPN, deep inspection)",
+     "applies_to": "Per subsystem: SSL VPN, deep inspection, local-out, admin GUI",
+     "enabled_by_default": "Partial (global minimum defaults to TLS 1.2)",
+     "caveats": "TLS 1.3 deep inspection needs IPS engine 4.205+ and FortiClient 6.2+. Fortinet documents that not all settings support TLSv1.3 and some FortiCloud and FortiGuard services do not. Record per-feature minimums, not one number per firewall",
+     "sources": "Fortinet Document Library",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Cisco ASA / FTD",
+     "tls13_status": "Yes",
+     "min_version": "ASA 9.19(1); FTD TLS 1.3 features from 7.3 (corroborated), ssl server-max-version documented at 7.4.1",
+     "applies_to": "Remote access VPN, ASDM management",
+     "enabled_by_default": "Version dependent",
+     "caveats": "RAVPN TLS 1.3 requires Cisco Secure Client; ASDM additionally needs Java 8u261+ on the admin workstation. FTD 6.7 added TLS Server Identity Discovery (visibility only, not decryption). Older hardware capped by train availability",
+     "sources": "Cisco advisory cisco-sa-asa-tls-CWY6zXB; release notes",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Cisco IOS-XE",
+     "tls13_status": "Partial",
+     "min_version": "17.x line (confirm per feature)",
+     "applies_to": "HTTPS server, RESTCONF, management daemons",
+     "enabled_by_default": "Confirm",
+     "caveats": "Management plane is fronted by an internal nginx proxy (per the IOS-XE programmability guides), but the release that moved it to TLS 1.3 is not stated there. Verify per management protocol in use",
+     "sources": "Cisco configuration guides",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Cisco NX-OS",
+     "tls13_status": "Confirm",
+     "min_version": "Confirm",
+     "applies_to": "Management plane",
+     "enabled_by_default": "Confirm",
+     "caveats": "Data center switching estates often long-lived; verify per release train",
+     "sources": "Cisco documentation",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Juniper Junos OS",
+     "tls13_status": "Yes (SSL proxy data plane)",
+     "min_version": "21.2R1 (SRX SSL proxy)",
+     "applies_to": "Data-plane SSL proxy; J-Web and management docs still reference TLS 1.2",
+     "enabled_by_default": "Per policy",
+     "caveats": "TLS 1.3 in Junos is primarily a data-plane SSL proxy feature; treat the management plane as TLS 1.2 until Juniper documents otherwise",
+     "sources": "Juniper Feature Explorer; SSL Proxy docs",
+     "status": "High confidence"
+    },
+    {
+     "platform": "F5 BIG-IP (TMOS)",
+     "tls13_status": "Yes",
+     "min_version": "14.0 (draft standard); 14.1 adds server side; final RFC solid from 15.x",
+     "applies_to": "Client SSL and Server SSL profiles (data plane)",
+     "enabled_by_default": "No: disabled by default through 21.x (remove the No TLSv1.3 option to enable)",
+     "caveats": "Estates below 14.x cap every virtual server they front at TLS 1.2, and current versions still ship it off. ML-KEM hybrid groups (SecP256r1MLKEM768, SecP384r1MLKEM1024) arrive in BIG-IP 21.1.0",
+     "sources": "F5 K articles (K10251520, K000136126)",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Citrix NetScaler / ADC",
+     "tls13_status": "Yes",
+     "min_version": "Front end 13.0 (hardware acceleration from 13.0 build 71.x); back end from 14.1 build 43.50",
+     "applies_to": "Front-end virtual servers and back-end services, separately",
+     "enabled_by_default": "No: must be enabled in the SSL profile",
+     "caveats": "Back-end TLS 1.3 is explicitly unsupported on 13.1. Not supported on FIPS appliances. TLS 1.3 to VDAs requires VDA 2503 and later. Same estate-ceiling dynamic as F5",
+     "sources": "NetScaler documentation",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Check Point (Gaia)",
+     "tls13_status": "Yes",
+     "min_version": "Inspection from R81 (requires TLSIO and User-Space Firewall mode); Gaia portal configurable from R81.10",
+     "applies_to": "HTTPS inspection; management portal separately",
+     "enabled_by_default": "No: portal defaults to TLS 1.2 (enable via clish, set ssl tls TLSv1.3 on)",
+     "caveats": "Inspection blades below R81 downgrade or break TLS 1.3 flows",
+     "sources": "Check Point R81 admin guides and What's New",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Cloud security proxies (Zscaler and peers)",
+     "tls13_status": "Yes",
+     "min_version": "Cloud, evergreen",
+     "applies_to": "Inspection path",
+     "enabled_by_default": "Yes",
+     "caveats": "Cloud stacks track current TLS; the on-premises tail is where gaps live",
+     "sources": "Vendor docs",
+     "status": "High confidence"
+    },
+    {
+     "platform": "NAS appliances (Synology DSM 7+, QNAP QTS 5+)",
+     "tls13_status": "Yes (web stack)",
+     "min_version": "Confirm per vendor",
+     "applies_to": "Management UI and file services over HTTPS",
+     "enabled_by_default": "Confirm",
+     "caveats": "Linux-based appliances inheriting nginx plus OpenSSL; verify vendor-set minimums",
+     "sources": "Vendor docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "pfSense / OPNsense",
+     "tls13_status": "Yes",
+     "min_version": "pfSense 2.5 era / OPNsense 21.x (FreeBSD 12 base with OpenSSL 1.1.1; confirm exact firsts)",
+     "applies_to": "Web GUI, VPN services, captive portal",
+     "enabled_by_default": "GUI yes; per service varies",
+     "caveats": "The FreeBSD base makes the floor easy to pin; OpenVPN and captive portal minimums need per-version checks",
+     "sources": "pfSense and OPNsense release notes",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "MikroTik RouterOS",
+     "tls13_status": "Yes on v7",
+     "min_version": "RouterOS 7 (confirm; check for v6 backports)",
+     "applies_to": "www-ssl, api-ssl, VPN services",
+     "enabled_by_default": "Confirm",
+     "caveats": "Very large installed base still on the v6 line",
+     "sources": "MikroTik documentation",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Arista EOS / Aruba AOS-CX",
+     "tls13_status": "EOS: Yes (current 4.36.x); AOS-CX: confirm",
+     "min_version": "EOS earliest capable release still to pin; AOS-CX unverified",
+     "applies_to": "Management plane (eAPI, REST, web UI)",
+     "enabled_by_default": "Profile dependent",
+     "caveats": "Current Arista EOS documents TLS 1.3 on management SSL profiles including X25519MLKEM768 hybrid groups; the first capable release is unpinned. Aruba AOS-CX remains unverified",
+     "sources": "Arista EOS Control Plane Security manual",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Session border controllers (Oracle, Ribbon, AudioCodes)",
+     "tls13_status": "Confirm",
+     "min_version": "Confirm per vendor",
+     "applies_to": "SIP-TLS and management, separately",
+     "enabled_by_default": "Confirm",
+     "caveats": "Voice planes are long-lived and rarely inventoried for TLS versions; SIP-TLS and management adopt on different schedules",
+     "sources": "Vendor documentation",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "NetApp ONTAP",
+     "tls13_status": "Confirm",
+     "min_version": "Recent 9.x (confirm exact release)",
+     "applies_to": "Management plane and TLS-protected data protocols",
+     "enabled_by_default": "Confirm",
+     "caveats": "Storage management planes outlive most of the servers around them",
+     "sources": "NetApp documentation",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Storage and backup appliances (category)",
+     "tls13_status": "Confirm",
+     "min_version": "Per vendor",
+     "applies_to": "Management planes, replication links, cloud tiering endpoints",
+     "enabled_by_default": "Confirm",
+     "caveats": "Dell, Pure and HPE arrays and backup servers each carry their own stack; replication and tiering links carry long-lived data and matter for harvest-now-decrypt-later exposure",
+     "sources": "Vendor documentation",
+     "status": "Needs verification"
+    }
+   ],
+   "notes": [
+    "Appliances need per-plane, per-feature rows: management UI, data-plane proxying or decryption, VPN termination, and cloud service call-home each adopt TLS versions on separate schedules. A single yes/no per box is meaningless and this tab deliberately refuses to give one.",
+    "TLS-inspecting middleboxes below their capable release do not just lag: they actively cap or break TLS 1.3 for everything behind them. Inventory these first; they set the ceiling for entire segments."
+   ]
+  },
+  {
+   "id": "virtualization-cloud",
+   "category": "Virtualization and Cloud",
+   "kind": "appliance",
+   "rows": [
+    {
+     "platform": "VMware ESXi / vCenter 7.0",
+     "tls13_status": "No (TLS 1.2)",
+     "min_version": "vSphere 8.0 U3",
+     "applies_to": "Management plane",
+     "enabled_by_default": "n/a",
+     "caveats": "General support ended 2025-10-02 (extended once from 2025-04); technical guidance ends 2027-04-02. Double pressure: unsupported and below the line",
+     "sources": "Broadcom lifecycle KB",
+     "status": "High confidence"
+    },
+    {
+     "platform": "VMware ESXi / vCenter 8.0 through U2",
+     "tls13_status": "No (TLS 1.2; OpenSSL 3.0 base on ESXi)",
+     "min_version": "8.0 U3",
+     "applies_to": "Management plane",
+     "enabled_by_default": "n/a",
+     "caveats": "8.0 dropped TLS 1.0/1.1 and moved ESXi to OpenSSL 3.0, but runs TLS 1.2",
+     "sources": "Broadcom release notes",
+     "status": "High confidence"
+    },
+    {
+     "platform": "VMware vSphere 8.0 U3",
+     "tls13_status": "Yes, via TLS profiles",
+     "min_version": "8.0 U3",
+     "applies_to": "ESXi and vCenter, profile controlled",
+     "enabled_by_default": "Partial (COMPATIBLE profile)",
+     "caveats": "The instructive row: TLS profiles support 1.3, but the BoringSSL module in 8.0 U3 is not FIPS certified for TLS 1.3, so port 443 (reverse proxy) stays TLS 1.2 under the COMPATIBLE and NIST_2024 profiles. FIPS validation lag, not protocol capability, is the gate",
+     "sources": "Broadcom TechDocs and KB",
+     "status": "High confidence"
+    },
+    {
+     "platform": "VMware vSphere 9.0",
+     "tls13_status": "Yes",
+     "min_version": "9.0",
+     "applies_to": "Management plane including port 443",
+     "enabled_by_default": "Confirm",
+     "caveats": "Broadcom KB framing implies TLS 1.3 default on 443 from 9.0; confirm profile defaults and FIPS status",
+     "sources": "Broadcom KB",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Microsoft Hyper-V",
+     "tls13_status": "Follows Windows",
+     "min_version": "Windows Server 2022",
+     "applies_to": "All planes",
+     "enabled_by_default": "Yes on 2022+",
+     "caveats": "See Windows tab; Hyper-V hosts on Server 2019 are Tier D",
+     "sources": "Microsoft",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Proxmox VE",
+     "tls13_status": "Yes",
+     "min_version": "PVE 7 (Debian 11 base)",
+     "applies_to": "Management plane (pveproxy)",
+     "enabled_by_default": "Yes",
+     "caveats": "Inherits Debian base: PVE 8 on Debian 12 (OpenSSL 3.0), PVE 9 on Debian 13 (OpenSSL 3.5, PQC capable stack; confirm release and defaults)",
+     "sources": "Proxmox and Debian docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "XCP-ng / Citrix Hypervisor",
+     "tls13_status": "Confirm",
+     "min_version": "Confirm",
+     "applies_to": "XAPI and management",
+     "enabled_by_default": "Confirm",
+     "caveats": "dom0 userspace lineage traces to the CentOS 7 era; verify the current management-plane TLS ceiling in 8.2 and 8.3",
+     "sources": "XCP-ng docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Nutanix AOS / AHV",
+     "tls13_status": "Confirm",
+     "min_version": "Confirm",
+     "applies_to": "Prism and management plane",
+     "enabled_by_default": "Confirm",
+     "caveats": "Verify per AOS release",
+     "sources": "Nutanix docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Kubernetes components",
+     "tls13_status": "Yes",
+     "min_version": "Any recent release (Go stack)",
+     "applies_to": "API server, kubelet, etcd",
+     "enabled_by_default": "Yes",
+     "caveats": "Go's crypto/tls, independent of node OS; min TLS version configurable per component. Node OS still governs everything outside the Go binaries",
+     "sources": "Kubernetes docs",
+     "status": "High confidence"
+    },
+    {
+     "platform": "AWS managed TLS edges (ALB, NLB, CloudFront)",
+     "tls13_status": "Yes",
+     "min_version": "TLS 1.3 security policies (GA 2023 for ALB/NLB; earlier for CloudFront)",
+     "applies_to": "Client-facing listeners",
+     "enabled_by_default": "Policy dependent",
+     "caveats": "ML-KEM confirmed scope: ALB and NLB TLS policies plus the AWS KMS, ACM and Secrets Manager endpoints (non-FIPS, all aws partition regions). ACM-issued certificates remain classical. CloudFront and API Gateway ML-KEM still to confirm. Origin pulls and backend hops remain the customer's problem",
+     "sources": "AWS Security Blog; AWS documentation",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Azure managed edges (Front Door, Application Gateway)",
+     "tls13_status": "Yes",
+     "min_version": "TLS 1.3 GA 2023 to 2024 (confirm per service)",
+     "applies_to": "Client-facing listeners",
+     "enabled_by_default": "Policy dependent",
+     "caveats": "PQC status not yet verifiable from Microsoft primary sources; TLS 1.3 GA dates per service also to confirm",
+     "sources": "Microsoft Learn",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Google Cloud load balancing",
+     "tls13_status": "Yes",
+     "min_version": "Long supported (confirm date)",
+     "applies_to": "Client-facing",
+     "enabled_by_default": "Yes",
+     "caveats": "Google front ends are widely documented as supporting the hybrid group; exact default scope and dates not yet pinned from Google primary sources",
+     "sources": "Google Cloud docs",
+     "status": "Needs verification"
+    },
+    {
+     "platform": "Cloudflare edge",
+     "tls13_status": "Yes",
+     "min_version": "Long supported",
+     "applies_to": "Client-facing and origin-facing",
+     "enabled_by_default": "Yes",
+     "caveats": "X25519MLKEM768 default on the client-facing edge (about 43 percent of human connections PQ-protected by 2025-09). Origin pulls: PQ key agreement on by default for new zones and enabled for existing, preferred when the origin supports it (about 10 percent of origins by early 2026, up from under 1 percent at the start of 2025); ML-DSA available via Authenticated Origin Pulls",
+     "sources": "Cloudflare blog and docs",
+     "status": "High confidence"
+    }
+   ],
+   "notes": [
+    "Managed cloud edges mean many internet-facing hops are already TLS 1.3 and increasingly PQC hybrid without customer action. The uncovered surface is origin pulls, backend re-encryption, self-managed listeners, and everything internal: exactly what the OS tabs of this matrix map.",
+    "The vSphere 8.0 U3 row generalizes: as PQC arrives, FIPS 140-3 validation of each stack's module, not raw algorithm capability, will repeatedly be the deployment gate for regulated estates. A future tier 2 column should track validated-module status per platform."
+   ]
+  },
+  {
+   "id": "enterprise-unix-mainframe",
+   "category": "Enterprise Unix and Mainframe",
+   "kind": "os",
+   "rows": [
+    {
+     "platform": "IBM z/OS",
+     "native_tls13": "Yes",
+     "min_release": "z/OS 2.4 (System SSL and AT-TLS)",
+     "stack": "System SSL / AT-TLS",
+     "enabled_by_default": "Policy dependent",
+     "path_to_capability": "Configured via AT-TLS policy",
+     "support_ends": "Per z/OS release lifecycle (2.5, 3.1 current)",
+     "extended_support": "IBM extended support",
+     "pqc_notes": "IBM Z leads on PQC hardware: z16 (2022) shipped quantum-safe secure boot and lattice acceleration, continued in z17. Confirm TLS-layer ML-KEM exposure in System SSL",
+     "caveats": "Not on by default: requires AT-TLS policy or PROT and cipher configuration plus updated certificates; z/OS 3.1 adds TLSv1.3 sysplex session ticket caching (APAR-backported to 2.5)",
+     "sources": "IBM Documentation",
+     "status": "High confidence"
+    },
+    {
+     "platform": "IBM i (System TLS)",
+     "native_tls13": "Yes",
+     "min_release": "IBM i 7.4; backported to 7.3 via TR8 plus PTF groups",
+     "stack": "System TLS",
+     "enabled_by_default": "Yes when QSSLPCL is *OPSYS",
+     "path_to_capability": "OS upgrade, or TR and PTF currency on 7.3",
+     "support_ends": "Per release (7.4, 7.5, 7.6 current; confirm dates)",
+     "extended_support": "IBM extended support",
+     "pqc_notes": "Confirm PQC roadmap",
+     "caveats": "Default-on is the *OPSYS system value doing the work; pinned values hold estates at 1.2",
+     "sources": "IBM Documentation",
+     "status": "High confidence"
+    },
+    {
+     "platform": "IBM AIX 7.2 / 7.3",
+     "native_tls13": "Yes, via OpenSSL filesets",
+     "min_release": "7.2 delivers OpenSSL 1.1.1 shared objects (TL5 moved base headers to 3.0); 7.3 ships 3.0.x with 1.1.1 retained",
+     "stack": "OpenSSL fileset",
+     "enabled_by_default": "Depends on installed fileset",
+     "path_to_capability": "Fileset update, not OS reinstall, in most cases",
+     "support_ends": "Per Technology Level End of Fix Support: 7.3 TL1 2025-12-31, TL2 2026-11-30, TL3 2027-12-31, TL4 2028-12-31",
+     "extended_support": "IBM extended support",
+     "pqc_notes": "Confirm 3.5 fileset availability for PQC",
+     "caveats": "IBM publishes no release-level end date for 7.2/7.3; plan per Technology Level",
+     "sources": "IBM AIX release notes; IBM lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "platform": "Oracle Solaris 11.4",
+     "native_tls13": "Yes, via SRUs",
+     "min_release": "SRU 21 (delivered OpenSSL 1.1.1)",
+     "stack": "OpenSSL delivered via SRU",
+     "enabled_by_default": "Depends on SRU level",
+     "path_to_capability": "Apply current SRU",
+     "support_ends": "Premier and Extended end dates still to verify against Oracle lifetime policy",
+     "extended_support": "Oracle extended support",
+     "pqc_notes": "Default moved to OpenSSL 3.0 around SRU 78; 1.0.2 removed in SRU 81; 3.0.19 at SRU 91 (2026-02). No 3.5 line yet, so no ML-KEM in the system stack",
+     "sources": "Oracle Solaris blogs",
+     "status": "High confidence"
+    },
+    {
+     "platform": "HP-UX 11i v3",
+     "native_tls13": "No, never native",
+     "min_release": "n/a",
+     "stack": "Vendor OpenSSL ports capped below the line",
+     "enabled_by_default": "No",
+     "path_to_capability": "Application migration off the platform",
+     "support_ends": "Ended 2025-12-31",
+     "extended_support": "Vendor arrangements only",
+     "pqc_notes": "None",
+     "caveats": "Unsupported and permanently incapable: pure Tier D. Anything still terminating TLS here is a priority finding",
+     "sources": "HPE lifecycle",
+     "status": "High confidence"
+    }
+   ],
+   "notes": [
+    "Mainframe and midrange platforms hold the longest-lived data flows in most large enterprises, which makes them disproportionately exposed to harvest-now-decrypt-later. Their TLS 1.3 status deserves verification effort out of proportion to host count."
+   ]
+  },
+  {
+   "id": "container-images",
+   "category": "Container Images",
+   "kind": "container",
+   "rows": [
+    {
+     "image": "debian",
+     "capable_tags": "bullseye (11), bookworm (12), trixie (13)",
+     "not_capable": "stretch (9) and older",
+     "stack": "OpenSSL 1.1.1 / 3.0 / 3.5",
+     "notes": "bullseye leaves free security support 2026-08-31; bullseye-slim is embedded in thousands of derived images",
+     "status": "High confidence"
+    },
+    {
+     "image": "ubuntu",
+     "capable_tags": "18.04 (updated) and later",
+     "not_capable": "16.04 and older",
+     "stack": "OpenSSL 1.1.1 / 3.x",
+     "notes": "Stale cached layers can pin pre-1.1.1 packages; rebuild images rather than retagging",
+     "status": "High confidence"
+    },
+    {
+     "image": "alpine",
+     "capable_tags": "3.9 and later",
+     "not_capable": "3.8 and older (LibreSSL era)",
+     "stack": "OpenSSL 1.1.1 and later",
+     "notes": "Roughly two years of support per branch; musl-related caveats for some TLS tooling",
+     "status": "High confidence"
+    },
+    {
+     "image": "redhat/ubi8, ubi9, ubi10",
+     "capable_tags": "All",
+     "not_capable": "n/a",
+     "stack": "OpenSSL 1.1.1 / 3.x",
+     "notes": "Tracks RHEL content and lifecycle",
+     "status": "High confidence"
+    },
+    {
+     "image": "amazonlinux",
+     "capable_tags": "2023",
+     "not_capable": "2 (default stack)",
+     "stack": "OpenSSL 3.x vs 1.0.2 default",
+     "notes": "amazonlinux:2 is past end of life as of 2026-06-30",
+     "status": "High confidence"
+    },
+    {
+     "image": "Chainguard / Wolfi images",
+     "capable_tags": "All (rapid rebuild cadence)",
+     "not_capable": "n/a",
+     "stack": "Current OpenSSL 3.x",
+     "notes": "Minimal, continuously rebuilt; track OpenSSL 3.5 adoption for PQC (confirm current)",
+     "status": "Needs verification"
+    },
+    {
+     "image": "distroless (gcr.io)",
+     "capable_tags": "n/a (no shell, minimal userland)",
+     "not_capable": "n/a",
+     "stack": "Application runtime provides TLS",
+     "notes": "Static and base variants carry no OpenSSL; the bundled runtime (Go, Java, Node) sets the TLS ceiling",
+     "status": "High confidence"
+    },
+    {
+     "image": "busybox / scratch",
+     "capable_tags": "n/a",
+     "not_capable": "n/a",
+     "stack": "None",
+     "notes": "No TLS stack at all; the application binary brings everything. Audit the binary's build, not the image",
+     "status": "High confidence"
+    },
+    {
+     "image": "Language and runtime images (python, node, golang, eclipse-temurin)",
+     "capable_tags": "Depends on the bundled runtime, not only the base OS",
+     "stack": "Bundled runtime stack",
+     "notes": "Static Go binaries carry Go's own TLS stack; the base image is irrelevant to their TLS ceiling. Java and Node images are governed by the bundled JDK or Node line",
+     "status": "High confidence"
+    }
+   ]
+  },
+  {
+   "id": "embedded-iot",
+   "category": "Embedded and IoT Stacks",
+   "kind": "embedded",
+   "rows": [
+    {
+     "component": "Mbed TLS",
+     "tls13_status": "Yes on 3.x; No on 2.28 LTS",
+     "first_version": "Fully stabilized and default-enabled from 3.6.0 LTS (2024-03; supported to at least 2027-03)",
+     "pqc_status": "Not mainline as of seeding; confirm roadmap (PSA driver path)",
+     "notes": "2.28 LTS, still common in shipped firmware, has no TLS 1.3 at all and left support at the end of 2024. The most consequential embedded dividing line",
+     "status": "High confidence"
+    },
+    {
+     "component": "wolfSSL",
+     "tls13_status": "Yes",
+     "first_version": "3.15.0 (2018, draft 28, via the enable-tls13 build option)",
+     "pqc_status": "ML-KEM, ML-DSA and SLH-DSA supported; wolfCrypt holds FIPS 140-3 certificates 4718 (to 2029-07) and 5041 (to 2030-07); a further FIPS 140-3 certificate incorporating PQC was announced 2026-02 with CMVP submission in process",
+     "notes": "Commercial and GPL dual license; common in constrained and FIPS-required embedded designs",
+     "status": "High confidence"
+    },
+    {
+     "component": "BearSSL",
+     "tls13_status": "No",
+     "first_version": "n/a (TLS 1.2 max, corroborated as of 2026)",
+     "pqc_status": "None",
+     "notes": "Deliberately minimal; designs on BearSSL need a stack change for TLS 1.3. Confirm at bearssl.org",
+     "status": "Needs verification"
+    },
+    {
+     "component": "LibreSSL / libtls",
+     "tls13_status": "Yes",
+     "first_version": "Client from 3.1; server default from 3.2.0; first stable both-sides default is 3.2.2 (OpenBSD 6.8)",
+     "pqc_status": "Confirm roadmap",
+     "notes": "Default stack on OpenBSD; some embedded and BSD-derived products",
+     "status": "High confidence"
+    },
+    {
+     "component": "BoringSSL",
+     "tls13_status": "Yes",
+     "first_version": "2018 era (no public versioned releases)",
+     "pqc_status": "Pioneer: ML-KEM hybrids proven at Google scale",
+     "notes": "Not intended for third-party consumption but ubiquitous via Chrome, Android, gRPC, Envoy, vSphere",
+     "status": "High confidence"
+    },
+    {
+     "component": "AWS s2n-tls",
+     "tls13_status": "Yes",
+     "first_version": "Long supported (exact first release still to pin)",
+     "pqc_status": "ML-KEM hybrids via AWS-LC, deployed to AWS KMS, ACM and Secrets Manager endpoints",
+     "notes": "Powers AWS service HTTPS endpoints",
+     "status": "Needs verification"
+    },
+    {
+     "component": "rustls",
+     "tls13_status": "Yes",
+     "first_version": "From inception",
+     "pqc_status": "X25519MLKEM768 preferred by default with the aws-lc-rs provider; ML-KEM moved into the rustls crate itself at 0.23.22",
+     "notes": "Growing share in proxies and cloud-native infrastructure",
+     "status": "High confidence"
+    },
+    {
+     "component": "OpenWrt",
+     "tls13_status": "Build dependent",
+     "first_version": "19.07+ with OpenSSL builds; default TLS provider has varied by release (mbedTLS 2.28 default in 23.05 lacked TLS 1.3; confirm 24.x state)",
+     "pqc_status": "Follows chosen provider",
+     "notes": "Perfect illustration that embedded capability is a build-time component choice, not an OS version fact",
+     "status": "Needs verification"
+    },
+    {
+     "component": "Yocto / Buildroot images",
+     "tls13_status": "Recipe dependent",
+     "first_version": "Whatever openssl or mbedtls recipe the image pins",
+     "pqc_status": "Recipe dependent",
+     "notes": "Long-lived firmware ships frozen stacks; this is the deepest tail of the whole migration. Audit the recipe lock, per product, per firmware version",
+     "status": "High confidence"
+    },
+    {
+     "component": "Zephyr / ESP-IDF / FreeRTOS ecosystems",
+     "tls13_status": "Depends on the pinned Mbed TLS generation",
+     "first_version": "ESP-IDF documents full TLS 1.3 from Mbed TLS 3.6.0; Zephyr and FreeRTOS track whatever they pin",
+     "pqc_status": "Follows the pinned stack",
+     "notes": "Same rule as OpenWrt and Yocto: the build manifest decides, not the platform name",
+     "status": "Needs verification"
+    },
+    {
+     "component": "OT, ICS and industrial gateways",
+     "tls13_status": "Mostly absent or frozen",
+     "first_version": "Per product firmware",
+     "pqc_status": "None in the field",
+     "notes": "OPC UA security policies are distinct from TLS. Where TLS appears (web HMIs, MQTT northbound, historian links) it is a frozen embedded stack; expect the part of the estate still terminating TLS 1.2 in 2035",
+     "status": "Needs verification"
+    }
+   ],
+   "notes": [
+    "Embedded is where the TLS 1.2 long tail will live in 2035. The unit of analysis is the firmware build manifest, not the device model. Contributors from the embedded space: rows per RTOS ecosystem (Zephyr, FreeRTOS plus coreTLS choices, ESP-IDF) are a welcome extension."
+   ]
+  },
+  {
+   "id": "libraries-runtimes",
+   "category": "Libraries and Runtimes",
+   "kind": "library",
+   "rows": [
+    {
+     "component": "OpenSSL",
+     "first_release": "1.1.1 (2018-09)",
+     "enabled_by_default": "Yes",
+     "support_status": "1.1.1 ended 2023-09-11; 3.0 security fixes end 2026-09-07; 3.5 LTS supported to 2030-04-08; 4.0 current (4.0.1, 2026-06, non-LTS); announced roadmap: 4.2 LTS 2027-04, then 5.0 2027-10",
+     "pqc_notes": "3.5 adds ML-KEM (X25519MLKEM768 hybrid in default TLS groups), ML-DSA, SLH-DSA",
+     "notes": "The most load-bearing dividing line in this matrix. The 3.0 line, still the system stack on Ubuntu 22.04/24.04, Debian 12, RHEL 9 and AL2023, loses upstream security fixes 2026-09-07 (distro vendors continue their own patching)",
+     "status": "High confidence"
+    },
+    {
+     "component": "GnuTLS",
+     "first_release": "3.6.x series (first stable 3.6.3; final RFC alignment in the 3.6.4/3.6.5 range, pin against the NEWS file)",
+     "enabled_by_default": "Yes",
+     "support_status": "Rolling releases",
+     "pqc_notes": "ML-KEM hybrid key exchange and ML-DSA from 3.8.10",
+     "notes": "Used in place of OpenSSL by some distro components",
+     "status": "Needs verification"
+    },
+    {
+     "component": "NSS (Firefox and others)",
+     "first_release": "Enabled by default from Firefox 63 (2018-10); final-RFC NSS release (3.39 era) still to pin",
+     "enabled_by_default": "Yes",
+     "support_status": "Rolling releases",
+     "pqc_notes": "mlkem768x25519 added in NSS 3.105 (2024-09-26); Firefox 132 (2024-10-29) enabled it by default, with QUIC and HTTP3 from Firefox 135",
+     "status": "High confidence"
+    },
+    {
+     "component": "Schannel (Windows)",
+     "first_release": "Windows 11 / Windows Server 2022",
+     "enabled_by_default": "Yes",
+     "support_status": "Follows Windows lifecycle",
+     "pqc_notes": "PQC via SymCrypt and CNG updates; confirm shipped state",
+     "notes": "Microsoft: enabling TLS 1.3 on earlier Windows is not a safe configuration",
+     "status": "High confidence"
+    },
+    {
+     "component": "Apple Secure Transport / Network.framework",
+     "first_release": "macOS 10.14.4 / iOS 12.2 (confirm)",
+     "enabled_by_default": "Yes",
+     "support_status": "Follows Apple OS lifecycle",
+     "pqc_notes": "Confirm TLS-layer ML-KEM state",
+     "status": "Needs verification"
+    },
+    {
+     "component": "Java (JSSE)",
+     "first_release": "JDK 11 native; backported to Oracle 8u261 and OpenJDK 8u272",
+     "enabled_by_default": "Yes (11 and later)",
+     "support_status": "Per vendor and distribution",
+     "pqc_notes": "ML-KEM and ML-DSA algorithm APIs in JDK 24 (JEP 496 and 497, 2025-03); TLS-layer hybrid key exchange explicitly out of JDK 24 scope, follows later",
+     "notes": "Enormous installed base still on 8: patch level, not major version, decides TLS 1.3 there",
+     "status": "High confidence"
+    },
+    {
+     "component": ".NET",
+     "first_release": ".NET Core 3.0 and later (platform dependent); .NET Framework rides Schannel",
+     "enabled_by_default": "Platform dependent",
+     "support_status": "Per version",
+     "notes": ".NET Framework applications are capped by the Windows version they run on. .NET on Linux uses the distro OpenSSL and inherits its line",
+     "status": "High confidence"
+    },
+    {
+     "component": "Node.js",
+     "first_release": "12 and later (bundled OpenSSL 1.1.1)",
+     "enabled_by_default": "Yes",
+     "support_status": "Per release line",
+     "pqc_notes": "Current lines bundle OpenSSL 3.x; confirm 3.5 adoption timing",
+     "status": "High confidence"
+    },
+    {
+     "component": "Python (ssl module)",
+     "first_release": "3.7 and later when linked against OpenSSL 1.1.1 or later",
+     "enabled_by_default": "Yes",
+     "support_status": "Per release",
+     "pqc_notes": "Follows the linked OpenSSL",
+     "notes": "Capability is set by the linked OpenSSL, not by Python itself",
+     "status": "High confidence"
+    },
+    {
+     "component": "PHP",
+     "first_release": "Streams and curl follow the linked OpenSSL (1.1.1+)",
+     "enabled_by_default": "Yes",
+     "support_status": "Per release",
+     "pqc_notes": "Follows the linked OpenSSL",
+     "notes": "Same pattern as Python: audit the lib, not the language version",
+     "status": "High confidence"
+    },
+    {
+     "component": "Ruby",
+     "first_release": "openssl gem against OpenSSL 1.1.1+",
+     "enabled_by_default": "Yes",
+     "support_status": "Per release",
+     "pqc_notes": "Follows the linked OpenSSL",
+     "status": "High confidence"
+    },
+    {
+     "component": "Erlang/OTP",
+     "first_release": "OTP 22.0 experimental (client from 22.1, session tickets 22.3); production-ready from OTP 23",
+     "enabled_by_default": "Yes on current",
+     "support_status": "Per release",
+     "pqc_notes": "Confirm PQC roadmap",
+     "notes": "Relevant to RabbitMQ and telecom estates",
+     "status": "High confidence"
+    },
+    {
+     "component": "Go (crypto/tls)",
+     "first_release": "1.13 by default (1.12 opt-in)",
+     "enabled_by_default": "Yes",
+     "support_status": "Per release",
+     "pqc_notes": "X25519MLKEM768 enabled by default from Go 1.24",
+     "notes": "Fully independent of the OS stack; static binaries carry it everywhere they run",
+     "status": "High confidence"
+    },
+    {
+     "component": "Rust ecosystem",
+     "first_release": "rustls from inception; native-tls follows the platform stack",
+     "enabled_by_default": "Yes (rustls)",
+     "support_status": "Per crate",
+     "pqc_notes": "rustls PQC via provider crates (confirm defaults)",
+     "notes": "A Rust binary's TLS ceiling depends on which of the two paths it took",
+     "status": "High confidence"
+    },
+    {
+     "component": "curl",
+     "first_release": "7.52 era onward, backend dependent",
+     "enabled_by_default": "Backend dependent",
+     "support_status": "Rolling",
+     "pqc_notes": "Follows the linked backend (OpenSSL 3.5 builds negotiate hybrids)",
+     "notes": "curl -V shows the backend; --tlsv1.3 forces the floor for testing",
+     "status": "High confidence"
+    },
+    {
+     "component": "Browsers (client side)",
+     "first_release": "Chrome 70, Firefox 63, Safari 12.1, Edge 79",
+     "enabled_by_default": "Yes",
+     "support_status": "Evergreen",
+     "pqc_notes": "Chrome shipped draft Kyber by default in 124 (2024-04) and switched to standardized X25519MLKEM768 in 131 (2024-11, codepoint 0x11EC); Firefox from 132 (2024-10)",
+     "notes": "The client side is largely solved; server and infrastructure estates are the gap this matrix maps",
+     "status": "High confidence"
+    }
+   ]
+  },
+  {
+   "id": "applications-middleware",
+   "category": "Applications and Middleware",
+   "kind": "application",
+   "rows": [
+    {
+     "component": "nginx",
+     "first_support": "1.13.0 with OpenSSL 1.1.1",
+     "governing_stack": "Linked OpenSSL",
+     "where_to_enable": "ssl_protocols (TLSv1.3 in the default since 1.23.4, per nginx docs)",
+     "notes": "Most common reason a capable host serves only 1.2: an old ssl_protocols line",
+     "status": "High confidence"
+    },
+    {
+     "component": "Apache httpd",
+     "first_support": "2.4.37 (2018-10-23) with OpenSSL 1.1.1; enabled by default",
+     "governing_stack": "Linked OpenSSL",
+     "where_to_enable": "SSLProtocol directive",
+     "notes": "Corrected from 2.4.36 during verification",
+     "status": "High confidence"
+    },
+    {
+     "component": "HAProxy",
+     "first_support": "1.8.1 with OpenSSL 1.1.1",
+     "governing_stack": "Linked OpenSSL",
+     "where_to_enable": "ssl-min-ver / ssl-max-ver on bind lines",
+     "notes": "Also check crt-list and default-server for backend-side settings",
+     "status": "High confidence"
+    },
+    {
+     "component": "Envoy",
+     "first_support": "Long supported (BoringSSL)",
+     "governing_stack": "BoringSSL",
+     "where_to_enable": "TlsParameters min/max protocol version",
+     "notes": "Service mesh data planes are usually not the gap",
+     "status": "High confidence"
+    },
+    {
+     "component": "Caddy / Traefik",
+     "first_support": "From early releases (Go stack)",
+     "governing_stack": "Go crypto/tls",
+     "where_to_enable": "Defaults are modern; overrides in config",
+     "notes": "Go 1.24+ builds bring ML-KEM hybrids by default",
+     "status": "High confidence"
+    },
+    {
+     "component": "IIS / HTTP.sys",
+     "first_support": "Windows Server 2022",
+     "governing_stack": "Schannel",
+     "where_to_enable": "OS version gate first; then Schannel settings",
+     "notes": "See Windows tab; no configuration rescues Server 2019",
+     "status": "High confidence"
+    },
+    {
+     "component": "Apache Tomcat",
+     "first_support": "JSSE path: per running JDK. OpenSSL path: tomcat-native against 1.1.1+",
+     "governing_stack": "JDK or tomcat-native",
+     "where_to_enable": "Connector sslEnabledProtocols; verify which engine the connector uses",
+     "notes": "Two engines, two answers, same server.xml",
+     "status": "High confidence"
+    },
+    {
+     "component": "JVM middleware (Kafka, Elasticsearch, Jenkins, etc.)",
+     "first_support": "Per running JDK (11+, or 8u261/8u272 backports)",
+     "governing_stack": "JDK JSSE",
+     "where_to_enable": "JVM version audit; ssl.protocol settings",
+     "notes": "One JDK upgrade moves the whole category; one frozen JDK 8u151 holds it back",
+     "status": "High confidence"
+    },
+    {
+     "component": "Postfix / Dovecot (mail)",
+     "first_support": "With linked OpenSSL 1.1.1+",
+     "governing_stack": "Linked OpenSSL",
+     "where_to_enable": "smtpd_tls_protocols, ssl_min_protocol",
+     "notes": "SMTP TLS is opportunistic: capability without enforcement is the norm. MTA-STS and DANE govern enforcement; test with STARTTLS-aware tools",
+     "status": "High confidence"
+    },
+    {
+     "component": "OpenLDAP",
+     "first_support": "With linked OpenSSL 1.1.1+",
+     "governing_stack": "Linked OpenSSL",
+     "where_to_enable": "olcTLSProtocolMin",
+     "status": "High confidence"
+    },
+    {
+     "component": "Active Directory LDAPS",
+     "first_support": "Domain controllers on Server 2022+",
+     "governing_stack": "Schannel (DC operating system)",
+     "where_to_enable": "DC OS version audit",
+     "notes": "A directory served by Server 2019 DCs caps LDAPS at TLS 1.2 for every client and app in the forest until the DCs move. One of the highest-leverage upgrades in the whole matrix",
+     "status": "High confidence"
+    },
+    {
+     "component": "Microsoft Exchange",
+     "first_support": "Exchange 2019 CU15 / SE on Server 2022 or 2025; enabled by default; SMTP excluded until a future update",
+     "governing_stack": "Schannel plus Exchange support statement",
+     "where_to_enable": "Exchange version and OS version together",
+     "notes": "Per-protocol split inside one product: HTTPS yes, SMTP not yet, and disabling any protocol except 1.3 is unsupported. Exchange 2016 and 2019 left support 2025-10",
+     "status": "High confidence"
+    },
+    {
+     "component": "PostgreSQL",
+     "first_support": "With linked OpenSSL 1.1.1+",
+     "governing_stack": "Linked OpenSSL",
+     "where_to_enable": "ssl_min_protocol_version (PG 12+)",
+     "notes": "Inherits the distro OpenSSL line",
+     "status": "High confidence"
+    },
+    {
+     "component": "MySQL",
+     "first_support": "8.0.16 with OpenSSL 1.1.1",
+     "governing_stack": "Bundled or linked OpenSSL",
+     "where_to_enable": "tls_version system variable",
+     "notes": "5.7 caps at TLS 1.2",
+     "status": "High confidence"
+    },
+    {
+     "component": "MariaDB",
+     "first_support": "10.4 era against OpenSSL 1.1.1; bundled-library builds vary (confirm)",
+     "governing_stack": "Build dependent",
+     "where_to_enable": "tls_version; check which TLS library the build uses",
+     "status": "Needs verification"
+    },
+    {
+     "component": "Microsoft SQL Server",
+     "first_support": "SQL Server 2022 with TDS 8.0 on a TLS 1.3 capable Windows; 2019 and earlier never",
+     "governing_stack": "Schannel",
+     "where_to_enable": "SQL and OS versions together; strict encryption mode",
+     "notes": "Keep TLS 1.2 enabled on the host: satellite services still require it at startup",
+     "status": "High confidence"
+    },
+    {
+     "component": "Oracle Database",
+     "first_support": "23ai (TLS 1.3 by default); 19c from RU 19.32 via the opt-in next-generation provider",
+     "governing_stack": "Oracle wallet stack; the next-generation provider is OpenSSL based",
+     "where_to_enable": "sqlnet parameters; provider selection",
+     "notes": "19c with the default provider caps at 1.2; the RU 19.32 next-generation provider adds TLS 1.3, FIPS 140-3 and ML-KEM",
+     "status": "High confidence"
+    },
+    {
+     "component": "MongoDB / Redis",
+     "first_support": "Platform stack (MongoDB) and linked OpenSSL (Redis 6+)",
+     "governing_stack": "Platform or linked OpenSSL",
+     "where_to_enable": "net.tls settings; tls-protocols",
+     "notes": "Both inherit the host line rather than bundling",
+     "status": "High confidence"
+    },
+    {
+     "component": "IBM Db2",
+     "first_support": "11.5 era via GSKit (corroborated; exact fix pack still to pin)",
+     "governing_stack": "IBM GSKit",
+     "where_to_enable": "SSL_VERSIONS in dbm cfg",
+     "notes": "Db2 for z/OS follows z/OS System SSL instead; two different answers under one product name",
+     "status": "Needs verification"
+    },
+    {
+     "component": "SAP NetWeaver / CommonCryptoLib",
+     "first_support": "Recent CommonCryptoLib 8.5.x with matching kernel (confirm against SAP Notes)",
+     "governing_stack": "SAP CommonCryptoLib",
+     "where_to_enable": "Profile parameters (ssl/ciphersuites)",
+     "notes": "SAP publishes support in SAP Notes behind a login; a contributor with access should pin the numbers",
+     "status": "Needs verification"
+    },
+    {
+     "component": "SharePoint and on-prem Microsoft stack",
+     "first_support": "Rides the Windows Server and .NET versions",
+     "governing_stack": "Schannel",
+     "where_to_enable": "OS version audit first",
+     "notes": "Farms hosted on Server 2019 cap at TLS 1.2 regardless of the SharePoint version on top",
+     "status": "High confidence"
+    },
+    {
+     "component": "VDI control planes (Citrix, Omnissa Horizon)",
+     "first_support": "Mixed per component (confirm)",
+     "governing_stack": "Windows services plus appliance components",
+     "where_to_enable": "Per component inventory",
+     "notes": "Gateways, connection servers and agents adopt TLS separately; the NetScaler Gateway to VDA path documents TLS 1.3 with VDA 2503 and later",
+     "status": "Needs verification"
+    },
+    {
+     "component": "Network HSM and KMS appliances",
+     "first_support": "Confirm per vendor firmware",
+     "governing_stack": "Vendor stacks",
+     "where_to_enable": "Client libraries and management UI, separately",
+     "notes": "The devices anchoring key custody deserve the same per-plane scrutiny as firewalls",
+     "status": "Needs verification"
+    }
+   ],
+   "notes": [
+    "The recurring pattern: capability comes from the stack underneath (OS tab or linked library), while an explicit protocol line in the application config decides whether it is used. Estate scanning must therefore record per-listener results; a capable host proves nothing about its services."
+   ]
+  },
+  {
+   "id": "verification-methods",
+   "category": "Verification Methods",
+   "kind": "verification",
+   "rows": [
+    {
+     "check": "Remote service check",
+     "method": "openssl s_client -connect host:443 -tls1_3 -brief",
+     "interpretation": "Success prints TLSv1.3; failure means the service as configured does not offer it. Tests service plus path, not just the stack",
+     "status": "High confidence"
+    },
+    {
+     "check": "Full protocol sweep",
+     "method": "testssl.sh -p https://host  or  nmap -p 443 --script ssl-enum-ciphers host",
+     "interpretation": "Enumerates all offered versions; catches capable-but-disabled services and weak floors in one pass",
+     "status": "High confidence"
+    },
+    {
+     "check": "Outbound path check",
+     "method": "curl -Iv --tlsv1.3 https://host/",
+     "interpretation": "Requires curl built on a capable backend (curl -V shows it); exercises any middleboxes between you and the target",
+     "status": "High confidence"
+    },
+    {
+     "check": "Local Linux stack",
+     "method": "openssl version; openssl ciphers -s -tls1_3",
+     "interpretation": "A non-empty suite list means the stack is capable. Then check policy gates: update-crypto-policies --show on RHEL family; MinProtocol in openssl.cnf elsewhere",
+     "status": "High confidence"
+    },
+    {
+     "check": "Local Windows",
+     "method": "OS build gate first (Win11 / Server 2022+); then Get-TlsCipherSuite for TLS_AES_* suites; then the Schannel registry keys under Protocols for explicit disables",
+     "interpretation": "On older Windows the version check is definitive: not capable, no configuration rescues it",
+     "status": "High confidence"
+    },
+    {
+     "check": "Fleet package inventory",
+     "method": "rpm -q openssl / dpkg -s openssl via configuration management, mapped against this matrix",
+     "interpretation": "Triage only. Version strings mislead on enterprise backports; confirm by negotiation before recording Verified",
+     "status": "High confidence"
+    },
+    {
+     "check": "Record per listener, not per host",
+     "method": "Scan each TLS port in use (443 web, 636 LDAPS, 3389 RDP, 5432 PostgreSQL, 9093 Kafka, 25/587 SMTP, 8443 management)",
+     "interpretation": "A host is capable; a listener is configured. Inventories that stop at the host level systematically overstate readiness",
+     "status": "High confidence"
+    },
+    {
+     "check": "Middlebox awareness",
+     "method": "Test from both sides of any TLS-inspecting proxy, firewall, or load balancer",
+     "interpretation": "Inspection and termination devices below their capable release silently cap or break TLS 1.3 for whole segments; see Network Appliances tab",
+     "status": "High confidence"
+    },
+    {
+     "check": "FIPS mode interaction",
+     "method": "Re-run stack and service checks with FIPS mode enabled, not only disabled",
+     "interpretation": "Legacy FIPS modules lacked TLS 1.3; modern ones include it but validation status varies by product (see the vSphere 8.0 U3 row). Regulated estates must test the mode they actually run",
+     "status": "High confidence"
+    },
+    {
+     "check": "Mail special case",
+     "method": "testssl.sh -t smtp host:25 (STARTTLS aware)",
+     "interpretation": "Opportunistic TLS means capability without enforcement is the norm; check MTA-STS and DANE posture separately",
+     "status": "High confidence"
+    },
+    {
+     "check": "PQC handshake size check",
+     "method": "Repeat remote checks with a hybrid group forced: openssl s_client -connect host:443 -tls1_3 -groups X25519MLKEM768",
+     "interpretation": "The ML-KEM key share pushes the ClientHello past one TCP segment. Middleboxes and stacks that mishandle fragmented ClientHellos break (Mbed TLS before 3.6.3 is a documented case); test every inspection path before enabling PQC fleet-wide",
+     "status": "High confidence"
+    }
+   ],
+   "notes": [
+    "Suggested fleet workflow: (1) package and OS inventory mapped to this matrix for triage, (2) active negotiation scan per listener for truth, (3) config extraction for the why behind every 1.2-only result, (4) record findings per service with a date. Cryptographic inventory tooling can automate steps 1 to 3. Step 4 stays human."
+   ]
+  },
+  {
+   "id": "pqc-forward-view",
+   "category": "PQC Forward View",
+   "kind": "pqc",
+   "rows": [
+    {
+     "topic": "Why TLS 1.3 is the floor",
+     "detail": "The standardized hybrid key exchange for TLS (X25519MLKEM768, per draft-ietf-tls-ecdhe-mlkem; check current RFC status) is defined for TLS 1.3 only. IETF direction (draft-ietf-tls-tls12-frozen) is that TLS 1.2 is frozen and will not receive new features, PQC included. TLS 1.3 capability is therefore a permanent prerequisite, not a transitional one.",
+     "status": "High confidence"
+    },
+    {
+     "topic": "Key establishment first",
+     "detail": "Harvest-now-decrypt-later risk makes PQC key establishment the near-term priority; PQC certificate chains (ML-DSA, SLH-DSA) follow on a longer timeline. A host that cannot do TLS 1.3 cannot do either.",
+     "status": "High confidence"
+    },
+    {
+     "topic": "Regulatory drivers (US)",
+     "detail": "EO 14412 (2026-06-22) requires FIPS 140-3 validated PQC key establishment by 2030-12-31 and PQC digital signatures by 2031-12-31 for US federal systems, with FAR flow-down to contractors. CNSA 2.0 phases National Security Systems to exclusive PQC use through the early 2030s. NIST IR 8547 (initial public draft 2024-11; still not final as of mid 2026) charts deprecation of quantum-vulnerable public-key algorithms after 2030 and disallowance after 2035, with hybrid modes exempt from the 2035 disallowance. Caution: secondary sources conflict on whether IR 8547 is final; the primary record says draft. The same verification lesson as the Windows TLS 1.3 misinformation.",
+     "status": "High confidence"
+    },
+    {
+     "topic": "FIPS validation as the real gate",
+     "detail": "The vSphere 8.0 U3 case (TLS 1.3 capable stack, port 443 held at TLS 1.2 because the BoringSSL module lacked FIPS certification for TLS 1.3) previews the PQC rollout everywhere: validated-module status, not algorithm capability, will gate regulated deployment. It is already repeating: on RHEL 10.1, PQC sits in the OpenSSL default provider rather than the fips provider, so FIPS mode allows only the P-curve ML-KEM hybrids and excludes X25519MLKEM768, the internet default. More instances: NetScaler FIPS appliances lack TLS 1.3 back-end support, and Oracle 19c reaches TLS 1.3 only through its FIPS 140-3 capable next-generation provider. The validation pipeline is moving, though: wolfSSL announced (2026-02) a FIPS 140-3 certificate incorporating ML-KEM and ML-DSA, with CMVP submission in process. A tier 2 column should track FIPS 140-3 module status per platform stack.",
+     "status": "High confidence"
+    },
+    {
+     "topic": "Native stacks shipping ML-KEM today (candidate tier 2 rows)",
+     "detail": "OpenSSL 3.5 and later (X25519MLKEM768 in the default TLS keyshares); Ubuntu 26.04 LTS; Debian 13 (first in the default group list); RHEL 9.7 and RHEL 10.1 (default provider, enabled and preferred); Fedora 43 and later; Arch and rolling distros; Windows Server 2025 and Windows 11 (shipped 2026-07, disabled by default); Go 1.24 and later; JDK 24 and later (algorithm APIs; TLS hybrids follow); F5 BIG-IP 21.1.0 (P-curve groups); Arista EOS 4.36 management plane; Oracle Database 23ai and 19c RU 19.32 (opt-in provider, includes ML-KEM); rustls with aws-lc-rs (preferred by default); NSS 3.105 with Chrome 131 and Firefox 132 clients; OpenSSH 10.x (mlkem768x25519 default); AWS KMS, ACM and Secrets Manager endpoints plus ALB and NLB policies; Cloudflare edge and origin pulls. Google edge scope and Azure remain to confirm.",
+     "status": "High confidence"
+    },
+    {
+     "topic": "Hardware roots and mainframe",
+     "detail": "IBM z16 (2022) shipped quantum-safe secure boot and lattice acceleration, continued in z17: long-lived platforms are moving early because their data lives longest. Hardware acceleration and hardware key custody become relevant wherever PQC handshake and signing volume concentrates (PKI, HSM, TLS termination at scale).",
+     "status": "Needs verification"
+    },
+    {
+     "topic": "SSH is the parallel track",
+     "detail": "Not TLS, but the same estate: OpenSSH has defaulted to hybrid PQC key exchange (sntrup line from 9.x, mlkem768x25519 from 10.x) and now warns on non-PQC sessions. SSH readiness can ride the same inventory and the same matrix methodology.",
+     "status": "High confidence"
+    },
+    {
+     "topic": "Suggested tier 2 columns for a future revision",
+     "detail": "System stack ML-KEM capable (yes/no); hybrid groups enabled by default (yes/no); FIPS 140-3 validated module available for the stack (yes/no/in evaluation). Keeping tier 2 separate keeps tier 1 (TLS 1.3) simple and vettable now.",
+     "status": "High confidence"
+    }
+   ]
+  },
+  {
+   "id": "sources",
+   "category": "Sources",
+   "kind": "source",
+   "rows": [
+    {
+     "source": "Microsoft Learn: Protocols in TLS/SSL (Schannel SSP)",
+     "covers": "Authoritative Windows native TLS version support",
+     "location": "learn.microsoft.com"
+    },
+    {
+     "source": "Microsoft Lifecycle",
+     "covers": "Windows client, server, LTSC and IoT support dates",
+     "location": "learn.microsoft.com/lifecycle"
+    },
+    {
+     "source": "Microsoft SQL Server and Exchange documentation",
+     "covers": "TLS 1.3 support statements per product and OS combo",
+     "location": "learn.microsoft.com"
+    },
+    {
+     "source": "Red Hat Enterprise Linux Life Cycle",
+     "covers": "RHEL support phases and dates",
+     "location": "access.redhat.com/support/policy/updates/errata"
+    },
+    {
+     "source": "Canonical Ubuntu release cycle",
+     "covers": "Ubuntu standard and ESM dates",
+     "location": "ubuntu.com/about/release-cycle"
+    },
+    {
+     "source": "Debian releases, LTS and ELTS pages",
+     "covers": "Debian support phases and dates",
+     "location": "debian.org/releases; wiki.debian.org/LTS"
+    },
+    {
+     "source": "SUSE product lifecycle",
+     "covers": "SLES support and LTSS dates",
+     "location": "suse.com/lifecycle"
+    },
+    {
+     "source": "AWS Amazon Linux FAQs and release notes",
+     "covers": "AL1, AL2, AL2023 dates and package detail",
+     "location": "aws.amazon.com; docs.aws.amazon.com"
+    },
+    {
+     "source": "AWS, Azure, Google Cloud load balancing documentation",
+     "covers": "Managed edge TLS 1.3 policies and PQC rollout",
+     "location": "vendor documentation sites"
+    },
+    {
+     "source": "Apple security releases and platform documentation",
+     "covers": "macOS and iOS TLS stack behavior and patch cadence",
+     "location": "support.apple.com; developer.apple.com"
+    },
+    {
+     "source": "Android platform and developer documentation",
+     "covers": "Platform TLS defaults, Conscrypt module updatability",
+     "location": "developer.android.com; source.android.com"
+    },
+    {
+     "source": "FreeBSD, OpenBSD, NetBSD security and release pages",
+     "covers": "BSD branch support and base TLS libraries",
+     "location": "project sites"
+    },
+    {
+     "source": "OpenSSL release strategy and release announcements",
+     "covers": "OpenSSL version capabilities and EOL dates",
+     "location": "openssl.org; openssl-library.org"
+    },
+    {
+     "source": "Broadcom TechDocs and Knowledge Base (VMware)",
+     "covers": "vSphere TLS profiles, FIPS caveat on TLS 1.3, lifecycle",
+     "location": "techdocs.broadcom.com; knowledge.broadcom.com"
+    },
+    {
+     "source": "Palo Alto Networks TechDocs",
+     "covers": "PAN-OS TLS 1.3 decryption and management support",
+     "location": "docs.paloaltonetworks.com"
+    },
+    {
+     "source": "Fortinet Document Library",
+     "covers": "FortiOS TLS 1.3 per-subsystem support and defaults",
+     "location": "docs.fortinet.com"
+    },
+    {
+     "source": "Cisco configuration guides and release notes",
+     "covers": "ASA, FTD, IOS-XE, NX-OS TLS support per train",
+     "location": "cisco.com"
+    },
+    {
+     "source": "Juniper TechLibrary",
+     "covers": "Junos TLS support per service",
+     "location": "juniper.net"
+    },
+    {
+     "source": "F5 Knowledge articles",
+     "covers": "BIG-IP TMOS TLS 1.3 support and profile behavior",
+     "location": "my.f5.com"
+    },
+    {
+     "source": "NetScaler and Check Point documentation",
+     "covers": "ADC and inspection TLS 1.3 support",
+     "location": "vendor documentation sites"
+    },
+    {
+     "source": "IBM Documentation",
+     "covers": "z/OS System SSL and AT-TLS, IBM i System TLS, AIX OpenSSL filesets",
+     "location": "ibm.com/docs"
+    },
+    {
+     "source": "Oracle documentation",
+     "covers": "Solaris SRUs, Oracle Linux, Oracle Database TLS support",
+     "location": "docs.oracle.com"
+    },
+    {
+     "source": "HPE lifecycle publications",
+     "covers": "HP-UX end of support",
+     "location": "hpe.com"
+    },
+    {
+     "source": "Mbed TLS, wolfSSL, LibreSSL, s2n-tls, rustls project docs",
+     "covers": "Embedded and alternative stack TLS 1.3 and PQC status",
+     "location": "project repositories"
+    },
+    {
+     "source": "OpenWrt wiki and release notes",
+     "covers": "Default TLS provider per release",
+     "location": "openwrt.org"
+    },
+    {
+     "source": "nginx, Apache httpd, HAProxy, Postfix, PostgreSQL, MySQL documentation",
+     "covers": "Application-layer protocol configuration",
+     "location": "project documentation"
+    },
+    {
+     "source": "endoflife.date",
+     "covers": "Aggregated, community-maintained lifecycle dates with a JSON API; candidate automation source for the date columns",
+     "location": "endoflife.date"
+    },
+    {
+     "source": "Wikipedia: Comparison of TLS implementations",
+     "covers": "Library-level TLS feature matrix (adjacent prior art; not OS scoped)",
+     "location": "en.wikipedia.org"
+    },
+    {
+     "source": "IETF: RFC 8446; draft-ietf-tls-ecdhe-mlkem; draft-ietf-tls-tls12-frozen",
+     "covers": "Protocol basis for TLS 1.3 as the PQC floor",
+     "location": "datatracker.ietf.org"
+    },
+    {
+     "source": "White House EO 14412; NSA CNSA 2.0 FAQ; NIST IR 8547",
+     "covers": "US regulatory and transition timelines",
+     "location": "whitehouse.gov; nsa.gov; csrc.nist.gov"
+    },
+    {
+     "source": "Cisco TLS 1.3 Compatibility Matrix for Collaboration Products",
+     "covers": "Example of existing product-scoped (not OS-scoped) prior art",
+     "location": "cisco.com"
+    },
+    {
+     "source": "v0.3 verification pass source set (2026-08-17)",
+     "covers": "Primary sources behind the v0.3 updates; per-row citations sit in each tab's source column",
+     "location": "Cisco advisories, Juniper Feature Explorer, NetScaler and Check Point docs, IBM release notes, Oracle blogs and docs, SUSE notes, Debian manpages, Fedora Packages, Alpine wiki, LWN, amazonlinux GitHub, Red Hat release notes, wolfSSL, OpenBSD, rustls, Mozilla NSS notes, Chromium blink-dev, nginx docs, Erlang/OTP notes, AWS Security Blog, Cloudflare blog, Microsoft lifecycle"
+    }
+   ]
+  }
+ ]
+}

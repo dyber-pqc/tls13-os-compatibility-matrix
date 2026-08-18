@@ -1,0 +1,71 @@
+category: Embedded and IoT Stacks
+kind: embedded
+rows:
+- component: Mbed TLS
+  tls13_status: Yes on 3.x; No on 2.28 LTS
+  first_version: Fully stabilized and default-enabled from 3.6.0 LTS (2024-03; supported to at least 2027-03)
+  pqc_status: Not mainline as of seeding; confirm roadmap (PSA driver path)
+  notes: 2.28 LTS, still common in shipped firmware, has no TLS 1.3 at all and left support at the end of 2024. The most consequential embedded dividing line
+  status: High confidence
+- component: wolfSSL
+  tls13_status: 'Yes'
+  first_version: 3.15.0 (2018, draft 28, via the enable-tls13 build option)
+  pqc_status: ML-KEM, ML-DSA and SLH-DSA supported; wolfCrypt holds FIPS 140-3 certificates 4718 (to 2029-07) and 5041 (to 2030-07); a further FIPS 140-3 certificate incorporating PQC was announced 2026-02 with CMVP submission in process
+  notes: Commercial and GPL dual license; common in constrained and FIPS-required embedded designs
+  status: High confidence
+- component: BearSSL
+  tls13_status: 'No'
+  first_version: n/a (TLS 1.2 max, corroborated as of 2026)
+  pqc_status: None
+  notes: Deliberately minimal; designs on BearSSL need a stack change for TLS 1.3. Confirm at bearssl.org
+  status: Needs verification
+- component: LibreSSL / libtls
+  tls13_status: 'Yes'
+  first_version: Client from 3.1; server default from 3.2.0; first stable both-sides default is 3.2.2 (OpenBSD 6.8)
+  pqc_status: Confirm roadmap
+  notes: Default stack on OpenBSD; some embedded and BSD-derived products
+  status: High confidence
+- component: BoringSSL
+  tls13_status: 'Yes'
+  first_version: 2018 era (no public versioned releases)
+  pqc_status: 'Pioneer: ML-KEM hybrids proven at Google scale'
+  notes: Not intended for third-party consumption but ubiquitous via Chrome, Android, gRPC, Envoy, vSphere
+  status: High confidence
+- component: AWS s2n-tls
+  tls13_status: 'Yes'
+  first_version: Long supported (exact first release still to pin)
+  pqc_status: ML-KEM hybrids via AWS-LC, deployed to AWS KMS, ACM and Secrets Manager endpoints
+  notes: Powers AWS service HTTPS endpoints
+  status: Needs verification
+- component: rustls
+  tls13_status: 'Yes'
+  first_version: From inception
+  pqc_status: X25519MLKEM768 preferred by default with the aws-lc-rs provider; ML-KEM moved into the rustls crate itself at 0.23.22
+  notes: Growing share in proxies and cloud-native infrastructure
+  status: High confidence
+- component: OpenWrt
+  tls13_status: Build dependent
+  first_version: 19.07+ with OpenSSL builds; default TLS provider has varied by release (mbedTLS 2.28 default in 23.05 lacked TLS 1.3; confirm 24.x state)
+  pqc_status: Follows chosen provider
+  notes: Perfect illustration that embedded capability is a build-time component choice, not an OS version fact
+  status: Needs verification
+- component: Yocto / Buildroot images
+  tls13_status: Recipe dependent
+  first_version: Whatever openssl or mbedtls recipe the image pins
+  pqc_status: Recipe dependent
+  notes: Long-lived firmware ships frozen stacks; this is the deepest tail of the whole migration. Audit the recipe lock, per product, per firmware version
+  status: High confidence
+- component: Zephyr / ESP-IDF / FreeRTOS ecosystems
+  tls13_status: Depends on the pinned Mbed TLS generation
+  first_version: ESP-IDF documents full TLS 1.3 from Mbed TLS 3.6.0; Zephyr and FreeRTOS track whatever they pin
+  pqc_status: Follows the pinned stack
+  notes: 'Same rule as OpenWrt and Yocto: the build manifest decides, not the platform name'
+  status: Needs verification
+- component: OT, ICS and industrial gateways
+  tls13_status: Mostly absent or frozen
+  first_version: Per product firmware
+  pqc_status: None in the field
+  notes: OPC UA security policies are distinct from TLS. Where TLS appears (web HMIs, MQTT northbound, historian links) it is a frozen embedded stack; expect the part of the estate still terminating TLS 1.2 in 2035
+  status: Needs verification
+notes:
+- 'Embedded is where the TLS 1.2 long tail will live in 2035. The unit of analysis is the firmware build manifest, not the device model. Contributors from the embedded space: rows per RTOS ecosystem (Zephyr, FreeRTOS plus coreTLS choices, ESP-IDF) are a welcome extension.'

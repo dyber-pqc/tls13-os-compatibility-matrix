@@ -1,0 +1,15 @@
+# Enterprise Unix and Mainframe
+
+> Generated from [`data/enterprise-unix-mainframe.yaml`](../data/enterprise-unix-mainframe.yaml) — edit the YAML, not this file. Regenerate with `python scripts/build.py`.
+
+| Platform / release | Native TLS 1.3 | Minimum release | System TLS stack | On by default | Path to capability | Standard support ends | Extended / paid support | PQC notes | Caveats & open questions | Primary sources | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| IBM z/OS | Yes | z/OS 2.4 (System SSL and AT-TLS) | System SSL / AT-TLS | Policy dependent | Configured via AT-TLS policy | Per z/OS release lifecycle (2.5, 3.1 current) | IBM extended support | IBM Z leads on PQC hardware: z16 (2022) shipped quantum-safe secure boot and lattice acceleration, continued in z17. Confirm TLS-layer ML-KEM exposure in System SSL | Not on by default: requires AT-TLS policy or PROT and cipher configuration plus updated certificates; z/OS 3.1 adds TLSv1.3 sysplex session ticket caching (APAR-backported to 2.5) | IBM Documentation | High confidence |
+| IBM i (System TLS) | Yes | IBM i 7.4; backported to 7.3 via TR8 plus PTF groups | System TLS | Yes when QSSLPCL is *OPSYS | OS upgrade, or TR and PTF currency on 7.3 | Per release (7.4, 7.5, 7.6 current; confirm dates) | IBM extended support | Confirm PQC roadmap | Default-on is the *OPSYS system value doing the work; pinned values hold estates at 1.2 | IBM Documentation | High confidence |
+| IBM AIX 7.2 / 7.3 | Yes, via OpenSSL filesets | 7.2 delivers OpenSSL 1.1.1 shared objects (TL5 moved base headers to 3.0); 7.3 ships 3.0.x with 1.1.1 retained | OpenSSL fileset | Depends on installed fileset | Fileset update, not OS reinstall, in most cases | Per Technology Level End of Fix Support: 7.3 TL1 2025-12-31, TL2 2026-11-30, TL3 2027-12-31, TL4 2028-12-31 | IBM extended support | Confirm 3.5 fileset availability for PQC | IBM publishes no release-level end date for 7.2/7.3; plan per Technology Level | IBM AIX release notes; IBM lifecycle | High confidence |
+| Oracle Solaris 11.4 | Yes, via SRUs | SRU 21 (delivered OpenSSL 1.1.1) | OpenSSL delivered via SRU | Depends on SRU level | Apply current SRU | Premier and Extended end dates still to verify against Oracle lifetime policy | Oracle extended support | Default moved to OpenSSL 3.0 around SRU 78; 1.0.2 removed in SRU 81; 3.0.19 at SRU 91 (2026-02). No 3.5 line yet, so no ML-KEM in the system stack |  | Oracle Solaris blogs | High confidence |
+| HP-UX 11i v3 | No, never native | n/a | Vendor OpenSSL ports capped below the line | No | Application migration off the platform | Ended 2025-12-31 | Vendor arrangements only | None | Unsupported and permanently incapable: pure Tier D. Anything still terminating TLS here is a priority finding | HPE lifecycle | High confidence |
+
+## Notes
+
+- Mainframe and midrange platforms hold the longest-lived data flows in most large enterprises, which makes them disproportionately exposed to harvest-now-decrypt-later. Their TLS 1.3 status deserves verification effort out of proportion to host count.

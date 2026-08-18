@@ -1,0 +1,368 @@
+category: Linux
+kind: os
+rows:
+- platform: RHEL 6 and earlier
+  native_tls13: 'No'
+  min_release: RHEL 8.0
+  stack: OpenSSL 1.0.1e
+  enabled_by_default: 'No'
+  path_to_capability: Migration required (fresh install; Leapp only reaches 7 to 8)
+  support_ends: 2020-11 (ended)
+  extended_support: ELS ended 2024-06
+  pqc_notes: None
+  caveats: Long past end of life; treat as replacement, not upgrade
+  sources: Red Hat lifecycle
+  status: High confidence
+- platform: RHEL 7 / CentOS 7
+  native_tls13: 'No'
+  min_release: RHEL 8.0
+  stack: OpenSSL 1.0.2k
+  enabled_by_default: 'No'
+  path_to_capability: In-place major upgrade via Leapp (7 to 8) is supported; many estates rebuild instead
+  support_ends: 2024-06-30 (ended)
+  extended_support: RHEL 7 ELS runs 2024-07-01 to 2028-06-30 in one-year increments (some trackers cite 2029-05; sources conflict). CentOS 7 has no vendor ELS, third party only
+  pqc_notes: None
+  caveats: 'Still widely deployed. Extended support delivers patches but never TLS 1.3: capability and support lifecycle are independent'
+  sources: Red Hat lifecycle; endoflife.date
+  status: High confidence
+- platform: RHEL 8
+  native_tls13: 'Yes'
+  min_release: '8.0'
+  stack: OpenSSL 1.1.1 (with Red Hat backports)
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable. System-wide crypto policies govern minimum protocol versions
+  support_ends: '2029-05-31'
+  extended_support: ELS beyond (paid)
+  pqc_notes: No ML-KEM in system stack
+  caveats: 'Version-sniffing scanners must account for backports: RHEL package versions stay fixed while fixes land'
+  sources: Red Hat lifecycle
+  status: High confidence
+- platform: RHEL 9
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.0.1 at 9.0; rebased to 3.2.2 in 9.5 and to 3.5 in 9.7
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: '2032-05-31'
+  extended_support: ELS beyond (paid)
+  pqc_notes: 'PQC capable from 9.7: the OpenSSL 3.5 rebase brings ML-KEM, ML-DSA and SLH-DSA with hybrid ML-KEM in the default TLS group'
+  sources: Red Hat 9.5 and 9.7 release notes
+  status: High confidence
+- platform: RHEL 10
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.2 at 10.0, rebased to 3.5 in 10.1
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Full support to 2030-05-31; maintenance to 2035-05-31
+  extended_support: ELS beyond (paid)
+  pqc_notes: 10.0 shipped ML-KEM as Technology Preview (oqsprovider); 10.1 moved PQC into the OpenSSL 3.5 default provider, fully supported, enabled and preferred by default in TLS and SSH. FIPS mode permits only the P-curve hybrids (SecP256r1MLKEM768, SecP384r1MLKEM1024); X25519MLKEM768 is excluded
+  caveats: Released 2025-05-20; 10.1 late 2025
+  sources: Red Hat blog and customer portal; Red Hat lifecycle
+  status: High confidence
+- platform: AlmaLinux / Rocky Linux 8, 9, 10
+  native_tls13: 'Yes'
+  min_release: 8.x
+  stack: Tracks RHEL (OpenSSL 1.1.1 / 3.x)
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Tracks RHEL dates (approx.)
+  extended_support: Third party extended support only
+  pqc_notes: Tracks RHEL content
+  caveats: Community rebuilds; common CentOS 7 landing zone
+  sources: AlmaLinux and Rocky wikis
+  status: High confidence
+- platform: Oracle Linux 7
+  native_tls13: 'No'
+  min_release: OL 8
+  stack: OpenSSL 1.0.2
+  enabled_by_default: 'No'
+  path_to_capability: Leapp-style in-place upgrade or rebuild
+  support_ends: Premier support ended 2024-12
+  extended_support: 'Extended Support end: sources conflict (lifetime policy PDF lists 2029-07; Oracle Linux blog materials say through 2028-06). Sustaining indefinite'
+  pqc_notes: None
+  caveats: Resolve the Extended end date with Oracle support before relying on it
+  sources: Oracle lifetime support policy; Oracle Linux blog
+  status: Needs verification
+- platform: Ubuntu 16.04 LTS
+  native_tls13: 'No'
+  min_release: 18.04 (fully updated)
+  stack: OpenSSL 1.0.2g
+  enabled_by_default: 'No'
+  path_to_capability: Chained release upgrades (16.04 to 18.04 to 20.04...) or rebuild; rebuild usually cleaner
+  support_ends: 2021-04 (ended)
+  extended_support: ESM ended 2024-04; Legacy add-on extends further (confirm current end date)
+  pqc_notes: None
+  sources: Canonical release cycle
+  status: Needs verification
+- platform: Ubuntu 18.04 LTS
+  native_tls13: Yes, with updates
+  min_release: 18.04.3 or later patch level
+  stack: OpenSSL 1.1.1 (arrived via update; GA media shipped 1.1.0g)
+  enabled_by_default: Yes, once updated
+  path_to_capability: Point update if still on GA-era packages
+  support_ends: 2023-05-31 (ended)
+  extended_support: ESM to 2028-04
+  pqc_notes: None
+  caveats: 'Patch level matters, not just release number: an unpatched 18.04 host lacks TLS 1.3'
+  sources: Canonical; Launchpad SRU record
+  status: High confidence
+- platform: Ubuntu 20.04 LTS
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 1.1.1f
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: 2025-05-31 (ended)
+  extended_support: ESM to 2030-04
+  pqc_notes: None
+  caveats: Now ESM-only; plan move to 24.04 or 26.04
+  sources: Canonical
+  status: High confidence
+- platform: Ubuntu 22.04 LTS
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.0.2
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: 2027-04
+  extended_support: ESM to 2032
+  pqc_notes: No ML-KEM in 3.0 line
+  sources: Canonical
+  status: High confidence
+- platform: Ubuntu 24.04 LTS
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.0.13
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: 2029-04
+  extended_support: ESM to 2034
+  pqc_notes: No ML-KEM in 3.0 line
+  sources: Canonical
+  status: High confidence
+- platform: Ubuntu 26.04 LTS
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.5.x
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: 2031-04
+  extended_support: ESM (Ubuntu Pro) to 2036-04
+  pqc_notes: ML-KEM hybrid key exchange in TLS by default via OpenSSL 3.5; OpenSSH 10.2 defaults to mlkem768x25519 key exchange
+  caveats: Released 2026-04-23
+  sources: Canonical release notes
+  status: High confidence
+- platform: Debian 9 Stretch and earlier
+  native_tls13: 'No'
+  min_release: Debian 10
+  stack: OpenSSL 1.1.0 and earlier
+  enabled_by_default: 'No'
+  path_to_capability: Sequential dist-upgrades or rebuild
+  support_ends: Ended (LTS closed 2022-06)
+  extended_support: ELTS (commercial)
+  pqc_notes: None
+  sources: Debian wiki
+  status: High confidence
+- platform: Debian 10 Buster
+  native_tls13: 'Yes'
+  min_release: '10.0'
+  stack: OpenSSL 1.1.1
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable, but past free support
+  support_ends: LTS ended 2024-06-30
+  extended_support: ELTS (Freexian, commercial)
+  pqc_notes: None
+  caveats: 'Debian upgrades are sequential: 10 to 11 to 12 to 13'
+  sources: Debian wiki
+  status: High confidence
+- platform: Debian 11 Bullseye
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 1.1.1
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: LTS ends 2026-08-31
+  extended_support: ELTS (commercial) beyond
+  pqc_notes: None
+  caveats: Free security support ends this month. LTS covers amd64, i386, arm64, armhf and a package subset only; install debian-security-support to see gaps
+  sources: debian.org
+  status: High confidence
+- platform: Debian 12 Bookworm
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.0
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Regular support ended 2026-06-10
+  extended_support: LTS to 2028-06-30; ELTS beyond
+  pqc_notes: No ML-KEM in 3.0 line
+  sources: debian.org
+  status: High confidence
+- platform: Debian 13 Trixie
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.5.x
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Regular support to ~2028
+  extended_support: LTS to ~2030
+  pqc_notes: X25519MLKEM768 is first in the default TLS group list (Debian SSL_CONF_cmd manpage)
+  caveats: Released 2025-08-09
+  sources: debian.org; Debian manpages
+  status: High confidence
+- platform: SLES 12 (through SP5)
+  native_tls13: 'No'
+  min_release: SLES 15 SP2 (confirm; see next row)
+  stack: OpenSSL 1.0.2
+  enabled_by_default: 'No'
+  path_to_capability: Service pack migration path to 15 exists; commonly rebuilt
+  support_ends: General support ended 2024-10-31
+  extended_support: LTSS to 2027-10-31; LTSS Core to 2030
+  pqc_notes: None
+  sources: SUSE lifecycle; LTSS flyer
+  status: High confidence
+- platform: SLES 15 (by service pack)
+  native_tls13: Yes from the SP that shipped OpenSSL 1.1.1
+  min_release: Early service packs (SP2 era; exact SP still to pin). SUSE SP3 release notes state OpenSSL, GnuTLS and NSS linked packages already support TLS 1.3
+  stack: OpenSSL 1.1.0 then 1.1.1; SP6 (2024) moved the default to 3.1.4 and SP7 to 3.2.3
+  enabled_by_default: Yes, from that SP
+  path_to_capability: Service pack update
+  support_ends: Per service pack lifecycle
+  extended_support: LTSS available
+  pqc_notes: Confirm any PQC enablement in current SPs and in SLES 16
+  caveats: Pin the exact SP against SUSE package records. SUSE also cautioned that not every package was TLS 1.3 enabled at the time (Python, for example)
+  sources: SUSE documentation
+  status: Needs verification
+- platform: openSUSE Leap 15.x
+  native_tls13: Yes (tracks SLES 15 SPs)
+  min_release: Same SP caveat as SLES 15
+  stack: Tracks SLES OpenSSL by SP
+  enabled_by_default: 'Yes'
+  path_to_capability: Service pack update or move to Leap 16
+  support_ends: Per Leap minor (~18 months each)
+  extended_support: n/a
+  pqc_notes: Leap 16 (SLES 16 base) expected to carry a modern 3.x stack; confirm
+  sources: openSUSE wiki
+  status: Needs verification
+- platform: Amazon Linux 1 (AMI)
+  native_tls13: 'No'
+  min_release: AL2023
+  stack: OpenSSL 1.0.x
+  enabled_by_default: 'No'
+  path_to_capability: Migration required
+  support_ends: Ended 2023-12-31
+  extended_support: None
+  pqc_notes: None
+  sources: AWS documentation
+  status: High confidence
+- platform: Amazon Linux 2
+  native_tls13: Partial
+  min_release: AL2023 (recommended target)
+  stack: Default openssl is 1.0.2k (no TLS 1.3); optional openssl11 package provides 1.1.1
+  enabled_by_default: No (default stack)
+  path_to_capability: Migration to AL2023; AWS provides no in-place major upgrade
+  support_ends: 2026-06-30 (ended)
+  extended_support: Third party extended support only
+  pqc_notes: None
+  caveats: Now past end of life. Applications linked against the default OpenSSL do not gain TLS 1.3 without rebuilding against openssl11
+  sources: AWS documentation; AWS re:Post
+  status: High confidence
+- platform: Amazon Linux 2023
+  native_tls13: 'Yes'
+  min_release: Capable at GA
+  stack: OpenSSL 3.x
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Support 2023-03-15 to 2028-03-15 per the AWS package support statement (trackers list 2029-06; sources conflict, AWS primary wins)
+  extended_support: n/a
+  pqc_notes: AWS AL2023 crypto-policies documentation cites GnuTLS 3.8.10 with ML-KEM; the OpenSSL ML-KEM state is still to confirm
+  sources: AWS documentation; amazonlinux GitHub
+  status: Needs verification
+- platform: Fedora (current releases)
+  native_tls13: Yes since Fedora 29
+  min_release: Fedora 29
+  stack: OpenSSL 1.1.1 then 3.x; Fedora 42 shipped 3.2.x, Fedora 43 (2025-10) is the first with 3.5 as default
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: ~13 month lifecycle per release
+  extended_support: n/a
+  pqc_notes: PQC capable from Fedora 43 via OpenSSL 3.5
+  caveats: Short lifecycle; useful as a leading indicator, not an enterprise baseline
+  sources: Fedora Packages database
+  status: High confidence
+- platform: Alpine Linux (as host OS)
+  native_tls13: 'Yes'
+  min_release: 3.9 (OpenSSL 1.1.1; 3.8 and earlier used LibreSSL)
+  stack: OpenSSL 1.1.1; 3.0 default from 3.17; 3.22 (2025-06) on the 3.5 line
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable on supported branches
+  support_ends: ~2 years per branch
+  extended_support: n/a
+  pqc_notes: PQC capable from 3.22 via OpenSSL 3.5 (corroborated by the NGINX PQC post; confirm on the Alpine releases page)
+  caveats: musl libc quirks affect some TLS tooling
+  sources: Alpine release notes; NGINX blog
+  status: Needs verification
+- platform: Raspberry Pi OS
+  native_tls13: Yes on bullseye and later images
+  min_release: Bullseye-based images
+  stack: Tracks Debian (bullseye 1.1.1, bookworm 3.0, trixie 3.5)
+  enabled_by_default: 'Yes'
+  path_to_capability: Reimage or dist-upgrade; fleets of legacy buster images are the common gap
+  support_ends: Tracks Debian phases
+  extended_support: n/a
+  pqc_notes: Trixie-based images inherit the ML-KEM capable stack
+  caveats: Deployed device fleets frequently run years-old images; this is the visible edge of the embedded tail
+  sources: raspberrypi.com; debian.org
+  status: High confidence
+- platform: VMware Photon OS 4 / 5
+  native_tls13: Yes (confirm per release)
+  min_release: Photon 4 (confirm)
+  stack: Photon 4 on the 1.1.1 line, Photon 5 on 3.x (confirm)
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable on current releases
+  support_ends: Per Broadcom lifecycle (confirm post-acquisition dates)
+  extended_support: n/a
+  caveats: Common as appliance base for VMware ecosystem products; those appliances inherit its stack
+  sources: VMware Photon documentation
+  status: Needs verification
+- platform: Flatcar Container Linux / Bottlerocket
+  native_tls13: 'Yes'
+  min_release: Current channels
+  stack: Auto-updating minimal hosts; current OpenSSL 3.x (Flatcar); purpose-built Rust and Go components (Bottlerocket)
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable (auto-update model)
+  support_ends: Rolling channels
+  extended_support: n/a
+  pqc_notes: Track upstream OpenSSL 3.5 adoption for PQC (confirm)
+  caveats: Container workloads bring their own runtimes; host stack matters mainly for host services
+  sources: Flatcar and Bottlerocket docs
+  status: Needs verification
+- platform: Arch Linux and rolling distros
+  native_tls13: 'Yes'
+  min_release: Rolling (current)
+  stack: Current OpenSSL (3.5 line)
+  enabled_by_default: 'Yes'
+  path_to_capability: Already capable
+  support_ends: Rolling
+  extended_support: n/a
+  pqc_notes: Rolling distros are already PQC capable by nature of shipping current OpenSSL
+  caveats: Not an enterprise baseline; useful for validation work
+  sources: Arch package database
+  status: High confidence
+- platform: Intel Clear Linux
+  native_tls13: Was capable
+  min_release: n/a
+  stack: Was current OpenSSL
+  enabled_by_default: 'Yes'
+  path_to_capability: 'Migration required: discontinued by Intel in July 2025, effective immediately'
+  support_ends: Discontinued 2025-07 (final build 43800, 2025-07-21)
+  extended_support: None
+  pqc_notes: None
+  caveats: No further security patches; repositories archived read-only. Estates still on it need a migration line item
+  sources: Intel community announcement; LWN
+  status: High confidence
+notes:
+- 'Backport caveat: enterprise distributions patch fixed package versions in place. A host reporting OpenSSL 1.1.1 on RHEL 8 is patched; the same string on an abandoned build may not be. Capability detection should test protocol negotiation, not version strings alone.'
+- The dividing line for nearly all Linux is OpenSSL 1.1.1 (released 2018-09), the first release with RFC 8446 TLS 1.3. Any distribution whose system OpenSSL predates 1.1.1 cannot offer native TLS 1.3 without a major version move.
+- 'Open stretch goals for contributors: HPC distros, NAS operating systems (Synology DSM, QNAP QTS; see Network Appliances tab), Gentoo, NixOS, and vendor-embedded Linux derivatives.'
